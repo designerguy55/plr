@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quote Graphic Prompt Generator</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080d18;
+    --surface: #0e1628;
+    --surface2: #111d35;
+    --border: #1e2d4a;
+    --blue: #4d8ef0;
+    --blue-light: #89b4f8;
+    --blue-dim: #2a4f8a;
+    --text: #e8eef8;
+    --text-muted: #6b85ad;
+    --green: #4caf7d;
+    --amber: #d9a441;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+  }
+  h1 span, h2 span { color: var(--blue-light); }
+  p { color: var(--text-muted); font-weight: 300; font-size: 16.5px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    border: 1px solid var(--blue-dim);
+    background: rgba(77,142,240,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .badge.amber {
+    color: var(--amber);
+    border-color: #4a3a1e;
+    background: rgba(217,164,65,0.08);
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--blue-dim);
+    margin: 40px auto;
+  }
+
+  /* LIGHT THEME OVERRIDE — apply .light to any section/wrapper to flip it to a white background */
+  .light {
+    --bg: #ffffff;
+    --surface: #f6f8fc;
+    --surface2: #edf1f8;
+    --border: #dde4f0;
+    --text: #16233c;
+    --text-muted: #5b6b85;
+    --blue-light: #2f6fd6;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* HERO */
+  header.hero {
+    text-align: center;
+    padding: 80px 0 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero h1 { font-size: clamp(32px, 5.2vw, 54px); margin-bottom: 20px; }
+  header.hero .lede {
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 620px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--blue);
+    color: #06101f;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+  .price-note { font-size: 14px; color: var(--text-muted); }
+
+  /* SECTION HEADERS */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+    display: block;
+  }
+  section h2 { font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 16px; }
+  section .section-sub { font-size: 17.5px; max-width: 640px; margin-bottom: 40px; }
+
+  /* STAT STRIP */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+  @media (max-width: 640px) { .stat-strip { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--blue-light);
+    margin-bottom: 6px;
+  }
+  .stat-card p { font-size: 15px; margin: 0; }
+
+  /* PROBLEM */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 640px) { .problem-grid { grid-template-columns: 1fr; } }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .problem-card .tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .problem-card.bad .tag { color: #e0805c; }
+  .problem-card.good .tag { color: var(--green); }
+  .problem-card ul { list-style: none; }
+  .problem-card li {
+    color: var(--text);
+    font-size: 16px;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .problem-card.bad li::before { content: "✕"; position: absolute; left: 0; color: #e0805c; }
+  .problem-card.good li::before { content: "✓"; position: absolute; left: 0; color: var(--green); }
+
+  /* DEMO */
+  .demo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+  }
+  .demo-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  @media (max-width: 640px) { .demo-flow { grid-template-columns: 1fr; } }
+  .demo-arrow { color: var(--blue-dim); font-size: 24px; text-align: center; }
+  .demo-col h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--blue-light);
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .output-preview {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-height: 220px;
+    overflow: hidden;
+  }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin-top: 8px; }
+  .feature-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(77,142,240,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .feature-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--blue); fill: none; }
+  .feature-list .sub { display: block; font-size: 15px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+
+  /* SECTION SPLIT DIVIDER */
+  .split-divider {
+    text-align: center;
+    padding: 56px 0 8px;
+  }
+  .split-divider .line {
+    height: 1px;
+    background: var(--border);
+    margin-bottom: -14px;
+  }
+  .split-divider .label {
+    display: inline-block;
+    background: var(--bg);
+    padding: 0 24px;
+    font-size: 26px;
+    font-weight: 900;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: none;
+    color: var(--amber);
+  }
+
+  /* RIGHTS TABLE */
+  .rights-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .rights-table td {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border);
+    font-size: 16.5px;
+  }
+  .rights-table tr:last-child td { border-bottom: none; }
+  .rights-table td:first-child { color: var(--text); }
+  .rights-table td:last-child { text-align: right; font-weight: 700; }
+  .yes { color: var(--green); }
+  .no { color: #6b85ad; }
+
+  /* WHO ITS FOR */
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 640px) { .audience-grid { grid-template-columns: 1fr; } }
+  .audience-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 28px;
+  }
+  .audience-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    color: var(--blue);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .audience-card h3 { font-size: 20px; color: var(--text); margin-bottom: 10px; }
+  .audience-card p { font-size: 16px; }
+
+  /* WHATS INCLUDED */
+  .include-list { list-style: none; }
+  .include-list li {
+    display: flex;
+    gap: 14px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+  }
+  .include-list li:last-child { border-bottom: none; }
+  .include-list .ico { color: var(--blue); flex-shrink: 0; }
+
+  /* PRICING */
+  .pricing-card {
+    background: linear-gradient(180deg, var(--surface) 0%, var(--surface2) 100%);
+    border: 1px solid var(--blue-dim);
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+  }
+  .pricing-card .badge { margin-bottom: 16px; }
+  .price-tag { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; color: var(--text); margin: 12px 0 4px; }
+  .price-tag span { font-size: 20px; color: var(--text-muted); font-weight: 400; text-decoration: line-through; margin-right: 10px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; }
+  .guarantee { font-size: 14px; color: var(--text-muted); margin-top: 16px; }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 22px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item h4 { font-size: 17.5px; color: var(--text); margin-bottom: 8px; font-weight: 500; }
+  .faq-item p { font-size: 16px; }
+
+  footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ PART 1: THE PRODUCT ============ -->
+
+<header class="hero">
+  <div class="wrap">
+    <div class="badge">AI Prompt Tool</div>
+    <h1>Turn Any Quote Into A<br><span>Ready-to-Use AI Image Prompt</span></h1>
+    <p class="lede">The Quote Graphic Prompt Generator writes a complete, professional AI image prompt for you in seconds — pick a few options, hit generate, paste it into your image tool. No prompt-writing skills, no guesswork, no blank page.</p>
+    <div class="cta-row">
+      <a href="#pricing" class="btn-primary">See Full Details →</a>
+    </div>
+    <p class="price-note">Works with ChatGPT, Gemini, Midjourney, and any AI image tool</p>
+  </div>
+</header>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Why Quote Graphics Matter</span>
+    <h2>Quote graphics are some of the <span>highest-performing content</span> on social media.</h2>
+    <p class="section-sub">They're quick to make, easy to share, and consistently pull strong engagement across Instagram, Pinterest, and LinkedIn. Coaches, authors, and brands lean on them constantly — but writing a prompt that actually produces a clean, legible, on-brand graphic is harder than it looks.</p>
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="num">Shareable</div>
+        <p>Quote graphics get reposted and saved far more than plain text posts</p>
+      </div>
+      <div class="stat-card">
+        <div class="num">Evergreen</div>
+        <p>One good quote graphic can be repurposed across every platform you post to</p>
+      </div>
+      <div class="stat-card">
+        <div class="num">Fast</div>
+        <p>No filming, no editing — just a quote and the right prompt</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">The Problem</span>
+    <h2>Writing a good AI image prompt <span>takes more than typing a quote.</span></h2>
+    <p class="section-sub">Most people either type the quote alone and get a messy, misspelled, off-brand graphic back — or spend ten minutes trying to describe layout, background, typography, and mood by hand, every single time.</p>
+    <div class="problem-grid">
+      <div class="problem-card bad">
+        <span class="tag">Prompting It Yourself</span>
+        <ul>
+          <li>Ten+ minutes describing layout, font, and mood from scratch</li>
+          <li>Inconsistent results — different feel every time</li>
+          <li>Easy to forget details that keep text legible and correctly spelled</li>
+          <li>Starting over for every platform size</li>
+        </ul>
+      </div>
+      <div class="problem-card good">
+        <span class="tag">Using The Generator</span>
+        <ul>
+          <li>Fill in a short form — done in under a minute</li>
+          <li>Consistent, professional results every time</li>
+          <li>Pre-written phrasing built to keep text sharp and accurate</li>
+          <li>One dropdown swaps the entire platform format</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">How It Works</span>
+    <h2>A simple form in. <span>A finished prompt out.</span></h2>
+    <p class="section-sub">Type in a quote, pick a few options from clean dropdown menus, and the tool instantly writes a polished, detailed prompt ready to paste into any AI image tool.</p>
+    <div class="demo-card">
+      <div class="demo-flow">
+        <div class="demo-col">
+          <h4>You Select</h4>
+          <div class="chip-row">
+            <span class="chip">Quote text</span>
+            <span class="chip">Layout style</span>
+            <span class="chip">Background</span>
+            <span class="chip">Font feel</span>
+            <span class="chip">Platform size</span>
+            <span class="chip">Color palette</span>
+            <span class="chip">Mood</span>
+          </div>
+        </div>
+        <div class="demo-arrow">→</div>
+        <div class="demo-col">
+          <h4>Tool Generates</h4>
+          <div class="output-preview">Create a social media quote graphic in a 1080×1080px square format.
+
+The quote reads exactly: "Done is better than perfect."
+
+Layout: centered both horizontally and vertically, with generous negative space...
+
+Background: a smooth two-tone gradient...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">What's Inside The Tool</span>
+    <h2>Every detail your image tool needs, <span>already written for you.</span></h2>
+    <ul class="feature-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>
+        <div><strong>16 pre-built layout styles</strong><span class="sub">Centered minimal, bottom-third overlay, torn paper, chalkboard, magazine pull-quote, and more</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="14" rx="2"></rect><path d="M9 11h9a2 2 0 0 1 2 2v6"></path><circle cx="7.5" cy="9" r="1"></circle></svg></span>
+        <div><strong>6 platform-ready formats</strong><span class="sub">Instagram square and story, Pinterest, LinkedIn, Facebook, and X — correct dimensions built in</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 1 0-18c4.4 0 8 3.1 8 7 0 2.2-1.3 3-3 3h-2.2c-1 0-1.6 1.2-1 2 .4.5.6.9.6 1.5 0 1.4-1.1 2.5-2.4 2.5Z"></path><circle cx="7.5" cy="10.5" r="1"></circle><circle cx="10.5" cy="7" r="1"></circle><circle cx="15" cy="8" r="1"></circle></svg></span>
+        <div><strong>Background, font, color, and mood controls</strong><span class="sub">40+ pre-written style phrases so you never stare at a blank field</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+        <div><strong>"Other" custom fields everywhere</strong><span class="sub">Not seeing the exact style you want? Describe it yourself and the tool builds it in</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></span>
+        <div><strong>JSON or plain text output</strong><span class="sub">Copy whichever format your AI tool prefers, one click</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ PART 2: THE PLR LICENSE ============ -->
+
+<div class="split-divider light">
+  <div class="line"></div>
+  <span class="label">Full PLR Rights Included</span>
+</div>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow" style="color:var(--amber);">The Offer</span>
+    <h2>You're not just getting the tool. <span>You're getting to sell it.</span></h2>
+    <p class="section-sub">This product comes with Private Label Rights. That means the tool you just saw above isn't only something you can use — it's something you can rebrand, resell, and keep every dollar from, starting today.</p>
+    <table class="rights-table">
+      <tr><td>Rebrand it and put your own name on it</td><td class="yes">Yes</td></tr>
+      <tr><td>Edit the design, copy, or features</td><td class="yes">Yes</td></tr>
+      <tr><td>Sell it and keep 100% of the profits</td><td class="yes">Yes</td></tr>
+      <tr><td>Use it as a bonus in your own offers or bundles</td><td class="yes">Yes</td></tr>
+      <tr><td>Give it away to build your email list</td><td class="yes">Yes</td></tr>
+      <tr><td>Use it for unlimited personal projects</td><td class="yes">Yes</td></tr>
+      <tr><td>Resell the PLR rights themselves</td><td class="no">Not included</td></tr>
+      <tr><td>Claim you personally coded it from scratch</td><td class="no">Not included</td></tr>
+    </table>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">Who This Is For</span>
+    <h2>Built for two kinds of buyers.</h2>
+    <div class="audience-grid">
+      <div class="audience-card">
+        <span class="num">Primary</span>
+        <h3>PLR Resellers &amp; Internet Marketers</h3>
+        <p>Add a genuinely useful, well-designed tool to your catalog without writing a line of code. Rebrand it in minutes, list it on your storefront, or drop it into your next bundle as a high-value bonus.</p>
+      </div>
+      <div class="audience-card">
+        <span class="num">Secondary</span>
+        <h3>Content Creators &amp; Coaches</h3>
+        <p>Use the generator yourself to pump out on-brand quote graphics for Instagram, Pinterest, and LinkedIn in seconds — no more staring at a blank prompt box wondering what to type.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">In The Box</span>
+    <h2>What you get.</h2>
+    <ul class="include-list">
+      <li><span class="ico">◆</span> The complete Quote Graphic Prompt Generator — single self-contained HTML file, works anywhere</li>
+      <li><span class="ico">◆</span> 16 pre-built layout styles and 40+ pre-written style options across background, font, platform, color, and mood</li>
+      <li><span class="ico">◆</span> Full PLR license document outlining exactly what you can and can't do</li>
+      <li><span class="ico">◆</span> Clean, easily editable code — swap colors, fonts, and branding in minutes</li>
+      <li><span class="ico">◆</span> No monthly fees, no external dependencies, no expiration</li>
+    </ul>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Launch Price</div>
+      <h2>Own It Outright</h2>
+      <div class="price-tag"><span>$47</span>$17</div>
+      <p class="sub">One payment. Full PLR license. Instant download.</p>
+      <a href="#" class="btn-primary">Get Instant Access →</a>
+      <p class="guarantee">Secure checkout · Delivered instantly · Yours to resell starting today</p>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Questions</span>
+    <h2>Before you buy.</h2>
+    <div class="faq-item">
+      <h4>Do I need to know how to code?</h4>
+      <p>No. The tool works as-is out of the box. Basic HTML/CSS knowledge only helps if you want to change colors, fonts, or branding — none of it is required to use or resell the product.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Can I really keep 100% of what I sell it for?</h4>
+      <p>Yes. There are no royalties, revenue splits, or ongoing fees. You set your own price and keep every sale.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Can I change the name, colors, or design?</h4>
+      <p>Yes — that's the point of PLR. Rebrand the tool fully under your own name and visual identity before you sell it.</p>
+    </div>
+    <div class="faq-item">
+      <h4>Is this a subscription or a one-time payment?</h4>
+      <p>One-time payment. You download the files once and own them permanently.</p>
+    </div>
+    <div class="faq-item">
+      <h4>What format do I receive the product in?</h4>
+      <p>A single self-contained HTML file, plus a PLR license document. No installation or special software needed.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© Quote Graphic Prompt Generator. PLR license terms as stated above.</div>
+</footer>
+
+</body>
+</html>
