@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max's Bonuses for Done On Command</title>
+<style>
+  :root{
+    --ink:#FFFFFF;
+    --panel:#F2F2F0;
+    --line:#DEDEDA;
+    --paper:#14161B;
+    --signal:#0E7C5A;
+    --signal-dim:#0A5A41;
+    --text-dim:#6B6F7A;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.5;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:48px 24px 100px;
+  }
+
+  /* Eyebrow */
+  .eyebrow{
+    font-family:'Courier New',monospace;
+    font-size:15px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    text-align:center;
+    color:var(--text-dim);
+    margin-bottom:40px;
+  }
+
+  /* Headline */
+  .headline{
+    font-size:clamp(32px,5.5vw,58px);
+    font-weight:800;
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    text-align:center;
+    color:var(--paper);
+    margin-bottom:20px;
+  }
+
+  .headline .accent{
+    color:var(--signal);
+  }
+
+  .subheadline{
+    font-size:19px;
+    line-height:1.5;
+    text-align:center;
+    color:var(--text-dim);
+    max-width:620px;
+    margin:0 auto 48px;
+  }
+
+  /* Image placeholder */
+  .image-placeholder{
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-dim);
+    font-family:'Courier New',monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:64px;
+  }
+
+  /* What is section */
+  .section-label{
+    font-size:12px;
+    font-family:'Courier New',monospace;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--signal);
+    margin-bottom:16px;
+  }
+
+  .what-is h2{
+    font-size:clamp(24px,3.5vw,34px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:20px;
+    color:var(--paper);
+  }
+
+  .what-is p{
+    font-size:18px;
+    color:#3A3D46;
+    max-width:680px;
+    margin-bottom:16px;
+  }
+
+  .what-is{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Review section */
+  .review{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .review h2{
+    font-size:clamp(24px,3.5vw,34px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:24px;
+    color:var(--paper);
+    max-width:600px;
+  }
+
+  .review p{
+    font-size:18px;
+    color:#3A3D46;
+    max-width:680px;
+    margin-bottom:20px;
+  }
+
+  .review p:last-child{
+    margin-bottom:0;
+  }
+
+  .review .signoff{
+    font-style:italic;
+    color:var(--text-dim);
+    font-size:16px;
+  }
+
+  /* Feature grid */
+  .feature-grid-wrap{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .feature-grid-wrap h2{
+    font-size:clamp(22px,3vw,28px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:28px;
+    color:var(--paper);
+  }
+
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+
+  .feature-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px;
+  }
+
+  .feature-card .feature-label{
+    font-size:15px;
+    font-weight:800;
+    color:var(--paper);
+    margin-bottom:6px;
+  }
+
+  .feature-card p{
+    font-size:14px;
+    color:var(--text-dim);
+  }
+
+  @media (max-width:700px){
+    .feature-grid{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+
+  @media (max-width:480px){
+    .feature-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  /* Delivery box */
+  .delivery-box{
+    margin-top:88px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid var(--signal);
+    border-radius:10px;
+    padding:32px;
+    text-align:center;
+  }
+
+  .delivery-box h3{
+    font-size:19px;
+    font-weight:800;
+    color:var(--paper);
+    margin-bottom:14px;
+  }
+
+  .delivery-box p{
+    font-size:16px;
+    color:#3A3D46;
+    margin-bottom:12px;
+  }
+
+  .delivery-box p:last-child{
+    margin-bottom:0;
+  }
+
+  .delivery-box .ref-code{
+    font-family:'Courier New',monospace;
+    background:var(--ink);
+    border:1px solid var(--line);
+    padding:2px 6px;
+    border-radius:4px;
+    color:var(--signal-dim);
+  }
+
+  .delivery-box img{
+    max-width:100%;
+    border-radius:8px;
+    margin-top:20px;
+  }
+
+  /* Bonus headline */
+  .bonus-headline{
+    text-align:center;
+    font-size:clamp(28px,4.5vw,44px);
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    color:var(--paper);
+    max-width:760px;
+    margin:0 auto 8px;
+  }
+
+  .bonus-headline .accent{
+    color:var(--signal);
+  }
+
+  .bonus-sub{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:18px;
+    margin-top:16px;
+  }
+
+  /* Bonus boxes */
+  .bonus-list{
+    margin-top:56px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .bonus-box{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:32px;
+  }
+
+  .bonus-box .bonus-tag{
+    display:inline-block;
+    font-family:'Courier New',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--signal);
+    border:1px solid var(--signal);
+    border-radius:4px;
+    padding:4px 8px;
+    margin-bottom:16px;
+  }
+
+  .bonus-box h3{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin-bottom:12px;
+  }
+
+  .bonus-box p{
+    font-size:18px;
+    color:#3A3D46;
+  }
+
+  .bonus-box.text-only .bonus-value{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--text-dim);
+  }
+
+  .bonus-box.image-side{
+    display:flex;
+    align-items:center;
+    gap:32px;
+  }
+
+  .bonus-box.image-side .bonus-image{
+    flex:0 0 220px;
+    aspect-ratio:1/1;
+    background:#E4E4E0;
+    border:1px solid var(--line);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Courier New',monospace;
+    font-size:12px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--text-dim);
+    text-align:center;
+    padding:12px;
+  }
+
+  .bonus-box.image-side .bonus-content{
+    flex:1;
+  }
+
+  /* Bundle headline */
+  .bundle-headline{
+    text-align:center;
+    font-size:clamp(26px,4vw,40px);
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    color:var(--paper);
+    max-width:700px;
+    margin:88px auto 24px;
+  }
+
+  .bundle-copy{
+    text-align:center;
+    font-size:18px;
+    color:#3A3D46;
+    max-width:640px;
+    margin:0 auto 40px;
+  }
+
+  /* CTA button */
+  .cta-wrap{
+    display:flex;
+    justify-content:center;
+    margin:32px 0 40px;
+  }
+
+  .cta-button{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background:var(--signal);
+    color:#FFFFFF;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    text-decoration:none;
+    padding:28px 56px;
+    border-radius:10px;
+    text-align:center;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+
+  .cta-button svg{
+    flex:0 0 auto;
+    width:22px;
+    height:22px;
+  }
+
+  .cta-button:hover{
+    background:var(--signal-dim);
+    transform:translateY(-1px);
+  }
+
+  @media (max-width:600px){
+    .bonus-box.image-side{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .bonus-box.image-side .bonus-image{
+      width:100%;
+      flex-basis:auto;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="eyebrow">Max's Bonuses for Done On Command</div>
+
+    <h1 class="headline">
+      The AI Operator That Delivers <span class="accent">Finished Work, Not Drafts</span>
+    </h1>
+
+    <p class="subheadline">
+      Done On Command hands you the finished asset, not another draft, so you can
+      show up to every deal with the work already done.
+    </p>
+
+    <img src="command-center-devices.jpg" alt="Done On Command dashboard and Telegram" style="width:100%; border-radius:8px; margin-bottom:64px; display:block;">
+
+
+    <div class="cta-wrap">
+      <a href="https://jvz3.com/c/289/446409/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="what-is">
+      <h2>What is Done On Command?</h2>
+      <p>
+        Point it at any business's website, and in a few moments you get client-ready
+        work back. Not a draft, not a template, the actual finished asset: pages,
+        videos, images, lead capture, email, and social content.
+      </p>
+      <p>
+        It pulls the business's logo, colors, fonts, and voice straight from their own
+        site, so everything it creates already looks like theirs. And nothing ever goes
+        live without your approval first.
+      </p>
+      <p>
+        Run it from the dashboard, or send commands straight from Telegram, so you can
+        launch a page or approve a video from your phone between meetings.
+      </p>
+    </div>
+
+    <div class="feature-grid-wrap">
+      <h2>What You're Actually Getting</h2>
+      <div class="feature-grid">
+
+        <div class="feature-card">
+          <div class="feature-label">Video & Voiceover</div>
+          <p>Rendered promo videos with AI voiceover and captions — even a spokesperson video from one photo.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Full Websites</div>
+          <p>Complete multi-page sites, hosted with your own custom domain — not just single landing pages.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">White-Label Dashboards</div>
+          <p>Every business gets its own branded dashboard, so clients see your name, never ours.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">24/7 Chatbot</div>
+          <p>A front-desk chatbot for your website that answers visitors around the clock, on-brand.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Social Calendar</div>
+          <p>A month of posts written and scheduled across every network, laid out on one calendar.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Command From Anywhere</div>
+          <p>Run the whole business from the dashboard, or send commands straight from Telegram.</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-label">Commercial License</div>
+          <p>Sell every asset it makes to your clients and keep 100% of what you charge — it's built in, not an upsell.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="review">
+      <h2>Why This Is Worth Your Time</h2>
+      <p>
+        Most AI tools that promise to "run your business" have the same problem: every
+        session starts from zero. You're re-explaining your brand, re-uploading your logo,
+        re-pasting your colors, every single time.
+      </p>
+      <p>
+        Done On Command is different. It remembers. Once it has your brand memory, every
+        page, video, and email it produces just fits, no babysitting required.
+      </p>
+      <p>
+        What sold me on it: it doesn't stop at a draft. Most tools hand you something and
+        leave the finishing work to you. This one comes back with the actual delivered
+        thing, a live page, a rendered video, a sent campaign, ready to show a client.
+      </p>
+      <p>
+        And because the commercial license is built in, none of that work has to stay
+        yours. Hand it to a client, charge a setup fee or a monthly retainer, and keep
+        every dollar of it.
+      </p>
+      <p>
+        You can also run more than one business through it, each with its own memory and
+        its own white-label dashboard. If you do client or freelance work, that alone is
+        worth a look.
+      </p>
+      <p>
+        And nothing publishes, sends, or posts until you approve it. You're always the one
+        giving the final yes.
+      </p>
+      <p>
+        These are the exact deliverables businesses regularly pay
+        $500 to $3,000 a month for.
+      </p>
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://jvz3.com/c/289/446409/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="bonus-headline">
+      Buy Done On Command From My Link And Get <span class="accent">These Bonuses...</span>
+    </h2>
+    <div class="bonus-sub">All of these bonuses are brand new and custom created specifically for this offer. You cannot get them from anyone else. And every bonus comes with full PLR rights, so you're free to rebrand them or sell them.</div>
+
+    <div class="bonus-list">
+
+      <div class="bonus-box text-only">
+        <span class="bonus-tag">Bonus #1</span>
+        <h3>50 Local Business Niche Prompts</h3>
+        <p>
+          Done On Command is built to be simple: describe the task, and it delivers. But
+          even with a tool this simple, you still have to know what to type. This bonus
+          solves that. It's a ready-to-use library of prompts across 50 of the most common
+          local business niches — dentists, roofers, salons, gyms, law firms, restaurants,
+          and more. Each niche comes with prompts already written for landing pages,
+          spokesperson videos, and social content, so all you do is copy, paste, and run.
+          Whether you're building your own business or landing your first client, you'll
+          always have the exact words to type, for any niche you walk into.
+        </p>
+      </div>
+
+      <div class="bonus-box image-side">
+        <div class="bonus-image">[ Image Placeholder ]</div>
+        <div class="bonus-content">
+          <span class="bonus-tag">Bonus #2</span>
+          <h3>Google Business Profile Content Kit</h3>
+          <p>
+            Done On Command builds the website. This bonus covers the other place
+            customers look first: Google. Most local businesses have a bare-bones Google
+            Business Profile they've never touched — no description worth reading, no
+            Q&A filled in, no posts, no plan for handling reviews. This kit fixes all of
+            it. You get an optimized business description template, ready-to-use answers
+            for the Questions & Answers section, a pack of Google Post templates for
+            promos and announcements, and review response templates for both glowing
+            and not-so-glowing reviews. Copy it in, brand it to the business, and their
+            Google listing finally works as hard as their website does.
+          </p>
+        </div>
+      </div>
+
+      <div class="bonus-box text-only">
+        <span class="bonus-tag">Bonus #3</span>
+        <h3>Invoice Generator (With PLR Rights)</h3>
+        <p>
+          Every freelancer and agency needs to invoice a client, and they need to do it
+          over and over, for as long as they're in business. This bonus is a simple,
+          ready-to-use invoice generator: fill in the client, the line items, the total,
+          and it outputs a clean, professional invoice in seconds. No spreadsheets, no
+          fighting with a template in Word.
+        </p>
+      </div>
+
+      <div class="bonus-box text-only">
+        <span class="bonus-tag">Bonus #4</span>
+        <h3>Client Proposal Generator (With PLR Rights)</h3>
+        <p>
+          Winning a client usually comes down to one document: the proposal. Fill in the
+          business name, the services you're offering, and your pricing, and this tool
+          builds you a clean, professional proposal in minutes, ready to send. No more
+          starting from a blank page or dressing up a quote in an email and hoping it
+          looks legitimate enough to say yes to.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://jvz3.com/c/289/446409/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="bundle-headline">Buy The Bundle Deal And Get More Bonuses</h2>
+
+    <p class="bundle-copy">
+      All of the bonuses above are yours the moment you grab the main FE offer from my
+      link. Want everything? The Bundle Deal includes the FE plus every upgrade in one
+      purchase, and buying the Bundle from my link gets you the bonuses above PLUS these
+      extra bundle-only bonuses...
+    </p>
+
+    <div class="cta-wrap">
+      <a href="https://jvz3.com/c/289/446409/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="delivery-box">
+      <h3>Bonuses Delivery</h3>
+      <p>
+        The bonuses will be auto-delivered inside the JVZoo delivery page. To qualify for
+        the bonuses, make sure you see this text at the bottom of the checkout page:
+      </p>
+      <p><span class="ref-code">"You have been referred by Max R (#289)"</span></p>
+      <img src="referred_by.png" alt="Terms of sale showing referred by Max R (#289)">
+    </div>
+
+  </div>
+
+</body>
+</html>
