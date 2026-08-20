@@ -50,9 +50,9 @@
     margin-bottom: 20px;
   }
   .badge.amber {
-    color: var(--amber);
-    border-color: #4a3a1e;
-    background: rgba(217,164,65,0.08);
+    color: #966100;
+    border-color: #d9a441;
+    background: rgba(217,164,65,0.15);
   }
   .divider {
     width: 60px;
@@ -312,17 +312,21 @@
 
   /* PRICING */
   .pricing-card {
-    background: linear-gradient(180deg, var(--surface) 0%, var(--surface2) 100%);
-    border: 1px solid var(--blue-dim);
+    background: #ffffff;
+    border: 1px solid #dde4f0;
     border-radius: 16px;
     padding: 48px;
     text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .pricing-card h2 {
+    color: #16233c;
   }
   .pricing-card .badge { margin-bottom: 16px; }
-  .price-tag { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; color: var(--text); margin: 12px 0 4px; }
-  .price-tag span { font-size: 20px; color: var(--text-muted); font-weight: 400; text-decoration: line-through; margin-right: 10px; }
-  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; }
-  .guarantee { font-size: 14px; color: var(--text-muted); margin-top: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #5b6b85; }
+  .pricing-card .cta-image { display: inline-block; margin-bottom: 12px; }
+  .pricing-card .cta-image img { max-width: 100%; height: auto; }
+  .guarantee { font-size: 14px; color: #5b6b85; margin-top: 16px; }
 
   /* FAQ */
   .faq-item {
@@ -332,6 +336,11 @@
   .faq-item:last-child { border-bottom: none; }
   .faq-item h4 { font-size: 17.5px; color: var(--text); margin-bottom: 8px; font-weight: 500; }
   .faq-item p { font-size: 16px; }
+
+  /* DISCLAIMER BOX */
+  .disclaimer-container {
+    padding: 24px 0 48px;
+  }
 
   footer {
     text-align: center;
@@ -535,9 +544,10 @@ CONTENT BRIEF TEMPLATE:
     <div class="pricing-card">
       <div class="badge amber">Limited-Time Special Offer</div>
       <h2>Get Instant Access Today</h2>
-      <div class="price-tag"><span>$47</span>$17</div>
       <p class="sub">One-time payment. Lifetime access. Instant download.</p>
-      <a href="#" class="btn-primary">Get Instant Access →</a>
+      <div class="cta-image">
+        <a href="https://warriorplus.com/o2/buy/yynlb1/hpy8g0/w280zr"><img src="https://warriorplus.com/o2/btn/fn100011001/yynlb1/hpy8g0/470976"></a>
+      </div>
       <p class="guarantee">Secure checkout · Delivered instantly · Start building lead magnets today</p>
     </div>
   </div>
@@ -570,6 +580,12 @@ CONTENT BRIEF TEMPLATE:
   </div>
 </section>
 
+<div class="disclaimer-container">
+  <div class="wrap">
+    <div class="wplus_spdisclaimer"></div>
+  </div>
+</div>
+
 <footer>
   <div class="wrap">
     <div class="footer-links">
@@ -580,5 +596,6 @@ CONTENT BRIEF TEMPLATE:
   </div>
 </footer>
 
+<script type="text/javascript" src="https://warriorplus.com/o2/js/hpy8g0" defer></script>
 </body>
 </html>
