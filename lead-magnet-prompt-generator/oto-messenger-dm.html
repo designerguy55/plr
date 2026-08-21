@@ -50,15 +50,28 @@
     margin-bottom: 20px;
   }
   .badge.amber {
-    color: var(--amber);
-    border-color: #4a3a1e;
-    background: rgba(217,164,65,0.08);
+    color: #b37b00;
+    border-color: #e0ca9e;
+    background: rgba(217,164,65,0.15);
   }
   .divider {
     width: 60px;
     height: 1px;
     background: var(--blue-dim);
     margin: 40px auto;
+  }
+
+  /* TOP ANNOUNCEMENT BANNER */
+  .top-banner {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .top-banner p {
+    color: var(--text);
+    font-size: 15.5px;
+    font-weight: 500;
   }
 
   /* LIGHT THEME OVERRIDE */
@@ -104,27 +117,6 @@
   }
   .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
   .price-note { font-size: 14px; color: var(--text-muted); }
-
-  .hero-image-placeholder {
-    width: 100%;
-    max-width: 460px;
-    height: 240px;
-    margin: 28px auto;
-    border-radius: 12px;
-    border: 2px dashed var(--border);
-    background: var(--surface);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-  }
-  .hero-image-placeholder span {
-    font-size: 14px;
-    color: var(--text-muted);
-    font-weight: 500;
-  }
-  @media (max-width: 640px) { .hero-image-placeholder { height: 200px; } }
 
   /* SECTION HEADERS */
   .eyebrow {
@@ -308,31 +300,37 @@
     margin-top: 1px;
   }
   .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--blue); fill: none; }
-  .include-list li > span:not(.ico-badge) { padding-top: 8px; }
+  .include-list li .text-content { display: flex; flex-direction: column; }
+  .include-list li .text-content strong { color: var(--text); margin-bottom: 2px; }
+  .include-list li .text-content span.sub { font-size: 15px; color: var(--text-muted); font-weight: 300; }
 
   /* PRICING */
   .pricing-card {
-    background: linear-gradient(180deg, var(--surface) 0%, var(--surface2) 100%);
-    border: 1px solid var(--blue-dim);
+    background: #ffffff;
+    border: 1px solid #dde4f0;
     border-radius: 16px;
     padding: 48px;
     text-align: center;
+    color: #16233c;
   }
+  .pricing-card h2 { color: #16233c; }
   .pricing-card .badge { margin-bottom: 16px; }
-  .price-tag { font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 900; color: var(--text); margin: 12px 0 4px; }
-  .price-tag span { font-size: 20px; color: var(--text-muted); font-weight: 400; text-decoration: line-through; margin-right: 10px; }
-  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; }
-  .guarantee { font-size: 14px; color: var(--text-muted); margin-top: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #5b6b85; }
 
-  /* FAQ */
-  .faq-item {
-    border-bottom: 1px solid var(--border);
-    padding: 22px 0;
+  /* NO THANKS LINK STYLING */
+  .no-thanks-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #5b6b85;
+    text-decoration: underline;
   }
-  .faq-item:last-child { border-bottom: none; }
-  .faq-item h4 { font-size: 17.5px; color: var(--text); margin-bottom: 8px; font-weight: 500; }
-  .faq-item p { font-size: 16px; }
+  .no-thanks-link:hover {
+    color: #16233c;
+  }
 
+  /* FOOTER */
   footer {
     text-align: center;
     padding: 48px 24px 64px;
@@ -340,18 +338,29 @@
     color: var(--text-muted);
     border-top: 1px solid var(--border);
   }
+  footer a {
+    color: var(--blue-light);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
 </style>
 </head>
 <body>
+
+<div class="top-banner">
+  <div class="wrap">
+    <p>Thanks for your purchase. Before you go to your downloads make sure you check out the special upgrade offer on this page...</p>
+  </div>
+</div>
 
 <header class="hero">
   <div class="wrap">
     <div class="badge">Facebook Sales Tool</div>
     <h1>Turn Engagement Into Booked Calls With <span>Permission-Based DM Scripts</span></h1>
-    <p class="lede">Once people comment on your posts or grab your lead magnet, converting them requires structured, non-salesy messaging[cite: 1]. The Messenger DM Script &amp; Follow-Up Builder generates complete 3-phase conversation scripts and non-pushy follow-ups in seconds.</p>
-    <div class="hero-image-placeholder">
-      <span>App interface screenshot placeholder — 460×240px</span>
-    </div>
+    <p class="lede">Once people comment on your posts or grab your lead magnet, converting them requires structured, non-salesy messaging. The Messenger DM Script &amp; Follow-Up Builder generates complete 3-phase conversation scripts and non-pushy follow-ups in seconds.</p>
     <div class="cta-row">
       <a href="#pricing" class="btn-primary">Get Instant Access →</a>
     </div>
@@ -500,10 +509,17 @@ OUTPUT FORMAT REQUIREMENTS:
     <span class="eyebrow">In The Box</span>
     <h2>What you get.</h2>
     <ul class="include-list">
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><span>The complete Messenger DM Script &amp; Follow-Up Builder—single self-contained tool, works offline or in any browser</span></li>
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></span><span>8 integrated conversational sales frameworks mapped directly for high-converting Facebook Messenger sales flows</span></li>
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><span>Pre-formatted master JSON prompt structures engineered for maximum prompt adherence in modern AI models</span></li>
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><span>Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Messenger DM Script &amp; Follow-Up Builder—single self-contained tool, works offline or in any browser</span></div></li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">8 integrated conversational sales frameworks mapped directly for high-converting Facebook Messenger sales flows</span></div></li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Pre-formatted master JSON prompt structures engineered for maximum prompt adherence in modern AI models</span></div></li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
+      <li>
+        <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+        <div class="text-content">
+          <strong>PLR included — another product you can sell</strong>
+          <span class="sub">Just like the main toolkit, this upgrade comes with a full PLR license. That means you're getting another sellable product for the price of an add-on. Use it yourself, sell it to others, use it as an upgrade OTO for your offers, bundle it with other tools, etc..</span>
+        </div>
+      </li>
     </ul>
   </div>
 </section>
@@ -513,44 +529,31 @@ OUTPUT FORMAT REQUIREMENTS:
     <div class="pricing-card">
       <div class="badge amber">Limited-Time Special Offer</div>
       <h2>Get Instant Access Today</h2>
-      <div class="price-tag"><span>$47</span>$17</div>
       <p class="sub">One-time payment. Lifetime access. Instant download.</p>
-      <a href="#" class="btn-primary">Get Instant Access →</a>
-      <p class="guarantee">Secure checkout · Delivered instantly · Start booking calls today</p>
+      <!-- WarriorPlus Buy Button Code -->
+      <a href="https://warriorplus.com/o2/buy/yynlb1/fqqkv1/ymd4by"><img src="https://warriorplus.com/o2/btn/fn100011001/yynlb1/fqqkv1/472014"></a>
+      <div>
+        <!-- WarriorPlus No Thanks Link -->
+        <a href="https://warriorplus.com/o/nothanks/fqqkv1" class="no-thanks-link">No Thanks, I don't need this upgrade</a>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="light">
-  <div class="wrap">
-    <span class="eyebrow">FAQ</span>
-    <h2>Frequently asked questions</h2>
-    <div class="faq-item">
-      <h4>Do I need to pay for an expensive AI tool to use this?</h4>
-      <p>No. The prompt generator works seamlessly with free versions of ChatGPT, Claude, or Gemini, as well as paid AI models.</p>
-    </div>
-    <div class="faq-item">
-      <h4>How does this prevent me from sounding pushy or salesy?</h4>
-      <p>The builder uses permission-based outreach structures. Instead of pitching right away, it prompts you to deliver value first, ask permission to ask questions, and qualify the prospect before offering a call or link.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Is this a recurring subscription fee?</h4>
-      <p>No. You pay once for lifetime access to the generator tool. There are no monthly fees or hidden costs.</p>
-    </div>
-    <div class="faq-item">
-      <h4>What kind of offers does this work for?</h4>
-      <p>It works for any offer—1-on-1 strategy calls, high-ticket coaching programs, agency services, digital downloads, courses, software demos, or group memberships.</p>
-    </div>
-    <div class="faq-item">
-      <h4>What format do I receive the product in?</h4>
-      <p>You receive the standalone web tool in a single lightweight file that opens instantly in any web browser on desktop or mobile.</p>
-    </div>
-  </div>
-</section>
+<!-- WarriorPlus Disclaimer Container -->
+<div class="wrap">
+  <div class="wplus_spdisclaimer"></div>
+</div>
 
 <footer>
-  <div class="wrap">© Messenger DM Script &amp; Follow-Up Builder. All rights reserved.</div>
+  <div class="wrap">
+    <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
+    <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank">Terms and Conditions</a> | 
+    <a href="https://www.maxrylski.com/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
 </footer>
 
+<!-- WarriorPlus Sales Page Code -->
+<script type="text/javascript" src="https://warriorplus.com/o2/js/fqqkv1" defer></script>
 </body>
 </html>
