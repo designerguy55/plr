@@ -87,6 +87,9 @@
     color: var(--text);
   }
 
+  /* ALTERNATING SECTION BACKGROUND */
+  .light.bg-grey { background: #f6f8fc; }
+
   /* HERO */
   header.hero {
     text-align: center;
@@ -288,6 +291,9 @@
     align-items: flex-start;
   }
   .include-list li:last-child { border-bottom: none; }
+  .box-contents-grid { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+  .box-contents-grid img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  @media (max-width: 700px) { .box-contents-grid { grid-template-columns: 1fr; } }
   .include-list .ico-badge {
     flex-shrink: 0;
     width: 38px;
@@ -302,7 +308,7 @@
   .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--blue); fill: none; }
   .include-list li .text-content { display: flex; flex-direction: column; }
   .include-list li .text-content strong { color: var(--text); margin-bottom: 2px; }
-  .include-list li .text-content span.sub { font-size: 15px; color: var(--text-muted); font-weight: 300; }
+  .include-list li .text-content span.sub { font-size: 16.5px; color: var(--text-muted); font-weight: 300; }
 
   /* PRICING */
   .pricing-card {
@@ -368,25 +374,19 @@
   </div>
 </header>
 
-<section class="light">
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">Why Get This Upgrade?</span>
+    <h2>You've got the lead magnet. <span>Now get people asking for it.</span></h2>
+    <p class="section-sub">With the main offer, you got a tool for generating a complete lead magnet. With this upgrade, you'll get a tool that writes the exact Facebook posts that get people commenting for it — turning that finished lead magnet into a steady stream of organic, ready-to-DM leads, without spending a dollar on ads.</p>
+  </div>
+</section>
+
+<section class="light bg-grey">
   <div class="wrap">
     <span class="eyebrow">Why Hand-Raiser Posts Matter</span>
     <h2>"Two-step" posts are the <span>#1 way to generate organic leads</span> on Facebook.</h2>
     <p class="section-sub">Where you describe a free resource and ask people to comment a keyword (e.g., "Comment 'TEMPLATE' below and I'll DM it to you"). They drive high engagement, trigger viral algorithm reach, and build direct message conversations—without spending a dollar on ads.</p>
-    <div class="stat-strip">
-      <div class="stat-card">
-        <div class="num">High Reach</div>
-        <p>Bypasses Facebook's link-suppression by driving comments instead of outbound clicks</p>
-      </div>
-      <div class="stat-card">
-        <div class="num">High Intent</div>
-        <p>Hand-raisers self-qualify by explicitly requesting your specific lead magnet</p>
-      </div>
-      <div class="stat-card">
-        <div class="num">Instant DM</div>
-        <p>Creates immediate, warm 1-on-1 conversations in Messenger to deliver value</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -398,7 +398,7 @@
   </div>
 </section>
 
-<section class="tight light">
+<section class="tight light bg-grey">
   <div class="wrap">
     <span class="eyebrow">The Solution</span>
     <h2>Introducing: <span>Hand-Raiser Post Prompt Generator</span></h2>
@@ -461,7 +461,7 @@ VARIATION 3: High Curiosity / Pattern Interrupt...</div>
   </div>
 </section>
 
-<section class="tight light">
+<section class="tight light bg-grey">
   <div class="wrap">
     <span class="eyebrow">What's Inside The Tool</span>
     <h2>Every psychological framing rule, <span>already built into the prompt.</span></h2>
@@ -485,42 +485,24 @@ VARIATION 3: High Curiosity / Pattern Interrupt...</div>
   </div>
 </section>
 
-<section class="tight light">
-  <div class="wrap">
-    <span class="eyebrow">Who This Is For</span>
-    <h2>Built specifically for creators and marketers who want more leads.</h2>
-    <p class="section-sub">Whether you sell digital products, offer high-ticket services, or build an email list, this tool makes Facebook lead generation effortless.</p>
-    <div class="audience-mini-grid">
-      <div class="audience-mini">Organic Facebook Marketers</div>
-      <div class="audience-mini">Course Creators &amp; Coaches</div>
-      <div class="audience-mini">Affiliate &amp; Niche Marketers</div>
-      <div class="audience-mini">Social Media Managers &amp; VAs</div>
-      <div class="audience-mini">Digital Product &amp; Template Sellers</div>
-      <div class="audience-mini">B2B SaaS Founders &amp; Freelancers</div>
-      <div class="audience-mini">Copywriters &amp; Content Strategists</div>
-      <div class="audience-mini">Community &amp; Group Leaders</div>
-      <div class="audience-mini">Agency Owners &amp; Consultants</div>
-    </div>
-  </div>
-</section>
-
 <section class="light">
   <div class="wrap">
     <span class="eyebrow">In The Box</span>
     <h2>What you get.</h2>
-    <ul class="include-list">
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Hand-Raiser Post Prompt Generator—single self-contained tool, works offline or in any browser</span></div></li>
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">11 integrated copywriting framework structures mapped directly for high-converting Facebook post generation</span></div></li>
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Pre-formatted master JSON prompt structures engineered for maximum prompt adherence in modern AI models</span></div></li>
-      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
-      <li>
-        <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
-        <div class="text-content">
-          <strong>PLR included — another product you can sell</strong>
-          <span class="sub">Just like the main toolkit, this upgrade comes with a full PLR license. That means you're getting another sellable product for the price of an add-on. Use it yourself, sell it to others, use it as an upgrade OTO for your offers, bundle it with other tools, etc..</span>
-        </div>
-      </li>
-    </ul>
+    <div class="box-contents-grid">
+      <img src="Hand-Raiser-Post-Prompt-Generator.jpg" alt="Hand-Raiser Post Prompt Generator tool interface">
+      <ul class="include-list">
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Hand-Raiser Post Prompt Generator—single self-contained tool, works offline or in any browser, with 11 built-in hook frameworks</span></div></li>
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
+        <li>
+          <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+          <div class="text-content">
+            <strong>PLR included — another product you can sell</strong>
+            <span class="sub">Just like the main toolkit, this upgrade comes with a full PLR license — another sellable product for the price of an add-on.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
