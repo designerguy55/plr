@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tip Graphic Prompt Generator - Create High-Converting Tip & Fact Graphics</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080d18;
+    --surface: #0e1628;
+    --surface2: #111d35;
+    --border: #1e2d4a;
+    --blue: #4d8ef0;
+    --blue-light: #89b4f8;
+    --blue-dim: #2a4f8a;
+    --text: #e8eef8;
+    --text-muted: #6b85ad;
+    --green: #4caf7d;
+    --amber: #d9a441;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #000000;
+    text-align: center;
+  }
+  h1 span, h2 span { color: #000000; }
+  p { color: #000000; font-weight: 300; font-size: 18px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    border: 1px solid var(--blue-dim);
+    background: rgba(77,142,240,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .badge.amber {
+    color: #b37b00;
+    border-color: #e0ca9e;
+    background: rgba(217,164,65,0.15);
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--blue-dim);
+    margin: 40px auto;
+  }
+
+  /* TOP ANNOUNCEMENT BANNER */
+  .top-banner {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .top-banner p {
+    color: var(--text);
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+
+  /* LIGHT THEME OVERRIDE */
+  .light {
+    --bg: #ffffff;
+    --surface: #f6f8fc;
+    --surface2: #edf1f8;
+    --border: #dde4f0;
+    --text: #16233c;
+    --text-muted: #5b6b85;
+    --blue-light: #2f6fd6;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ALTERNATING SECTION BACKGROUND */
+  .light.bg-grey { background: #f6f8fc; }
+
+  /* HERO */
+  header.hero {
+    text-align: center;
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero h1 { font-size: clamp(32px, 5.2vw, 54px); margin-bottom: 20px; }
+  header.hero .lede {
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--blue);
+    color: #06101f;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--blue-light); transform: translateY(-1px); }
+  .price-note { font-size: 14px; color: var(--text-muted); }
+
+  /* SECTION HEADERS */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+  }
+  section h2 { font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 16px; }
+  section .section-sub { font-size: 17.5px; margin-bottom: 40px; }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin-top: 8px; }
+  .feature-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 20px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(77,142,240,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .feature-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--blue); fill: none; }
+  .feature-list .sub { display: block; font-size: 18px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+
+  /* WHATS INCLUDED */
+  .include-list { list-style: none; }
+  .include-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .include-list li:last-child { border-bottom: none; }
+  .box-contents-grid { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+  .box-contents-grid img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  @media (max-width: 700px) { .box-contents-grid { grid-template-columns: 1fr; } }
+  .include-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(77,142,240,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--blue); fill: none; }
+  .include-list li .text-content { display: flex; flex-direction: column; }
+  .include-list li .text-content strong { color: var(--text); margin-bottom: 2px; }
+  .include-list li .text-content span.sub { font-size: 16.5px; color: var(--text-muted); font-weight: 300; }
+
+  /* PRICING */
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #dde4f0;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    color: #16233c;
+  }
+  .pricing-card h2 { color: #16233c; }
+  .pricing-card .badge { margin-bottom: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #5b6b85; }
+
+  /* NO THANKS LINK STYLING */
+  .no-thanks-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #5b6b85;
+    text-decoration: underline;
+  }
+  .no-thanks-link:hover {
+    color: #16233c;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  footer a {
+    color: var(--blue-light);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="wrap">
+    <p>Thanks for your purchase. Before you go to your downloads make sure you check out the special upgrade offer on this page...</p>
+  </div>
+</div>
+
+<header class="hero light">
+  <div class="wrap">
+    <div class="badge">AI Prompt Tool with PLR</div>
+    <h1>Turn Any Tip Or Fact Into A <span>Scroll-Stopping Graphic Prompt</span></h1>
+    <div style="max-width: 680px; margin: 28px auto;">
+      <img src="tip_graphic_box.jpg" alt="Tip Graphic Prompt Generator Preview" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
+</header>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Why Get This Upgrade?</span>
+    <h2>Quotes are great. <span>Now create high-value tip &amp; fact graphics.</span></h2>
+    <ul class="feature-list" style="margin-top: 24px;">
+      <li>
+        <div>
+          <strong>Turn quick tips into high-engagement visual assets</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Quote graphics are awesome for inspiration, but educational tip graphics and "Did You Know?" facts drive massive saves, retweets, and shares. This upgrade turns any short piece of text into a perfectly engineered visual prompt for AI.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Informational graphics are the #1 saved content on social media</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Whether it's an Instagram card, a Pinterest pin, or a LinkedIn visual, audience members bookmark actionable tips. This tool crafts structured prompts designed to present information clearly without visual clutter.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Skip the hassle of AI text misspelling and layout errors</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Most AI image generators garble longer text blocks. This prompt generator embeds strict rendering rules into the prompt so headlines and body text stay crisp, readable, and accurately spelled every single time.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Structured Master Prompts built in seconds</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Just type your headline and body text, choose your visual layout and style preferences, and get a JSON or plain text master prompt ready to paste directly into ChatGPT, Gemini, or Midjourney.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>8 layout styles and custom design controls</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">From idea callouts and framed fact boxes to speech bubbles and list rows—plus optional fields for sources and brand watermarks—you get total design flexibility without writing code.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">What's Inside The Tool</span>
+    <h2>Every visual hierarchy rule, <span>already built into the prompt.</span></h2>
+    <ul class="feature-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+        <div><strong>8 Visual Tip Layout Styles</strong><span class="sub">Choose from Centered Cards, Lightbulb Idea Callouts, Framed Fact Boxes, Speech Bubbles, Numbered List Rows, and more</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>
+        <div><strong>JSON &amp; Plain Text Output Formats</strong><span class="sub">Generates structured JSON data blocks or plain text prompts optimized for seamless rendering across ChatGPT, Gemini, or Midjourney</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+        <div><strong>Built-In Rendering &amp; Legibility Constraints</strong><span class="sub">Enforces strict 2D flat composition, high contrast, and spelling accuracy so text remains legible even at mobile thumbnail size</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span>
+        <div><strong>6 Pre-Sized Social Platform Formats</strong><span class="sub">One-click styling optimized for Instagram Square, Instagram Stories, Pinterest, LinkedIn, Facebook, and X (Twitter)</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></span>
+        <div><strong>Source Citations &amp; Watermarks</strong><span class="sub">Dedicated fields to cleanly integrate source citations in fine print and brand handle watermarks into the design</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">In The Box</span>
+    <h2>What you get.</h2>
+    <div class="box-contents-grid">
+      <img src="Tip-Graphic-Prompt-Generator.jpg" alt="Tip Graphic Prompt Generator tool interface">
+      <ul class="include-list">
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Tip Graphic Prompt Generator—a single self-contained HTML tool that works offline or in any browser with built-in layout, background, font, color, and mood settings</span></div></li>
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
+        <li>
+          <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+          <div class="text-content">
+            <strong>PLR included — another product you can sell</strong>
+            <span class="sub">Just like the main offer, this upgrade comes with a full PLR license. That means you can sell this tool to others, use it as an upsell for your own quote generator, bundle it with other social media toolkits, and keep 100% of the profits.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Special Offer</div>
+      <h2>Get Instant Access Today</h2>
+      <p class="sub">One-time payment. Lifetime access. Instant download.</p>
+      <a href="https://warriorplus.com/o2/buy/yynlb1/tzjfl2/gmtg3t"><img src="https://warriorplus.com/o2/btn/fn100011001/yynlb1/tzjfl2/472013"></a>
+      <div>
+        <a href="https://warriorplus.com/o/nothanks/tzjfl2" class="no-thanks-link">No Thanks, I don't need this upgrade</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WarriorPlus Disclaimer Container -->
+<div class="wrap">
+  <div class="wplus_spdisclaimer"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
+    <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank">Terms and Conditions</a> | 
+    <a href="https://www.maxrylski.com/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
+</footer>
+
+<script type="text/javascript" src="https://warriorplus.com/o2/js/tzjfl2" defer></script>
+</body>
+</html>
