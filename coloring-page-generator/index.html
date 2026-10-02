@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coloring Page Style Presets - Done-For-You AI Coloring Page Prompt Tool With Full PLR Rights</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080d18;
+    --surface: #0e1628;
+    --surface2: #111d35;
+    --border: #1e2d4a;
+    --rose: #c97b5a;
+    --rose-light: #e8a07d;
+    --rose-dim: #a85f3f;
+    --text: #e8eef8;
+    --text-muted: #6b85ad;
+    --green: #4caf7d;
+    --amber: #d9a441;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #000000;
+    text-align: center;
+  }
+  h1 span, h2 span { color: #000000; }
+  p { color: #000000; font-weight: 300; font-size: 18px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid var(--rose-dim);
+    background: rgba(201,123,90,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .badge.amber {
+    color: #966100;
+    border-color: #d9a441;
+    background: rgba(217,164,65,0.15);
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-dim);
+    margin: 40px auto;
+  }
+
+  /* LIGHT THEME OVERRIDE */
+  .light {
+    --bg: #ffffff;
+    --surface: #f9f5f0;
+    --surface2: #f3ede3;
+    --border: #e0d5c5;
+    --text: #2d2218;
+    --text-muted: #8a7060;
+    --rose-light: #b95f3a;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ALTERNATING SECTION BACKGROUND */
+  .bg-grey {
+    background-color: #f9f5f0;
+  }
+
+  .example-img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    margin-top: 16px;
+  }
+
+  /* HERO */
+  header.hero {
+    text-align: center;
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero h1 { font-size: clamp(32px, 5.2vw, 54px); margin-bottom: 20px; }
+  header.hero .lede {
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose);
+    color: #fff8f3;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--rose-light); transform: translateY(-1px); }
+  .price-note { font-size: 14px; color: var(--text-muted); }
+
+  /* SECTION HEADERS */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+  }
+  section h2 { font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 16px; }
+  section .section-sub { font-size: 17.5px; margin-bottom: 40px; }
+
+  /* STAT STRIP */
+  .stat-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 8px;
+  }
+  @media (max-width: 640px) { .stat-strip { grid-template-columns: 1fr; } }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+  }
+  .stat-card .num {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    color: var(--rose-light);
+    margin-bottom: 6px;
+  }
+  .stat-card p { font-size: 15px; margin: 0; }
+
+  /* USE CASES */
+  .usecase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-top: 8px;
+  }
+  @media (max-width: 768px) { .usecase-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .usecase-grid { grid-template-columns: 1fr; } }
+  .usecase-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .usecase-card .usecase-title {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--rose-light);
+    margin-bottom: 6px;
+  }
+  .usecase-card p { font-size: 15px; margin: 0; }
+
+  /* PROBLEM */
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+  @media (max-width: 640px) { .problem-grid { grid-template-columns: 1fr; } }
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .problem-card .tag {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .problem-card.bad .tag { color: #e0805c; }
+  .problem-card.good .tag { color: var(--green); }
+  .problem-card ul { list-style: none; }
+  .problem-card li {
+    color: var(--text);
+    font-size: 16px;
+    padding-left: 20px;
+    position: relative;
+    margin-bottom: 12px;
+  }
+  .problem-card.bad li::before { content: "✕"; position: absolute; left: 0; color: #e0805c; }
+  .problem-card.good li::before { content: "✓"; position: absolute; left: 0; color: var(--green); }
+
+  /* DEMO */
+  .demo-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 32px;
+  }
+  .demo-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  @media (max-width: 640px) { .demo-flow { grid-template-columns: 1fr; } }
+  .demo-arrow { color: var(--rose-dim); font-size: 24px; text-align: center; }
+  .demo-col h4 {
+    font-family: 'Playfair Display', serif;
+    color: var(--rose-light);
+    font-size: 15px;
+    margin-bottom: 12px;
+  }
+  .chip-row { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+  .output-preview {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-height: 220px;
+    overflow: hidden;
+  }
+
+  /* STYLE GRID */
+  .style-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 24px;
+  }
+  @media (max-width: 560px) { .style-grid { grid-template-columns: repeat(2, 1fr); } }
+  .style-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .style-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: var(--surface2);
+  }
+  .style-info { padding: 10px 12px 12px; }
+  .style-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .style-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
+
+  /* PRESET SPEC BREAKDOWN */
+  .spec-list { list-style: none; margin: 32px 0 0; }
+  .spec-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .spec-list li:last-child { border-bottom: none; }
+  .spec-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,123,90,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .spec-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .spec-list strong { font-size: 17px; color: var(--text); }
+  .spec-list .sub { display: block; font-size: 15px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+  .spec-sample {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 24px 28px;
+    margin-top: 32px;
+  }
+  .spec-sample .spec-sample-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--rose-light);
+    margin-bottom: 16px;
+  }
+  .spec-row {
+    display: grid;
+    grid-template-columns: 130px 1fr;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14.5px;
+  }
+  .spec-row:last-child { border-bottom: none; }
+  .spec-row .k { color: var(--text-muted); font-weight: 500; }
+  .spec-row .v { color: var(--text); font-weight: 400; }
+  @media (max-width: 480px) { .spec-row { grid-template-columns: 1fr; gap: 2px; } }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin-top: 8px; }
+  .feature-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,123,90,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .feature-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .feature-list .sub { display: block; font-size: 15px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+
+  /* AUDIENCE MINI GRID */
+  .audience-mini-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  @media (max-width: 768px) { .audience-mini-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .audience-mini-grid { grid-template-columns: 1fr; } }
+  .audience-mini {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+    font-size: 15px;
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  /* WHATS INCLUDED */
+  .include-list { list-style: none; }
+  .include-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .include-list li:last-child { border-bottom: none; }
+  .include-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,123,90,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .include-list li > span:not(.ico-badge) { padding-top: 8px; }
+
+  /* PRICING */
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #e0d5c5;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  .pricing-card h2 {
+    color: #2d2218;
+  }
+  .pricing-card .badge { margin-bottom: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #8a7060; }
+  .pricing-card .cta-image { display: inline-block; }
+  .pricing-card .cta-image img { max-width: 100%; height: auto; }
+
+  /* FAQ */
+  .faq-item {
+    border-bottom: 1px solid var(--border);
+    padding: 4px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 0;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary h4 { font-size: 17.5px; color: var(--text); font-weight: 500; text-align: left; margin: 0; }
+  .faq-item .faq-icon {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 1.5px solid var(--rose-dim);
+    color: var(--rose);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    transition: transform 0.2s ease;
+  }
+  .faq-item[open] .faq-icon { transform: rotate(45deg); }
+  .faq-item p { font-size: 16px; padding: 0 0 20px; }
+
+  /* DISCLAIMER BOX */
+  .disclaimer-container {
+    padding: 24px 0 48px;
+  }
+
+  footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .footer-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover {
+    color: var(--rose-light);
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<header class="hero light">
+  <div class="wrap">
+    <div class="badge">Brand-New PLR AI System / Full Private Label Rights Included</div>
+    <h1>A Done-For-You AI Tool That Turns One Scene Idea Into A Ready-to-Use Coloring Page Prompt In <span>Any Of 30 Proven Art Styles</span></h1>
+    <p class="lede">Use it yourself to publish coloring books faster in any niche, or rebrand it and sell it to others as your own.</p>
+
+    <!-- Hero Image -->
+    <div style="max-width: 680px; margin: 28px auto;">
+      <img src="coloring-page-style-presets-header.jpg" alt="Coloring Page Style Presets Preview" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
+</header>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Special Offer</div>
+      <h2>Grab Coloring Page Style Presets with PLR</h2>
+      <p class="sub">Instantly generate perfectly formatted coloring page prompts in 30 proven art styles, for yourself, your clients, or sell the whole toolkit to others</p>
+      <div class="cta-image">
+        <a href="#" class="btn-primary">Get Instant Access →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <h2>Matching the right art style to the right coloring book niche is one of the biggest bottlenecks <span>for KDP publishers.</span></h2>
+    <p class="section-sub">A mandala relaxation book needs completely different prompt language than a kids' storybook page, a zentangle adult book, or a bold kawaii collection. Every style has its own line weight, mood, and background rules — and getting those wrong is the difference between a clean, print-ready page and one you can't use. Writing that style-specific language by hand, for every niche you want to publish in, eats up hours before you've generated a single image. Now there's a tool built specifically to solve that.</p>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <h2>Introducing: <span>Coloring Page Style Presets</span></h2>
+    <p class="section-sub">I built a prompt-engineering tool with 30 pre-engineered visual style presets covering the most popular coloring book niches. Describe your scene once, click the style thumbnail you want, and the tool instantly formats a complete, ready-to-use prompt — matched to that exact style's line weight, mood, complexity, and background rules.</p>
+    <img src="coloring-page-style-presets-box.png" alt="Coloring Page Style Presets box" style="max-width: 340px; width: 100%; height: auto; display: block; margin: 0 auto 40px;">
+    <div class="problem-grid">
+      <div class="problem-card bad">
+        <span class="tag">Prompting It Yourself</span>
+        <ul>
+          <li>Researching what prompt language actually works for each art style</li>
+          <li>Rewriting line weight, mood, and background rules by hand every time</li>
+          <li>No visual reference — guessing whether your wording matches the look you want</li>
+          <li>Manually reformatting prompts for JSON vs. plain-English AI tools</li>
+        </ul>
+      </div>
+      <div class="problem-card good">
+        <span class="tag">Using The Style Presets</span>
+        <ul>
+          <li>30 ready-made style presets, each with its own reference thumbnail</li>
+          <li>Style-specific line weight, mood, and background rules already built in</li>
+          <li>Click a thumbnail to preview and select the exact look you want</li>
+          <li>One click gives you both JSON and plain-English output, ready to copy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">How It Works</span>
+    <h2>Describe your scene, click a style, <span>get a ready-to-use prompt out.</span></h2>
+    <p class="section-sub">Type one or two sentences about what should appear on the page, click the visual style you want from the gallery of 30 presets, and the tool builds a complete, locked-in prompt for you — in plain English or JSON, ready to copy straight into your image generator.</p>
+    <div class="demo-card">
+      <div class="demo-flow">
+        <div class="demo-col">
+          <h4>You Choose</h4>
+          <div class="chip-row">
+            <span class="chip">Scene description</span>
+            <span class="chip">Visual style (1 of 30 presets)</span>
+          </div>
+        </div>
+        <div class="demo-arrow">→</div>
+        <div class="demo-col">
+          <h4>Tool Generates</h4>
+          <div class="output-preview">A black-and-white coloring page illustration of a cute rabbit dressed as a knight, holding a sword. Cute kawaii illustration style with big expressive eyes, soft rounded shapes, and playful details. Cheerful and sweet mood, designed for kids ages 4–8...
+
+Bold thick outlines (3–5pt), very easy to color inside, clean uniform lines. Black outlines on pure white background only — no color fills, no shading...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">30 Built-In Style Presets</span>
+    <h2>See exactly what each style looks like <span>before you generate a single prompt.</span></h2>
+    <p class="section-sub">Every preset comes with its own reference thumbnail, name, and description, so you always know what you're going to get. This is the exact style gallery you'll click through inside the tool.</p>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/preset-01.jpeg" alt="Cute Kawaii style preset"><div class="style-info"><div class="style-name">Cute Kawaii</div><div class="style-desc">Big eyes, rounded shapes, chibi style</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-02.jpeg" alt="Kids Storybook style preset"><div class="style-info"><div class="style-name">Kids Storybook</div><div class="style-desc">Soft illustrated fairy tale charm</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-03.jpeg" alt="Intricate Adult style preset"><div class="style-info"><div class="style-name">Intricate Adult</div><div class="style-desc">Fine detail, rich patterns, adult level</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-04.jpeg" alt="Art Nouveau style preset"><div class="style-info"><div class="style-name">Art Nouveau</div><div class="style-desc">Flowing organic lines, floral motifs</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-05.jpeg" alt="Mandala / Radial style preset"><div class="style-info"><div class="style-name">Mandala / Radial</div><div class="style-desc">Symmetrical radial patterns, meditative</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-06.jpeg" alt="Folk Art style preset"><div class="style-info"><div class="style-name">Folk Art</div><div class="style-desc">Flat decorative elements, bold shapes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-07.jpeg" alt="Toddler Simple style preset"><div class="style-info"><div class="style-name">Toddler Simple</div><div class="style-desc">Very bold, super simple, ages 2–4</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-08.jpeg" alt="Zentangle / Doodle style preset"><div class="style-info"><div class="style-name">Zentangle / Doodle</div><div class="style-desc">Patterns within patterns, intricate fill</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-09.jpeg" alt="Geometric style preset"><div class="style-info"><div class="style-name">Geometric</div><div class="style-desc">Precision shapes, structured patterns</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-10.jpeg" alt="Realistic style preset"><div class="style-info"><div class="style-name">Realistic</div><div class="style-desc">Accurate proportions, natural detail</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-11.jpeg" alt="Animal &amp; Nature style preset"><div class="style-info"><div class="style-name">Animal &amp; Nature</div><div class="style-desc">Wildlife and creatures in natural settings</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-12.jpeg" alt="Floral / Botanical style preset"><div class="style-info"><div class="style-name">Floral / Botanical</div><div class="style-desc">Detailed flowers, leaves, and plant life</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-13.jpeg" alt="Fantasy style preset"><div class="style-info"><div class="style-name">Fantasy</div><div class="style-desc">Dragons, fairies, and mythical creatures</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-14.jpeg" alt="Steampunk style preset"><div class="style-info"><div class="style-name">Steampunk</div><div class="style-desc">Gears, brass machinery, Victorian sci-fi</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-15.jpeg" alt="Holiday / Seasonal style preset"><div class="style-info"><div class="style-name">Holiday / Seasonal</div><div class="style-desc">Festive scenes for any time of year</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-16.jpeg" alt="Underwater / Ocean style preset"><div class="style-info"><div class="style-name">Underwater / Ocean</div><div class="style-desc">Sea creatures, coral, and marine scenes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-17.jpeg" alt="Gothic Fantasy style preset"><div class="style-info"><div class="style-name">Gothic Fantasy</div><div class="style-desc">Dark, dramatic, ornate mythical style</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-18.jpeg" alt="Paisley style preset"><div class="style-info"><div class="style-name">Paisley</div><div class="style-desc">Curved teardrop shapes, ornamental filigree</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-19.jpeg" alt="Celtic Knotwork style preset"><div class="style-info"><div class="style-name">Celtic Knotwork</div><div class="style-desc">Interlocking knots, ancient symbolism</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-20.jpeg" alt="Anime / Manga style preset"><div class="style-info"><div class="style-name">Anime / Manga</div><div class="style-desc">Expressive eyes, dynamic manga linework</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-21.jpeg" alt="Nature Landscape style preset"><div class="style-info"><div class="style-name">Nature Landscape</div><div class="style-desc">Scenic outdoor vistas and terrain</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-22.jpeg" alt="Inspirational Quote style preset"><div class="style-info"><div class="style-name">Inspirational Quote</div><div class="style-desc">Lettering paired with decorative illustration</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-23.jpeg" alt="Vintage / Retro style preset"><div class="style-info"><div class="style-name">Vintage / Retro</div><div class="style-desc">Classic mid-century illustrated charm</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-24.jpeg" alt="Pop Art style preset"><div class="style-info"><div class="style-name">Pop Art</div><div class="style-desc">Bold graphic shapes, comic-style linework</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-25.jpeg" alt="Sci-Fi / Space style preset"><div class="style-info"><div class="style-name">Sci-Fi / Space</div><div class="style-desc">Rockets, planets, futuristic technology</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-26.jpeg" alt="Bohemian / Boho style preset"><div class="style-info"><div class="style-name">Bohemian / Boho</div><div class="style-desc">Free-spirited motifs, feathers, dreamcatchers</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-27.jpeg" alt="Tribal / Aztec style preset"><div class="style-info"><div class="style-name">Tribal / Aztec</div><div class="style-desc">Bold angular patterns, ancient motifs</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-28.jpeg" alt="Nautical style preset"><div class="style-info"><div class="style-name">Nautical</div><div class="style-desc">Ships, anchors, coastal maritime themes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-29.jpeg" alt="Typography Art style preset"><div class="style-info"><div class="style-name">Typography Art</div><div class="style-desc">Decorative lettering and word art</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/preset-30.jpeg" alt="Minimalist Line style preset"><div class="style-info"><div class="style-name">Minimalist Line</div><div class="style-desc">Single continuous line, ultra-clean</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">Under The Hood</span>
+    <h2>Every preset is built from the same <span>six locked-in ingredients.</span></h2>
+    <p class="section-sub">A style preset isn't just a name and a thumbnail. Click one, and the tool fills in six specific settings behind the scenes — the exact combination that makes that style look the way it does, every single time.</p>
+    <ul class="spec-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg></span>
+        <div><strong>Art Style Definition</strong><span class="sub">The core visual identity of the style — kawaii, mandala, gothic fantasy, and so on</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h4l3 8 4-16 3 8h4"></path></svg></span>
+        <div><strong>Complexity Level</strong><span class="sub">Simple, moderate, or intricate detail, matched to the style and its intended audience</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"></path><path d="M21 7v6h-6"></path></svg></span>
+        <div><strong>Line Weight &amp; Character</strong><span class="sub">Exact stroke thickness and line quality, locked in so it never drifts from page to page</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path></svg></span>
+        <div><strong>Mood &amp; Age Fit</strong><span class="sub">The emotional tone of the style and who it's best suited for, from toddlers to adults</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 15l5-5 4 4 5-6 4 4"></path></svg></span>
+        <div><strong>Background Treatment</strong><span class="sub">Whether the scene carries decorative background elements or stays on a clean, empty page</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+        <div><strong>Color &amp; Outline Rules</strong><span class="sub">Hard-coded rules that keep output black-and-white, fully closed-line, and ready for hand-coloring</span></div>
+      </li>
+    </ul>
+
+    <div class="spec-sample">
+      <div class="spec-sample-label">Example — Mandala / Radial Preset</div>
+      <div class="spec-row"><div class="k">Art Style</div><div class="v">Symmetrical radial mandala patterns with meditative geometric detail</div></div>
+      <div class="spec-row"><div class="k">Complexity</div><div class="v">Intricate — high detail, fine lines, small fill areas, adult level</div></div>
+      <div class="spec-row"><div class="k">Line Weight</div><div class="v">Thin delicate lines (0.5–1pt), fine detail</div></div>
+      <div class="spec-row"><div class="k">Mood &amp; Age Fit</div><div class="v">Calm and meditative, best suited for adults</div></div>
+      <div class="spec-row"><div class="k">Background</div><div class="v">Pure white background, no background elements</div></div>
+      <div class="spec-row"><div class="k">Color &amp; Outline</div><div class="v">Black outlines only, all regions closed, print-ready</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">Endless Possibilities</span>
+    <h2>What kind of coloring books <span>can you create?</span></h2>
+    <p class="section-sub">With 30 built-in style presets, one tool covers dozens of coloring book niches. Just describe your scene and pick the style — here are just a few examples of what you can create.</p>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-title">Cute Kawaii Collections</div>
+        <p>Big expressive eyes, soft rounded shapes, playful characters</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Mandala &amp; Radial Books</div>
+        <p>Symmetrical, meditative patterns for calm, relaxing pages</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Zentangle &amp; Doodle Sets</div>
+        <p>Dense repetitive patterns for focused, intricate coloring</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Gothic Fantasy Pages</div>
+        <p>Dark, dramatic, ornate mythical scenes for adult books</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Kids Storybook Collections</div>
+        <p>Simple, friendly, easy-to-color scenes for young colorists</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Anime &amp; Manga Books</div>
+        <p>Expressive eyes and dynamic manga-style linework</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Holiday &amp; Seasonal Sets</div>
+        <p>Festive motifs and ornamental details for gift-season books</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Geometric &amp; Tribal Pages</div>
+        <p>Bold angular patterns and precision line designs</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Custom Style Concepts</div>
+        <p>Describe your own scene and apply any of the 30 presets to it</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">What's Inside The Tool</span>
+    <h2>Every style rule, line-art constraint, and format, <span>already built into the prompt.</span></h2>
+    <ul class="feature-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span>
+        <div><strong>30 Pre-Built Visual Style Presets</strong><span class="sub">From cute kawaii and kids storybook to mandala, gothic fantasy, and typography art — each with its own reference thumbnail</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></span>
+        <div><strong>One Scene In, Any Style Out</strong><span class="sub">Describe your subject once, then apply it instantly to any of the 30 style presets with a single click</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+        <div><strong>Locked-In Line Art Rules</strong><span class="sub">Every preset enforces clean, closed-line, black-and-white output built for hand-coloring, not shaded illustration</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></span>
+        <div><strong>Plain English or JSON, Copy With One Click</strong><span class="sub">Every generated prompt comes formatted both ways, so it matches whatever AI image tool you're using</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">Who Benefits</span>
+    <h2>Who this <span>done-for-you AI tool</span> is built for.</h2>
+    <p class="section-sub">Different creators put this tool to work in different ways. Here's where it fits.</p>
+    <div class="usecase-grid">
+      <div class="usecase-card">
+        <div class="usecase-title">KDP &amp; POD Publishers</div>
+        <p>Build fully on-style coloring books for Amazon KDP, Etsy, and other print-on-demand storefronts without hunting for the right prompt wording.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">PLR Sellers &amp; Resellers</div>
+        <p>Rebrand the tool under your own name and resell it, or fold it into a PLR bundle you already offer.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Coloring Book Bundle Creators</div>
+        <p>Pull from 30 styles to assemble themed multi-book bundles without starting each one's prompt work from scratch.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Content Creators &amp; Hobbyist Artists</div>
+        <p>Turn a creative hobby into a steady stream of on-style coloring pages, no prompt-engineering experience required.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Teachers &amp; Homeschool Creators</div>
+        <p>Design themed classroom worksheets and activity pages in whatever visual style fits the lesson.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Gift &amp; Craft Shop Owners</div>
+        <p>Produce custom coloring pages to pair with physical products, gifts, or seasonal shop offerings.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Digital Product Creators</div>
+        <p>Add a fast, repeatable coloring page pipeline to any digital product line you're already running.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Solopreneurs</div>
+        <p>Skip the back-and-forth of prompt trial and error and get straight to a sellable, print-ready page.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Here's Exactly What You Get</span>
+    <h2>A done-for-you AI tool, <span>plus the rights to sell it.</span></h2>
+
+    <div style="padding: 20px 0; border-bottom: 1px solid var(--border);">
+      <div style="font-weight: 700; color: var(--rose-light); font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">The Tool</div>
+      <strong style="font-size: 19px;">Coloring Page Style Presets</strong>
+      <p style="margin-top: 6px;">A self-contained AI tool with 30 pre-engineered visual style presets. Describe your scene once, click the style thumbnail you want, and get a fully formatted, ready-to-use coloring page prompt — so ChatGPT, Midjourney, or your favorite image tool outputs clean, print-ready line art on the first attempt, in exactly the style you picked.</p>
+    </div>
+
+    <div style="padding: 20px 0; border-bottom: 1px solid var(--border);">
+      <div style="font-weight: 700; color: var(--rose-light); font-size: 15px; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px;">The Rights</div>
+      <strong style="font-size: 19px;">Full PLR License</strong>
+      <p style="margin-top: 6px;">You're not just buying a tool to use. You're buying the rights to rebrand it, build on it, offer it as a service, and sell it to others. Keep 100% of whatever you charge.</p>
+    </div>
+
+    <ul class="feature-list" style="margin-top: 8px;">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div>Single self-contained HTML tool that works offline or in any browser, on desktop or mobile</div></li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 2 7l10 5 10-5-10-5Z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg></span><div>30 built-in visual style presets spanning kids, adult, fantasy, geometric, seasonal, and more, each with a reference thumbnail</div></li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><div>Built-in line art constraints preventing shading, gray fills, or open outlines that break hand-coloring</div></li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div>Lifetime access with no monthly subscription fees, zero API key setup required, and instant usage</div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">PLR License Included</span>
+    <h2>Use it, service clients with it, <span>or sell it as your own</span></h2>
+    <p class="section-sub">Since you're getting a PLR license, there are a lot of different ways to benefit and put this tool to use, not just as a buyer, but as a seller too. Coloring books span dozens of hot KDP niches, and now you own the rights to cash in on all of them with one tool.</p>
+    <div class="usecase-grid" style="grid-template-columns: repeat(2, 1fr);">
+      <div class="usecase-card">
+        <div class="usecase-title">Sell It As Your Own</div>
+        <p>Rebrand the tool under your own name and sell it as a product, keeping 100% of the profit on every sale.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Offer It As A Service</div>
+        <p>Use the tool to build on-style coloring page prompts for clients and charge for the finished prompts, without doing the style research yourself.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Bundle It Into Your Offers</div>
+        <p>Add it as a bonus to boost the value of a KDP course, PLR bundle, or coloring book membership you already sell.</p>
+      </div>
+      <div class="usecase-card">
+        <div class="usecase-title">Tap Into A Growing Market</div>
+        <p>Every publisher needs prompts that already match a specific art style. Now you can supply that in one click, across 30 different niches.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Special Offer</div>
+      <h2>Grab Coloring Page Style Presets with PLR</h2>
+      <p class="sub">Instantly generate perfectly formatted coloring page prompts in 30 proven art styles, for yourself, your clients, or sell the whole toolkit to others</p>
+      <div class="cta-image">
+        <a href="#" class="btn-primary">Get Instant Access →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">FAQ</span>
+    <h2>Frequently asked questions</h2>
+    <details class="faq-item">
+      <summary><h4>Do I need to pay for an expensive AI tool to use this?</h4><span class="faq-icon">+</span></summary>
+      <p>No. The prompt generator works seamlessly with free versions of ChatGPT, Gemini, or Midjourney, as well as paid image generation tools.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h4>How does this save time over writing style-specific prompts myself?</h4><span class="faq-icon">+</span></summary>
+      <p>Instead of researching and writing style-specific prompt language by hand for every art style you want to publish in, you describe your scene once, click the style you want from 30 built-in presets, and the tool formats a matching, ready-to-use prompt instantly.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h4>Is this a recurring subscription fee?</h4><span class="faq-icon">+</span></summary>
+      <p>No. You pay once for lifetime access to the generator tool. There are no monthly fees or hidden costs.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h4>What image generation tools does this work with?</h4><span class="faq-icon">+</span></summary>
+      <p>It works with ChatGPT, Nano Banana, Midjourney, DALL·E, Stable Diffusion, Ideogram, and more.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h4>What format do I receive the product in?</h4><span class="faq-icon">+</span></summary>
+      <p>You receive the standalone web tool in a single lightweight HTML file that opens instantly in any web browser on desktop or mobile.</p>
+    </details>
+    <details class="faq-item">
+      <summary><h4>What exactly does the PLR license allow me to do?</h4><span class="faq-icon">+</span></summary>
+      <p>This product comes with a PLR license. With this license you can use the product in your own commercial projects and projects you create for clients. Plus you can sell this product as your own, under your name, your order buttons, etc.</p>
+    </details>
+    <div class="problem-grid">
+      <div class="problem-card good">
+        <span class="tag">What you CAN do</span>
+        <ul>
+          <li>Sell unlimited times and keep all the money</li>
+          <li>Rename product &amp; put your own brand on it</li>
+          <li>Edit sales page and graphics</li>
+          <li>Break up the product and use assets in templates and apps that you sell</li>
+          <li>Edit the content and create new variations or versions (V2, V3, V4, etc)</li>
+          <li>Create new products out of the source files</li>
+          <li>Packaged into a bigger product</li>
+          <li>Offered as a bonus to a paid product</li>
+          <li>Added to a paid membership site</li>
+          <li>Have your own affiliate program</li>
+        </ul>
+      </div>
+      <div class="problem-card bad">
+        <span class="tag">What you CAN'T do</span>
+        <ul>
+          <li>Given away for free</li>
+          <li>Added to a free membership site</li>
+          <li>Offered through auction sites</li>
+          <li>Transfer Resale Rights</li>
+          <li>Transfer Master Resale Rights</li>
+          <li>Transfer Private Label Rights</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="disclaimer-container">
+  <div class="wrap">
+    <div class="wplus_spdisclaimer"></div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-links">
+      <a href="https://www.maxrylski.com/contact-us" target="_blank" rel="noopener noreferrer">Contact Page</a>
+      <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank" rel="noopener noreferrer">Terms and Conditions</a>
+      <a href="https://www.maxrylski.com/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
