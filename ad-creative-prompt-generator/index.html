@@ -89,7 +89,7 @@
     border-radius: 12px;
     border: 1px solid var(--border);
     box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-    margin-top: 0;
+    margin-top: 16px;
   }
 
   /* HERO */
@@ -409,28 +409,6 @@
     color: var(--blue-light);
     text-decoration: underline;
   }
-
-  /* CUSTOM EXAMPLES GRID LAYOUT */
-  .example-custom-layout {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    margin-top: 24px;
-  }
-  .example-row-full {
-    width: 100%;
-    max-width: 100%;
-  }
-  .example-row-2 {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-  }
-  @media (max-width: 640px) {
-    .example-row-2 {
-      grid-template-columns: 1fr;
-    }
-  }
 </style>
 </head>
 <body>
@@ -547,33 +525,21 @@
     <span class="eyebrow">Real Examples</span>
     <h2>Check out these examples</h2>
     <p class="section-sub">Here are a few ad creatives made with prompts from the generator, each with a different ad type, layout, and platform size.</p>
-    
-    <div class="example-custom-layout">
-      <!-- 1st Image: Horizontal at the top by itself -->
-      <div class="example-row-full">
-        <img src="ad1.jpg" alt="Ad creative example: Grand Opening café" class="example-img">
-      </div>
-      
-      <!-- 2nd Row: ad2.jpg and ad3.jpg in a column of 2 (Square) -->
-      <div class="example-row-2">
-        <img src="ad2.jpg" alt="Ad creative example: Black Friday Mega Sale" class="example-img">
-        <img src="ad3.jpg" alt="Ad creative example: Say It With Roses" class="example-img">
-      </div>
-      
-      <!-- 3rd Row: ad4.jpg and ad5.jpeg in a column of 2 (Vertical) -->
-      <div class="example-row-2">
-        <img src="ad4.jpg" alt="Ad creative example: Meet Glow Drops" class="example-img">
-        <img src="ad5.jpeg" alt="Ad creative example: Gifts They'll Love" class="example-img">
-      </div>
-      
-      <!-- 4th Row: ad6.jpg and ad7.jpg in a column of 2 (Square) -->
-      <div class="example-row-2">
-        <img src="ad6.jpg" alt="Ad creative example: End of Season Clearance" class="example-img">
-        <img src="ad7.jpg" alt="Ad creative example: Win a $500 Gift Card" class="example-img">
-      </div>
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start;" class="example-gallery">
+      <img src="ad-example-black-friday.jpeg" alt="Ad creative example: Black Friday Mega Sale, 50% off wireless headphones" class="example-img" style="margin-top: 0;">
+      <img src="ad-example-product-launch.jpeg" alt="Ad creative example: Meet Glow Drops product launch story ad" class="example-img" style="margin-top: 0;">
+      <img src="ad-example-grand-opening.jpeg" alt="Ad creative example: Brew &amp; Bloom Café grand opening" class="example-img" style="margin-top: 0;">
+      <img src="ad-example-giveaway.jpeg" alt="Ad creative example: Win a $500 Gift Card giveaway" class="example-img" style="margin-top: 0;">
+      <img src="ad-example-flash-sale.jpeg" alt="Ad creative example: Flash Sale, 30% off food delivery" class="example-img" style="margin-top: 0;">
+      <img src="ad-example-christmas.jpeg" alt="Ad creative example: Gifts They'll Love Christmas promotion" class="example-img" style="margin-top: 0;">
     </div>
   </div>
 </section>
+
+<style>
+  @media (max-width: 768px) { .example-gallery { grid-template-columns: repeat(2, 1fr) !important; } }
+  @media (max-width: 480px) { .example-gallery { grid-template-columns: 1fr !important; } }
+</style>
 
 <section class="tight light bg-grey">
   <div class="wrap">
@@ -686,6 +652,18 @@
       <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><div>Built-in text hierarchy and rendering rules that keep ad copy exact, uncluttered, and easy to read</div></li>
       <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div>Lifetime access with no monthly subscription fees, zero API key setup required, and instant usage</div></li>
     </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <div style="text-align: center;"><div class="badge amber">New Bonus Just Added</div></div>
+    <h2>The Lead Magnet Promo Template Pack</h2>
+    <img src="The-Lead-Magnet-Promo-Template-Pack.jpg" alt="The Lead Magnet Promo Template Pack" class="example-img" style="margin: 0 auto 32px; display: block;">
+    <p style="margin-bottom: 20px;">This bonus is a collection of dozens of high-quality, fully editable Canva templates built specifically to promote lead magnets on Instagram and other social platforms. Just drop in your own guide title, colors, and images, and you have a polished, on-brand promo post ready to publish in minutes.</p>
+    <p style="margin-bottom: 20px;">This bonus also comes with Lead Magnet Interior Canva Template, which is a fully editable Canva template for designing the actual lead magnet guide, using the same colors and fonts as the social media promo templates.</p>
+    <p style="margin-bottom: 20px;">Plus The Lead Magnet Playbook, which is a practical, end-to-end framework for turning cold audience attention into a profitable customer acquisition system</p>
+    <p>This is a full product that I sell today at <a href="https://plrpack.maxrylski.com/lead-magnet-canva-promo-templates/" target="_blank" rel="noopener noreferrer" style="color: #2f6fd6; font-weight: 500;">this link</a>. So with this bonus you will be getting 2 products for the price of 1.</p>
   </div>
 </section>
 
@@ -815,6 +793,5 @@
     </div>
   </div>
 </footer>
-
 </body>
 </html>
