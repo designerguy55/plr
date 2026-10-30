@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Max's Bonuses for ClickDesigns X</title>
+<style>
+  :root{
+    --ink:#FFFFFF;
+    --panel:#F4F6FB;
+    --line:#E1E6F3;
+    --paper:#0B0D17;
+    --signal:#2B5BFF;
+    --signal-dim:#1F45F5;
+    --text-dim:#6B7287;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    line-height:1.5;
+  }
+
+  .wrap{
+    max-width:920px;
+    margin:0 auto;
+    padding:48px 24px 100px;
+  }
+
+  /* Eyebrow */
+  .eyebrow{
+    font-family:'Courier New',monospace;
+    font-size:15px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    text-align:center;
+    color:var(--text-dim);
+    margin-bottom:40px;
+  }
+
+  /* Headline */
+  .headline{
+    font-size:clamp(32px,5.5vw,58px);
+    font-weight:800;
+    line-height:1.08;
+    letter-spacing:-0.02em;
+    text-align:center;
+    color:var(--paper);
+    margin-bottom:20px;
+  }
+
+  .headline .accent{
+    color:var(--signal);
+  }
+
+  .subheadline{
+    font-size:19px;
+    line-height:1.5;
+    text-align:center;
+    color:var(--text-dim);
+    max-width:620px;
+    margin:0 auto 48px;
+  }
+
+  /* Image placeholder */
+  .image-placeholder{
+    width:100%;
+    aspect-ratio:16/9;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-dim);
+    font-family:'Courier New',monospace;
+    font-size:13px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    margin-bottom:64px;
+  }
+
+  /* What is section */
+  .section-label{
+    font-size:12px;
+    font-family:'Courier New',monospace;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--signal);
+    margin-bottom:16px;
+  }
+
+  .what-is h2{
+    font-size:clamp(24px,3.5vw,34px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:20px;
+    color:var(--paper);
+  }
+
+  .what-is p{
+    font-size:18px;
+    color:#3A3D46;
+    max-width:680px;
+    margin-bottom:16px;
+  }
+
+  .what-is .feature-headline{
+    font-size:clamp(22px,3vw,28px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    line-height:1.2;
+    color:var(--paper);
+    max-width:680px;
+    margin:32px 0 20px;
+  }
+
+  .what-is .feature-image{
+    display:block;
+    width:100%;
+    max-width:420px;
+    height:auto;
+    border-radius:8px;
+    border:1px solid var(--line);
+    margin:0 0 20px;
+  }
+
+  .what-is .feature-image.wide{
+    max-width:100%;
+    margin:24px 0;
+  }
+
+  .what-is{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  /* Review section */
+  .review{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .review h2{
+    font-size:clamp(24px,3.5vw,34px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:24px;
+    color:var(--paper);
+    max-width:600px;
+  }
+
+  .review p{
+    font-size:18px;
+    color:#3A3D46;
+    max-width:680px;
+    margin-bottom:20px;
+  }
+
+  .review p:last-child{
+    margin-bottom:0;
+  }
+
+  .review .signoff{
+    font-style:italic;
+    color:var(--text-dim);
+    font-size:16px;
+  }
+
+  /* Feature grid */
+  .feature-grid-wrap{
+    margin-bottom:88px;
+    padding-bottom:64px;
+    border-bottom:1px solid var(--line);
+  }
+
+  .feature-grid-wrap h2{
+    font-size:clamp(22px,3vw,28px);
+    font-weight:800;
+    letter-spacing:-0.01em;
+    margin-bottom:28px;
+    color:var(--paper);
+  }
+
+  .feature-grid{
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:16px;
+  }
+
+  .feature-card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:22px;
+  }
+
+  .feature-card .feature-label{
+    font-size:15px;
+    font-weight:800;
+    color:var(--paper);
+    margin-bottom:6px;
+  }
+
+  .feature-card p{
+    font-size:14px;
+    color:var(--text-dim);
+  }
+
+  @media (max-width:700px){
+    .feature-grid{
+      grid-template-columns:1fr 1fr;
+    }
+  }
+
+  @media (max-width:480px){
+    .feature-grid{
+      grid-template-columns:1fr;
+    }
+  }
+
+  /* Delivery box */
+  .delivery-box{
+    margin-top:88px;
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-left:4px solid var(--signal);
+    border-radius:10px;
+    padding:32px;
+    text-align:center;
+  }
+
+  .delivery-box h3{
+    font-size:19px;
+    font-weight:800;
+    color:var(--paper);
+    margin-bottom:14px;
+  }
+
+  .delivery-box p{
+    font-size:16px;
+    color:#3A3D46;
+    margin-bottom:12px;
+  }
+
+  .delivery-box p:last-child{
+    margin-bottom:0;
+  }
+
+  .delivery-box .ref-code{
+    font-family:'Courier New',monospace;
+    background:var(--ink);
+    border:1px solid var(--line);
+    padding:2px 6px;
+    border-radius:4px;
+    color:var(--signal-dim);
+  }
+
+  .delivery-box img{
+    max-width:100%;
+    border-radius:8px;
+    margin-top:20px;
+  }
+
+  /* Bonus headline */
+  .bonus-headline{
+    text-align:center;
+    font-size:clamp(28px,4.5vw,44px);
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    color:var(--paper);
+    max-width:760px;
+    margin:0 auto 8px;
+  }
+
+  .bonus-headline .accent{
+    color:var(--signal);
+  }
+
+  .bonus-sub{
+    text-align:center;
+    color:var(--text-dim);
+    font-size:18px;
+    margin-top:16px;
+  }
+
+  /* Bonus boxes */
+  .bonus-list{
+    margin-top:56px;
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+  }
+
+  .bonus-box{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:32px;
+  }
+
+  .bonus-box .bonus-tag{
+    display:inline-block;
+    font-family:'Courier New',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--signal);
+    border:1px solid var(--signal);
+    border-radius:4px;
+    padding:4px 8px;
+    margin-bottom:16px;
+  }
+
+  .bonus-box h3{
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    color:var(--paper);
+    margin-bottom:12px;
+  }
+
+  .bonus-box p{
+    font-size:18px;
+    color:#3A3D46;
+  }
+
+  .bonus-box p + p{
+    margin-top:16px;
+  }
+
+  .bonus-box.text-only .bonus-value{
+    margin-top:16px;
+    font-size:13px;
+    color:var(--text-dim);
+  }
+
+  .bonus-box .bonus-screenshot{
+    display:block;
+    width:100%;
+    max-width:30%;
+    margin-left:auto;
+    margin-right:auto;
+    border-radius:8px;
+    border:1px solid var(--line);
+    margin-bottom:20px;
+  }
+
+  /* Sample Image 2x2 Grid */
+  .sample-grid-heading{
+    font-size:18px;
+    font-weight:700;
+    color:var(--paper);
+    margin-top:32px;
+    margin-bottom:16px;
+    text-align:center;
+  }
+
+  .sample-grid{
+    display:grid;
+    grid-template-columns:repeat(2, 1fr);
+    gap:16px;
+    max-width:640px;
+    margin:0 auto;
+  }
+
+  .sample-grid img{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:8px;
+    border:1px solid var(--line);
+  }
+
+  .bonus-box.image-side{
+    display:flex;
+    align-items:flex-start;
+    gap:32px;
+  }
+
+  .bonus-box.image-side .bonus-image{
+    flex:0 0 260px;
+  }
+
+  .bonus-box.image-side .bonus-image img{
+    display:block;
+    width:100%;
+    border-radius:8px;
+    border:1px solid var(--line);
+  }
+
+  .bonus-box.image-side .bonus-content{
+    flex:1;
+  }
+
+  /* Bundle headline */
+  .bundle-headline{
+    text-align:center;
+    font-size:clamp(26px,4vw,40px);
+    font-weight:800;
+    line-height:1.15;
+    letter-spacing:-0.02em;
+    color:var(--paper);
+    max-width:700px;
+    margin:88px auto 24px;
+  }
+
+  .bundle-copy{
+    text-align:center;
+    font-size:18px;
+    color:#3A3D46;
+    max-width:640px;
+    margin:0 auto 40px;
+  }
+
+  /* CTA button */
+  .cta-wrap{
+    display:flex;
+    justify-content:center;
+    margin:32px 0 40px;
+  }
+
+  .cta-button{
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    background:var(--signal);
+    color:#FFFFFF;
+    font-size:22px;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    text-decoration:none;
+    padding:28px 56px;
+    border-radius:10px;
+    text-align:center;
+    transition:background 0.15s ease, transform 0.15s ease;
+  }
+
+  .cta-button svg{
+    flex:0 0 auto;
+    width:22px;
+    height:22px;
+  }
+
+  .cta-button:hover{
+    background:var(--signal-dim);
+    transform:translateY(-1px);
+  }
+
+  @media (max-width:600px){
+    .bonus-box.image-side{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+    .bonus-box.image-side .bonus-image{
+      width:100%;
+      flex-basis:auto;
+    }
+    /* Expand image slightly on mobile screens so it remains easily viewable */
+    .bonus-box .bonus-screenshot{
+      max-width:60%;
+    }
+    .sample-grid{
+      grid-template-columns:1fr 1fr;
+      gap:12px;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="eyebrow">Max's Bonuses for ClickDesigns X</div>
+
+    <h1 class="headline">
+      Turn Flat Designs Into <span class="accent">Photo-Realistic 3D Products</span> In 1 Click
+    </h1>
+
+    <p class="subheadline">
+      ClickDesigns X gives you stunning graphics and real-looking 3D product mockups on
+      demand, without hiring a designer, learning design software, or fighting with AI
+      image generators.
+    </p>
+
+    <img src="clickdesigns-x-thumbnail.jpg" alt="ClickDesigns X: One design. Endless variations." style="width:100%; border-radius:8px; margin-bottom:64px; display:block;">
+
+
+    <div class="cta-wrap">
+      <a href="https://jvz8.com/c/289/447867/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="what-is">
+      <h2>What is ClickDesigns X?</h2>
+      <p>
+        ClickDesigns X is an all-in-one visual engine for people who sell things online.
+        Pick a done-for-you template or start from scratch, customize it with point-and-click
+        controls, and walk away with logos, boxshots, covers, reports, digital mockups,
+        product bundles, and graphics for your pages, videos, socials, emails, and ads.
+      </p>
+      <img class="feature-image wide" src="clickdesign-x-designs.jpg" alt="Examples of designs you can create with ClickDesigns X: logo, label, packaging, device, cover, bundle, social, page, and marketing templates">
+      <h3 class="feature-headline">The big new feature is the 3D Product Studio with 1-click MagicWrap.</h3>
+      <img class="feature-image" src="clickdesigns-x-set-01-book-email-360.gif" alt="One design. Endless variations. A flat book cover turned into a 3D product mockup">
+      <p>
+        It wraps your flat design onto a real 3D product, like a book, software box, laptop,
+        phone, or supplement bottle, so your product looks like something people can almost
+        pick up.
+      </p>
+      <p>
+        No design skills, no freelancer, no code. And because the visuals are consistent
+        every time, you don't have to keep regenerating until something finally looks right.
+      </p>
+
+      <h3 class="feature-headline">Rotate Your Cover In Real 3D And Pick The Exact Angle You Want</h3>
+      <p>
+        Most 3D mockup tools give you a handful of fixed angles. You pick the one that's
+        closest to what you need and hope it works.
+      </p>
+      <p>
+        The 3D Product Studio works differently. You can spin, tilt, and zoom your product in
+        real 3D and stop on the exact angle you want. Then adjust the lighting, shadows, and
+        finish, all with a click.
+      </p>
+      <p>
+        That means you're not limited to a preset pack. You can create your own 3D mockup
+        from any angle you can think of, and make as many variations as you need from the
+        same design.
+      </p>
+      <img class="feature-image wide" src="fe-imp1.jpg" alt="One book cover turned into many different 3D angles, stacks, and device mockups from the same design">
+
+      <h3 class="feature-headline">1000s of Templates</h3>
+      <p>
+        You also get a huge library of editable templates for things like: Covers, Software
+        boxes, Laptops, Phones, Pill bottles, Supplement tubs, Gummy bottles, Droppers, and
+        more. You can fully customize these templates with your own text, different fonts,
+        colors, move things around, etc.. And then apply the same 3D effect.
+      </p>
+      <img class="feature-image wide" src="1000s-of-templates.jpg" alt="A grid of 3D product mockups including books, software boxes, laptops, phones, supplement bottles, gummies, tubs, and droppers">
+      <p>
+        <strong>Limitless angles, layouts, and positions in 1 click.</strong>
+      </p>
+
+      <h3 class="feature-headline">Great For Product Group Shots And Bundles</h3>
+      <p>
+        Need to show more than one product in the same image? The 3D Product Studio makes it
+        easy to build group shots with multiple products, like books, laptops, tablets, and
+        more.
+      </p>
+      <img class="feature-image wide" src="clickdesigns-x-mockup-variations.jpg" alt="Product group shots showing a book, laptop, tablet, and phone arranged together in 3D">
+      <p>
+        Duplicate any cover in a click, move it around, and rotate each one in any direction
+        using the 3D engine until the whole arrangement looks right.
+      </p>
+      <p>
+        Group shots like these make an offer look bigger and more valuable, which is exactly
+        what you want for bundles, course packages, and product stacks. But building them by
+        hand is slow, and it usually means a lot of tedious trial and error.
+      </p>
+      <p>
+        Here, you can put the whole set together in minutes.
+      </p>
+
+      <h3 class="feature-headline">Create All This And Much More...</h3>
+      <img class="feature-image wide" src="clickdesignsx-many-templates.jpg" alt="Examples of what you can create with ClickDesigns X: logos, labels, product packaging, store designs, social media content, sales and marketing materials, print-ready designs, page designs, and bundles and covers">
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://jvz8.com/c/289/447867/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="bonus-headline">
+      Buy ClickDesigns X From My Link And Get <span class="accent">These Bonuses...</span>
+    </h2>
+    <div class="bonus-sub">All of these bonuses are brand new tools that I created myself. You cannot get them from anyone else. And every bonus comes with full PLR rights, so you're free to rebrand them or sell them.</div>
+
+    <div class="bonus-list">
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Bonus #1</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="fiction-book-cover-prompt-generator.jpg" alt="Fiction Book Cover Prompt Generator Interface">
+          <p>
+            This is a brand new, improved version of my Book Cover Prompt Generator. The original lets you type your book details and get a prompt. This version gives you far more control over the result. Here are some of the best improvements:
+          </p>
+          <ul style="margin:12px 0 0 22px;font-size:18px;color:#3A3D46;line-height:1.5;">
+            <li><strong>Simple dropdown settings</strong> for genre, imagery, layout, art style, color palette, font feel, and size, so you can shape the cover without writing a long description.</li>
+            <li><strong>Built-in genre cover conventions</strong>, so a thriller looks like a thriller and a romance looks like a romance.</li>
+            <li><strong>An "Artwork only" option</strong> that creates the art without any text, so you can add your own title and author name in an editor.</li>
+            <li><strong>Thumbnail-friendly design rules</strong> that help keep the title readable at small sizes.</li>
+            <li><strong>Built-in safeguards</strong> that tell the AI not to invent reviews, awards, or endorsements, and not to copy existing covers.</li>
+          </ul>
+          <p style="margin-top:20px;">
+            Just describe your story, then choose your genre. The tool builds in the cover conventions readers expect from each genre, and you can fine-tune the imagery, layout, art style, color palette, and font feel from simple dropdowns.
+          </p>
+
+          <div class="sample-grid-heading">Check out these example images created with this tool...</div>
+          <div class="sample-grid">
+            <img src="fiction-book-1.jpg" alt="Fiction book cover sample: The Hollow Meridian">
+            <img src="fiction-book-2.jpg" alt="Fiction book cover sample: The Quiet Neighbor">
+            <img src="fiction-book-3.jpg" alt="Fiction book cover sample: Second Chance Summer">
+            <img src="fiction-book-4.jpg" alt="Fiction book cover sample: Murder at the Marmalade Cafe">
+          </div>
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Bonus #2</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Non-Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="non-fiction-book-cover-prompt-generator.jpg" alt="Non-Fiction Book Cover Prompt Generator Interface">
+          <p>
+            Non-fiction covers have a different job than fiction covers. They need to look credible, communicate a clear promise, and stay readable as a tiny thumbnail.
+          </p>
+          <p>
+            This tool is built for that. Describe your book, pick your category (business, self-help, health, tech, memoir, and many more), and choose the imagery, layout, style, colors, and fonts that fit. It puts extra focus on the title and subtitle, which matter most on a non-fiction cover.
+          </p>
+          <p>
+            Prefer to add the lettering yourself? Tick "Artwork only" and get the art without any text. The tool also tells the AI not to make up credentials, statistics, or promised results.
+          </p>
+
+          <div class="sample-grid-heading">Check out these example images created with this tool...</div>
+          <div class="sample-grid">
+            <img src="non-fiction-book-1.jpg" alt="Non-fiction book cover sample: Cash Flow Clarity">
+            <img src="non-fiction-book-2.jpg" alt="Non-fiction book cover sample: Move Daily">
+            <img src="non-fiction-book-3.jpg" alt="Non-fiction book cover sample: Prompt Like A Pro">
+            <img src="non-fiction-book-4.jpg" alt="Non-fiction book cover sample: The Calm Desk">
+          </div>
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Bonus #3</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Software Box Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="software-box-prompt-generator.jpg" alt="Software Box Prompt Generator Interface">
+          <p>
+            A software box makes a digital product look real, valuable, and easy to understand at a glance. The problem is that most people don't have the design skills or the budget to get one made.
+          </p>
+          <p>
+            This tool fixes that. Describe your product in plain English, then pick the look and feel from simple dropdowns: art style, mood, colors, fonts, and proportions. You can also tick the platform badges you want to show on the box.
+          </p>
+          <p>
+            The tool turns your choices into a structured prompt you paste into any AI chat tool, so you get a box design concept without writing a single prompt yourself.
+          </p>
+      </div>
+
+    </div>
+
+    <div class="cta-wrap">
+      <a href="https://jvz8.com/c/289/447867/" class="cta-button">
+        Grab The Offer + Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <h2 class="bundle-headline">Buy The Bundle Deal And Get More Bonuses</h2>
+
+    <p class="bundle-copy">
+      All of the bonuses above are yours the moment you grab the main FE offer from my
+      link. Want everything? The Bundle Deal includes the ClickDesigns X front end plus all
+      five upgrades in one purchase, and buying the Bundle from my link gets you the
+      bonuses above PLUS these extra bundle-only bonuses...
+    </p>
+
+    <div class="bonus-list">
+
+      <div class="bonus-box text-only">
+        <div style="text-align:center;">
+          <span class="bonus-tag" style="font-size:14px;">Bundle Bonus #1</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Supplement &amp; Product Label Prompt Generator</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          Great packaging makes a product look professional and trustworthy. This tool helps you create label design concepts for supplements, health products, and other bottled or boxed products.
+        </p>
+        <p>
+          Describe your product, then choose the product type, container, label size, art style, colors, and fonts from simple dropdowns. Tick the badges and back-panel placeholders you want, and the tool builds a structured prompt for your favorite AI chat tool.
+        </p>
+        <p>
+          It's built to make design concepts only. It reminds you that it isn't legal advice and tells the AI not to invent health claims, certifications, or statistics.
+        </p>
+      </div>
+
+      <div class="bonus-box text-only">
+        <div style="text-align:center;">
+          <span class="bonus-tag" style="font-size:14px;">Bundle Bonus #2</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Audiobook Cover Prompt Generator</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          Audiobook covers are square, and they're usually seen as tiny thumbnails in apps and stores. That makes them quite different from a normal book cover.
+        </p>
+        <p>
+          This tool is designed for that format. Describe your audiobook, pick a genre from a large list of fiction and non-fiction options, and choose your imagery, layout, style, colors, and fonts. Add a narrator credit, subtitle, or series info with a click.
+        </p>
+        <p>
+          The prompt tells the AI to keep the title large and the artwork simple so it stays readable at small sizes, and to leave out prices, web addresses, and fake award claims.
+        </p>
+      </div>
+
+      <div class="bonus-box text-only">
+        <div style="text-align:center;">
+          <span class="bonus-tag" style="font-size:14px;">Bundle Bonus #3</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Online Course Cover Prompt Generator</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          Your course cover is the first thing a potential student sees. It needs to look professional and be easy to read at a glance.
+        </p>
+        <p>
+          Describe your course and choose a thumbnail (16:9), square, or portrait format. Then pick your topic and the look you want from simple dropdowns. You can include your name, a subtitle, a skill level label, or a lessons badge using only real numbers.
+        </p>
+        <p>
+          AI can't draw your real face, so the tool can reserve a clean space for your own photo. It also tells the AI not to invent ratings, student counts, certificates, or results.
+        </p>
+      </div>
+
+      <div class="bonus-box text-only">
+        <div style="text-align:center;">
+          <span class="bonus-tag" style="font-size:14px;">Bundle Bonus #4</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Podcast Cover Prompt Generator</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          A podcast cover is shown as a tiny square next to hundreds of others, so it has to be simple, bold, and instantly recognizable.
+        </p>
+        <p>
+          Describe your show, choose your topic from over twenty options, and pick the imagery, layout, style, colors, and fonts. Add a tagline, host names, or a brand name if you want them, and reserve space for your own photo or logo.
+        </p>
+        <p>
+          The prompt tells the AI to keep the title to a few very large words, avoid small text, and stay away from other brands' logos, rankings, and made-up awards.
+        </p>
+      </div>
+
+      <div class="bonus-box text-only">
+        <div style="text-align:center;">
+          <span class="bonus-tag" style="font-size:14px;">Bundle Bonus #5</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;">Membership / Software Logo &amp; App Icon Prompt Generator</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          A good logo makes a membership site, software product, or app look established from day one. Most people either pay a designer or settle for something generic.
+        </p>
+        <p>
+          This tool helps you create logo concepts and app icons. Choose a full logo, a symbol only, a text-only wordmark, or a square app icon. Describe your brand, then pick the product type, symbol idea, style, colors, fonts, and background from simple dropdowns.
+        </p>
+        <p>
+          You can also tick design requirements like "works in a single color" or "stays clear at tiny sizes". The tool builds a structured prompt for any AI chat tool, and it tells the AI to keep the design simple and original instead of copying existing brands.
+        </p>
+      </div>
+
+    </div>
+
+    <h2 class="bundle-headline">Get Instant Access To All Of These Bonuses</h2>
+
+    <p class="bundle-copy">
+      Each of my Bundle Bonuses are full products that I haven't started selling yet.
+      They are complete and already uploaded. If you grab the ClickDesigns X Bundle from
+      my link, you will get access to these 5 unreleased products before everyone else
+      (along with a PLR license). Plus you'll get all of the main bonuses. The ClickDesigns X
+      Bundle Deal is at the link below...
+    </p>
+
+    <div class="cta-wrap">
+      <a href="https://jvz7.com/c/289/447891/" class="cta-button">
+        Grab The Bundle + All Bonuses
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#FFFFFF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <div class="delivery-box">
+      <h3>Bonuses Delivery</h3>
+      <p>
+        The bonuses will be auto-delivered inside the JVZoo delivery page. To qualify for
+        the bonuses, make sure you see this text at the bottom of the checkout page:
+      </p>
+      <p><span class="ref-code">"You have been referred by Max R (#289)"</span></p>
+      <img src="referred_by.png" alt="Terms of sale showing referred by Max R (#289)">
+    </div>
+
+  </div>
+
+</body>
+</html>
