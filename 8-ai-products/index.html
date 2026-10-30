@@ -3,234 +3,272 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Instagram AI Product Pack: 7 More Products With PLR</title>
+<title>Weekend Special: 8 AI Products With PLR</title>
 <style>
   :root{
     --ink:#FFFFFF;
-    --panel:#F2F2F0;
-    --line:#DEDEDA;
-    --paper:#14161B;
-    --signal:#0E7C5A;
-    --signal-dim:#0A5A41;
-    --text-dim:#6B6F7A;
+    --panel:#F4F6FB;
+    --line:#E1E6F3;
+    --paper:#0B0D17;
+    --signal:#2B5BFF;
+    --signal-dim:#1F45F5;
+    --text-dim:#6B7287;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
   body{background:var(--ink);color:var(--paper);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.5;}
-  .wrap{max-width:920px;margin:0 auto;padding:48px 24px 60px;}
-
-  .top-banner{background:var(--panel);border-bottom:1px solid var(--line);padding:16px 24px;text-align:center;font-size:15.5px;font-weight:600;color:var(--paper);}
+  .wrap{max-width:920px;margin:0 auto;padding:48px 24px 100px;}
 
   .eyebrow{font-family:'Courier New',monospace;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;text-align:center;color:var(--signal);margin-bottom:32px;}
   .headline{font-size:clamp(32px,5.5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-0.02em;text-align:center;color:var(--paper);margin-bottom:24px;}
   .headline .accent{color:var(--signal);}
   .subheadline{font-size:19px;line-height:1.5;text-align:center;color:var(--text-dim);max-width:680px;margin:0 auto 40px;}
+  .subheadline strong{color:var(--paper);}
 
-  .list-headline{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--paper);max-width:700px;margin:64px auto 8px;}
-  .bonus-sub{text-align:center;color:var(--text-dim);font-size:18px;margin-top:16px;}
+  .cta-wrap{display:flex;justify-content:center;margin:32px 0 40px;}
+  .cta-button{display:inline-flex;align-items:center;gap:14px;background:var(--signal);color:#FFFFFF;font-size:22px;font-weight:800;letter-spacing:-0.01em;text-decoration:none;padding:28px 56px;border-radius:10px;text-align:center;transition:background 0.15s ease, transform 0.15s ease;}
+  .cta-button svg{flex:0 0 auto;width:22px;height:22px;}
+  .cta-button:hover{background:var(--signal-dim);transform:translateY(-1px);}
+
+  .list-headline{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--paper);max-width:700px;margin:72px auto 8px;}
 
   .bonus-list{margin-top:48px;display:flex;flex-direction:column;gap:24px;}
   .bonus-box{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:32px;}
   .bonus-box .bonus-tag{display:inline-block;font-family:'Courier New',monospace;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:var(--signal);border:1px solid var(--signal);border-radius:4px;padding:4px 8px;margin-bottom:16px;}
-  .bonus-box h3{font-size:22px;font-weight:800;letter-spacing:-0.01em;color:var(--paper);margin-bottom:12px;}
   .bonus-box p{font-size:18px;color:#3A3D46;}
   .bonus-box p + p{margin-top:16px;}
-  .bonus-box .bonus-screenshot{display:block;width:50%;margin:0 auto 20px;border-radius:8px;border:1px solid var(--line);}
+  .bonus-box ul{margin:12px 0 0 22px;font-size:18px;color:#3A3D46;line-height:1.5;}
+  .bonus-box .bonus-screenshot{display:block;width:100%;max-width:30%;margin:0 auto 20px;border-radius:8px;border:1px solid var(--line);}
 
-  .bonus-box.image-side{display:flex;align-items:flex-start;gap:32px;}
-  .bonus-box.image-side .bonus-image{flex:0 0 220px;}
-  .bonus-box.image-side .bonus-image img{display:block;width:100%;border-radius:8px;border:1px solid var(--line);}
-  .bonus-box.image-side .bonus-content{flex:1;}
-  .bonus-content ul{margin:12px 0 0 20px;color:#3A3D46;font-size:17px;}
-  .bonus-content li{margin-bottom:8px;}
+  .sample-grid-heading{font-size:18px;font-weight:700;color:var(--paper);margin-top:32px;margin-bottom:16px;text-align:center;}
+  .sample-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;max-width:640px;margin:0 auto;}
+  .sample-grid img{display:block;width:100%;height:auto;border-radius:8px;border:1px solid var(--line);}
+  .sample-single-image{display:block;width:100%;max-width:480px;height:auto;margin:0 auto;border-radius:8px;border:1px solid var(--line);}
 
-  .pricing-card{background:#FFFFFF;border:1px solid var(--line);border-left:4px solid var(--signal);border-radius:10px;padding:40px 32px;text-align:center;margin-top:64px;}
-  .pricing-card h2{font-size:clamp(26px,4vw,36px);font-weight:800;letter-spacing:-0.02em;margin-bottom:14px;}
-  .pricing-card p{font-size:18px;color:#3A3D46;max-width:620px;margin:0 auto 28px;}
-  .no-thanks-link{display:inline-block;margin-top:24px;font-size:18px;font-weight:500;color:var(--text-dim);text-decoration:underline;}
-  .no-thanks-link:hover{color:var(--paper);}
+  .final-copy{text-align:center;font-size:18px;color:#3A3D46;max-width:640px;margin:0 auto 8px;}
 
   footer{text-align:center;padding:48px 24px 64px;font-size:14px;color:var(--text-dim);border-top:1px solid var(--line);}
   footer a{color:var(--paper);text-decoration:none;margin:0 12px;}
   footer a:hover{text-decoration:underline;}
 
   @media (max-width:600px){
-    .bonus-box.image-side{flex-direction:column;align-items:flex-start;}
-    .bonus-box.image-side .bonus-image{width:100%;flex-basis:auto;}
+    .bonus-box .bonus-screenshot{max-width:60%;}
+    .sample-grid{gap:12px;}
+    .cta-button{padding:24px 32px;font-size:19px;}
   }
 </style>
 </head>
 <body>
 
-<div class="top-banner">
-  Your 8 products are on their way. Before you go to your downloads, check out this special one-time upgrade...
-</div>
+  <div class="wrap">
 
-<div class="wrap">
+    <div class="eyebrow">Weekend Special</div>
 
-  <div class="eyebrow">One-Time Upgrade</div>
+    <h1 class="headline">
+      Get 8 of My Latest <span class="accent">AI Products</span> With a Huge Discount
+    </h1>
 
-  <h1 class="headline">
-    Add 7 More Brand New <span class="accent">Instagram AI Products</span> With PLR
-  </h1>
+    <p class="subheadline">
+      I'm running a special weekend sale where you can grab several of my brand new unreleased products for a fraction of the cost, before I officially launch them. These products will sell for <strong>$17 - $27 each</strong> with PLR. You can grab them <strong>ALL for just $47 today</strong>. This offer is only available this weekend.
+    </p>
 
-  <p class="subheadline">
-    Since you grabbed the weekend special, you can add 7 more of my brand new Instagram products to your order at a huge discount. They're complete, they're ready to download, and every one comes with a PLR license.
-  </p>
+    <div class="cta-wrap">
+      <a href="https://warriorplus.com/o2/buy/jbr5js/cr661j/mn9f4v"><img src="https://warriorplus.com/o2/btn/fn100011001/jbr5js/cr661j/478647"></a>
+    </div>
 
-  <h2 class="list-headline">Here's What You Get...</h2>
-  <div class="bonus-sub">All of these products are brand new, and every one comes with full PLR rights, so you're free to rebrand them or sell them.</div>
+    <h2 class="list-headline">Here's What You Get...</h2>
 
-  <div class="bonus-list">
+    <div class="bonus-list">
 
-    <div class="bonus-box image-side">
-      <div class="bonus-image">
-        <img src="Carousel Post Generator.jpg" alt="The Custom Carousel Post Prompt Generator preview">
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Product #1</span>
-        <h3>The Custom Carousel Post Prompt Generator</h3>
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #1</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="fiction-book-cover-prompt-generator.jpg" alt="Fiction Book Cover Prompt Generator Interface">
         <p>
-          Carousels deliver some of the highest engagement and saved-post rates on Instagram. This interactive tool creates an AI prompt that outputs slide-by-slide copy, visual layout ideas, and transition hooks.
+          This is a brand new, improved version of my Book Cover Prompt Generator. The original lets you type your book details and get a prompt. This version gives you far more control over the result. Here are some of the best improvements:
         </p>
-        <p><strong>What's inside:</strong></p>
         <ul>
-          <li><strong>Custom Slide Counts:</strong> Choose 5, 8, 10, or 12-slide formats based on your content depth.</li>
-          <li><strong>Platform-Optimized:</strong> Tailored specifically for Instagram, LinkedIn, or both.</li>
-          <li><strong>Hooks &amp; Captions Included:</strong> Generates 3 alternate scroll-stopping hook options, a complete post caption, and targeted hashtags along with your slide copy.</li>
-          <li><strong>Tone &amp; Goal Matching:</strong> Customize your output for direct sales, lead generation, or growth using tailored voice profiles.</li>
+          <li><strong>Simple dropdown settings</strong> for genre, imagery, layout, art style, color palette, font feel, and size, so you can shape the cover without writing a long description.</li>
+          <li><strong>Built-in genre cover conventions</strong>, so a thriller looks like a thriller and a romance looks like a romance.</li>
+          <li><strong>An "Artwork only" option</strong> that creates the art without any text, so you can add your own title and author name in an editor.</li>
+          <li><strong>Thumbnail-friendly design rules</strong> that help keep the title readable at small sizes.</li>
+          <li><strong>Built-in safeguards</strong> that tell the AI not to invent reviews, awards, or endorsements, and not to copy existing covers.</li>
         </ul>
-        <p style="margin-top:16px;">
-          Simply plug in your topic, hit generate, copy the prompt, and let AI write your next viral carousel in seconds.
+        <p style="margin-top:20px;">
+          Just describe your story, then choose your genre. The tool builds in the cover conventions readers expect from each genre, and you can fine-tune the imagery, layout, art style, color palette, and font feel from simple dropdowns.
         </p>
+        <div class="sample-grid-heading">Check out these example images created with this tool...</div>
+        <div class="sample-grid">
+          <img src="fiction-book-1.jpg" alt="Fiction book cover sample: The Hollow Meridian">
+          <img src="fiction-book-2.jpg" alt="Fiction book cover sample: The Quiet Neighbor">
+          <img src="fiction-book-3.jpg" alt="Fiction book cover sample: Second Chance Summer">
+          <img src="fiction-book-4.jpg" alt="Fiction book cover sample: Murder at the Marmalade Cafe">
+        </div>
       </div>
-    </div>
 
-    <div class="bonus-box image-side">
-      <div class="bonus-image">
-        <img src="Instagram Bio DM Funnel Conversion Kit.jpg" alt="Instagram Bio & DM Funnel Conversion Kit preview">
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Product #2</span>
-        <h3>Instagram Bio &amp; DM Funnel Conversion Kit</h3>
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #2</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Non-Fiction Book Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="non-fiction-book-cover-prompt-generator.jpg" alt="Non-Fiction Book Cover Prompt Generator Interface">
         <p>
-          Stop leaking leads from your profile visitors and passive viewers! The Instagram Bio &amp; DM Funnel Conversion Kit gives you the exact copywriting frameworks, Story Highlight architectures, and permission-based DM sales scripts required to turn raw traffic into high-converting buyers.
+          Non-fiction covers have a different job than fiction covers. They need to look credible, communicate a clear promise, and stay readable as a tiny thumbnail.
         </p>
-        <p><strong>What's Inside:</strong></p>
-        <ul>
-          <li><strong>Direct-Response Bio Framework &amp; AI Prompts:</strong> Craft a search-optimized 150-character bio in minutes.</li>
-          <li><strong>4-Part Story Highlight Architecture:</strong> Structure your highlights into an automated mini-navigation menu.</li>
-          <li><strong>4-Stage Permission-Based DM Scripts:</strong> Turn comment triggers and hand-raisers into direct purchases without sounding pushy.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="bonus-box image-side">
-      <div class="bonus-image">
-        <img src="30-Minute Micro-Funnel Setup Guide.jpg" alt="The 30-Minute Micro-Funnel Setup Guide preview">
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Product #3</span>
-        <h3>The 30-Minute Micro-Funnel Setup Guide</h3>
         <p>
-          Turn your Instagram traffic into predictable daily sales. The 30-Minute Micro-Funnel Setup Guide provides a complete, step-by-step blueprint to build, connect, and monetize Instagram views using impulse-buy digital products ($7–$17) and instant DM delivery.
+          This tool is built for that. Describe your book, pick your category (business, self-help, health, tech, memoir, and many more), and choose the imagery, layout, style, colors, and fonts that fit. It puts extra focus on the title and subtitle, which matter most on a non-fiction cover.
         </p>
-        <p><strong>What's Inside:</strong></p>
-        <ul>
-          <li><strong>The 3-Stage Micro-Funnel Architecture:</strong> Learn how to bridge free lead magnet downloads directly to low-ticket checkout pages.</li>
-          <li><strong>Master Sales Page &amp; Follow-Up AI Prompts:</strong> Copy-and-paste prompts to generate your sales copy, thank-you page offer, and email nurture sequences.</li>
-          <li><strong>High-Converting Page Layouts &amp; DM Automation Workflows:</strong> Plug-and-play visual frameworks for instant setup.</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="bonus-box image-side">
-      <div class="bonus-image">
-        <img src="The Viral Instagram Reel Prompt Vault.jpg" alt="The Viral Instagram Reel Prompt Vault preview">
-      </div>
-      <div class="bonus-content">
-        <span class="bonus-tag">Product #4</span>
-        <h3>The Viral Instagram Reel Prompt Vault</h3>
         <p>
-          Never run out of high-converting Reel ideas again. The Viral Instagram Reel Prompt Vault is a comprehensive repository of pre-engineered AI script prompts, visual hooks, and engagement CTAs designed to maximize watch time and trigger DM responses across top profitable niches.
+          Prefer to add the lettering yourself? Tick "Artwork only" and get the art without any text. The tool also tells the AI not to make up credentials, statistics, or promised results.
         </p>
-        <p><strong>What's Inside:</strong></p>
-        <ul>
-          <li><strong>Master Reel Script Generator Prompt:</strong> Generate tailored 15–30 second scripts for any audience or niche in seconds.</li>
-          <li><strong>Ready-to-Use Niche Vaults:</strong> Plug-and-play visual concepts and scroll-stopping text hooks for Marketing, Wealth, and Fitness.</li>
-          <li><strong>Caption &amp; Hashtag Suite Generator:</strong> AI prompt templates for algorithm-optimized captions and keyword targeted hashtags.</li>
-        </ul>
+        <div class="sample-grid-heading">Check out these example images created with this tool...</div>
+        <div class="sample-grid">
+          <img src="non-fiction-book-1.jpg" alt="Non-fiction book cover sample: Cash Flow Clarity">
+          <img src="non-fiction-book-2.jpg" alt="Non-fiction book cover sample: Move Daily">
+          <img src="non-fiction-book-3.jpg" alt="Non-fiction book cover sample: Prompt Like A Pro">
+          <img src="non-fiction-book-4.jpg" alt="Non-fiction book cover sample: The Calm Desk">
+        </div>
       </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #3</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Software Box Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <img class="bonus-screenshot" src="software-box-prompt-generator.jpg" alt="Software Box Prompt Generator Interface">
+        <p>
+          A software box makes a digital product look real, valuable, and easy to understand at a glance. The problem is that most people don't have the design skills or the budget to get one made.
+        </p>
+        <p>
+          This tool fixes that. Describe your product in plain English, then pick the look and feel from simple dropdowns: art style, mood, colors, fonts, and proportions. You can also tick the platform badges you want to show on the box.
+        </p>
+        <p>
+          The tool turns your choices into a structured prompt you paste into any AI chat tool, so you get a box design concept without writing a single prompt yourself.
+        </p>
+        <div class="sample-grid-heading">Check out these example images created with this tool...</div>
+        <div class="sample-grid">
+          <img src="software-example-1.jpg" alt="Software box sample: PromptVault Starter Pack">
+          <img src="software-example-2.jpg" alt="Software box sample: FunnelForge Campaign Builder">
+          <img src="software-example-3.jpg" alt="Software box sample: FormFlow Pro Edition">
+          <img src="software-example-4.jpg" alt="Software box sample: ReelMaker AI Studio">
+        </div>
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #4</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Podcast Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          A podcast cover is shown as a tiny square next to hundreds of others, so it has to be simple, bold, and instantly recognizable.
+        </p>
+        <p>
+          Describe your show, choose your topic from over twenty options, and pick the imagery, layout, style, colors, and fonts. Add a tagline, host names, or a brand name if you want them, and reserve space for your own photo or logo.
+        </p>
+        <p>
+          The prompt tells the AI to keep the title to a few very large words, avoid small text, and stay away from other brands' logos, rankings, and made-up awards.
+        </p>
+        <div class="sample-grid-heading">Check out this example image created with this tool...</div>
+        <img class="sample-single-image" src="podcast-example.jpeg" alt="Podcast cover sample: Side Hustle Stories">
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #5</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Supplement &amp; Product Label Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          Great packaging makes a product look professional and trustworthy. This tool helps you create label design concepts for supplements, health products, and other bottled or boxed products.
+        </p>
+        <p>
+          Describe your product, then choose the product type, container, label size, art style, colors, and fonts from simple dropdowns. Tick the badges and back-panel placeholders you want, and the tool builds a structured prompt for your favorite AI chat tool.
+        </p>
+        <p>
+          It's built to make design concepts only. It reminds you that it isn't legal advice and tells the AI not to invent health claims, certifications, or statistics.
+        </p>
+        <div class="sample-grid-heading">Check out this example image created with this tool...</div>
+        <img class="sample-single-image" src="Supplement-and-Product-Label-example.jpg" alt="Supplement label sample: Vitalis Berry Blast Gummies">
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #6</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Audiobook Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          Audiobook covers are square, and they're usually seen as tiny thumbnails in apps and stores. That makes them quite different from a normal book cover.
+        </p>
+        <p>
+          This tool is designed for that format. Describe your audiobook, pick a genre from a large list of fiction and non-fiction options, and choose your imagery, layout, style, colors, and fonts. Add a narrator credit, subtitle, or series info with a click.
+        </p>
+        <p>
+          The prompt tells the AI to keep the title large and the artwork simple so it stays readable at small sizes, and to leave out prices, web addresses, and fake award claims.
+        </p>
+        <div class="sample-grid-heading">Check out this example image created with this tool...</div>
+        <img class="sample-single-image" src="audiobook-example.jpeg" alt="Audiobook cover sample: The Hollow Meridian">
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #7</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Online Course Cover Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          Your course cover is the first thing a potential student sees. It needs to look professional and be easy to read at a glance.
+        </p>
+        <p>
+          Describe your course and choose a thumbnail (16:9), square, or portrait format. Then pick your topic and the look you want from simple dropdowns. You can include your name, a subtitle, a skill level label, or a lessons badge using only real numbers.
+        </p>
+        <p>
+          AI can't draw your real face, so the tool can reserve a clean space for your own photo. It also tells the AI not to invent ratings, student counts, certificates, or results.
+        </p>
+        <div class="sample-grid-heading">Check out this example image created with this tool...</div>
+        <img class="sample-single-image" src="online-course-example.jpg" alt="Online course cover sample: Photo Basics in a Weekend">
+      </div>
+
+      <div class="bonus-box">
+        <div style="text-align:center;">
+          <span class="bonus-tag">Product #8</span>
+        </div>
+        <h3 style="text-align:center;font-size:28px;margin-bottom:12px;">Membership / Software Logo &amp; App Icon Prompt Generator (with PLR)</h3>
+        <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
+        <p>
+          A good logo makes a membership site, software product, or app look established from day one. Most people either pay a designer or settle for something generic.
+        </p>
+        <p>
+          This tool helps you create logo concepts and app icons. Choose a full logo, a symbol only, a text-only wordmark, or a square app icon. Describe your brand, then pick the product type, symbol idea, style, colors, fonts, and background from simple dropdowns.
+        </p>
+        <p>
+          You can also tick design requirements like "works in a single color" or "stays clear at tiny sizes". The tool builds a structured prompt for any AI chat tool, and it tells the AI to keep the design simple and original instead of copying existing brands.
+        </p>
+        <div class="sample-grid-heading">Check out this example image created with this tool...</div>
+        <img class="sample-single-image" src="logo-example.jpeg" alt="Logo sample: Spark Circle">
+      </div>
+
     </div>
 
-    <div class="bonus-box text-only">
-      <div style="text-align:center;">
-        <span class="bonus-tag" style="font-size:14px;">Product #5</span>
-      </div>
-      <h3 style="text-align:center;font-size:28px;">Comment-to-DM Funnel Prompt Generator</h3>
-      <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
-      <img class="bonus-screenshot" src="Comment-to-DM_Funnel_Prompt_Generator.jpg" alt="Comment-to-DM Funnel Prompt Generator tool interface">
-      <p>
-        Turn a single comment into an automated conversation that closes. This tool generates a ready-to-use AI prompt that writes your entire "comment-to-DM" funnel in one shot: the scroll-stopping post that gets people commenting a keyword, AND the automated DM sequence that delivers your offer and drives them toward your goal (a sale, a booked call, or a qualified lead).
-      </p>
-      <p>
-        Just fill in a few quick dropdowns (your resource, your audience, your hook style, and what you want the DM sequence to accomplish) and the tool builds a precision-engineered prompt for ChatGPT, Claude, or Gemini. Paste it in, and you'll get 3 high-converting post variations plus a matching multi-message DM sequence, built on proven copywriting frameworks and ready to plug straight into your favorite automation tool.
-      </p>
-      <p>
-        No copywriting experience needed. No guesswork on what to say when someone comments. Just fill in the blanks and let the AI do the writing.
-      </p>
-    </div>
+    <h2 class="list-headline">Get All 8 Products For Just $47</h2>
 
-    <div class="bonus-box text-only">
-      <div style="text-align:center;">
-        <span class="bonus-tag" style="font-size:14px;">Product #6</span>
-      </div>
-      <h3 style="text-align:center;font-size:28px;">AI Persona / Talking-Head Video Script Generator</h3>
-      <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
-      <img class="bonus-screenshot" src="AI_Persona_and_Talking-Head_Video_Script_Generator.jpg" alt="AI Persona Talking-Head Video Script Generator tool interface">
-      <p>
-        Never stare at a blank screen before filming again. This tool generates a ready-to-use AI prompt that writes complete, scroll-stopping scripts for talking-head videos and Reels: hook, body, and CTA, fully mapped out and ready to record or feed straight into an AI persona.
-      </p>
-      <p>
-        Just fill in a few quick dropdowns (persona and topic, audience, hook style, content pillar, and delivery format) and the tool builds a precision-engineered prompt for ChatGPT, Claude, or Gemini. Paste it in, and you'll get a full script broken into a scroll-stopping hook, a tight value-packed body, and a clear CTA, plus on-screen text cues and multiple hook variations to test, built on proven short-form video frameworks.
-      </p>
-      <p>
-        No scriptwriting experience needed. No more guessing what to say in the first 3 seconds. Just fill in the blanks and let the AI write the script, perfect for creators using AI personas, faceless brands, or their own face on camera.
-      </p>
-    </div>
+    <p class="final-copy">
+      Each product normally sells for $17 - $27 with PLR. Grab them all today for a fraction of the cost, before I officially launch them. This weekend only.
+    </p>
 
-    <div class="bonus-box text-only">
-      <div style="text-align:center;">
-        <span class="bonus-tag" style="font-size:14px;">Product #7</span>
-      </div>
-      <h3 style="text-align:center;font-size:28px;">30-Day Content Calendar Prompt Generator</h3>
-      <p style="text-align:center;font-weight:600;margin-bottom:20px;">Brand new unreleased product with PLR included.</p>
-      <img class="bonus-screenshot" src="30-Day_Content_Calendar_Prompt_Generator.jpg" alt="30-Day Content Calendar Prompt Generator tool interface">
-      <p>
-        Never wonder what to post again. This tool generates a ready-to-use AI prompt that plans an entire month of content in one shot: a full 30-day calendar with a content pillar, format, hook idea, and one-line brief for every single post, mapped to your niche and posting schedule.
-      </p>
-      <p>
-        Just fill in a few quick dropdowns (niche and goal, content pillars, posting frequency, and preferred content mix) and the tool builds a precision-engineered prompt for ChatGPT, Claude, or Gemini. Paste it in, and you'll get a complete, organized calendar you can use as a roadmap for exactly what to create each day, no more staring at a blank page trying to figure out what to post.
-      </p>
-      <p>
-        No content-planning experience needed. No more guesswork or burnout from figuring it out day-by-day. Just fill in the blanks and let the AI map out your entire month, perfect for creators, small businesses, agencies, and theme pages who want to plan once and execute on autopilot.
-      </p>
+    <div class="cta-wrap">
+      <a href="https://warriorplus.com/o2/buy/jbr5js/cr661j/mn9f4v"><img src="https://warriorplus.com/o2/btn/fn100011001/jbr5js/cr661j/478647"></a>
     </div>
 
   </div>
-
-  <div class="pricing-card">
-    <h2>Get Instant Access Today</h2>
-    <p>One-time payment. Instant download. 7 more Instagram products with PLR added to your library. This special offer is only available on this page.</p>
-    <a href="https://warriorplus.com/o2/buy/jbr5js/dch8dh/bmkn0g"><img src="https://warriorplus.com/o2/btn/fn100011001/jbr5js/dch8dh/473919"></a>
-    <div>
-      <a href="https://warriorplus.com/o/nothanks/dch8dh" class="no-thanks-link">No Thanks, I don't need these products</a>
-    </div>
-  </div>
-
-</div>
 
 <footer>
-  <div class="wrap" style="padding:0 24px;">
+  <div class="wrap">
     <div class="wplus_spdisclaimer"></div>
     <br>
     <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
@@ -239,6 +277,6 @@
   </div>
 </footer>
 
-<script type="text/javascript" src="https://warriorplus.com/o2/js/dch8dh" defer></script>
+<script type="text/javascript" src="https://warriorplus.com/o2/js/cr661j" defer></script>
 </body>
 </html>
