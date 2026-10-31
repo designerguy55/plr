@@ -29,6 +29,17 @@
   .cta-button svg{flex:0 0 auto;width:22px;height:22px;}
   .cta-button:hover{background:var(--signal-dim);transform:translateY(-1px);}
 
+  .countdown{text-align:center;margin:0 auto 32px;}
+  .countdown-label{font-family:'Courier New',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px;}
+  .countdown-boxes{display:flex;justify-content:center;gap:12px;}
+  .cd-box{background:var(--paper);color:#FFFFFF;border-radius:10px;min-width:84px;padding:16px 8px;}
+  .cd-box span{display:block;font-size:40px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;}
+  .cd-box small{display:block;margin-top:8px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#AEB6D0;}
+  .cd-ended{font-size:22px;font-weight:800;color:var(--signal);}
+  @media (max-width:600px){.cd-box{min-width:68px;}.cd-box span{font-size:30px;}}
+  .coupon-text{text-align:center;font-size:18px;color:var(--paper);margin:32px auto -16px;}
+  .coupon-text strong{color:var(--signal);}
+
   .list-headline{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--paper);max-width:700px;margin:72px auto 8px;}
 
   .bonus-list{margin-top:48px;display:flex;flex-direction:column;gap:24px;}
@@ -70,6 +81,40 @@
     <p class="subheadline">
       I'm running a special weekend sale where you can grab several of my brand new unreleased products for a fraction of the cost, before I officially launch them. These products will sell for <strong>$17 - $27 each</strong> with PLR. You can grab them <strong>ALL for just $37 today</strong>. This offer is only available this weekend.
     </p>
+
+    <div class="countdown" id="countdown">
+      <div class="countdown-label">Offer ends Sunday, Nov 1 at 11:59pm EST</div>
+      <div class="countdown-boxes" id="countdown-boxes">
+        <div class="cd-box"><span id="cd-d">00</span><small>Days</small></div>
+        <div class="cd-box"><span id="cd-h">00</span><small>Hours</small></div>
+        <div class="cd-box"><span id="cd-m">00</span><small>Minutes</small></div>
+        <div class="cd-box"><span id="cd-s">00</span><small>Seconds</small></div>
+      </div>
+    </div>
+    <script>
+      (function(){
+        // Nov 1, 2026 11:59pm EST (UTC-5) = Nov 2, 2026 04:59 UTC
+        var end = Date.UTC(2026, 10, 2, 4, 59, 0);
+        var ids = {d:'cd-d',h:'cd-h',m:'cd-m',s:'cd-s'};
+        function pad(n){return n < 10 ? '0' + n : '' + n;}
+        function tick(){
+          var diff = end - Date.now();
+          if (diff <= 0){
+            document.getElementById('countdown-boxes').innerHTML = '<div class="cd-ended">This offer has ended</div>';
+            return;
+          }
+          var s = Math.floor(diff / 1000);
+          document.getElementById(ids.d).textContent = pad(Math.floor(s / 86400));
+          document.getElementById(ids.h).textContent = pad(Math.floor(s % 86400 / 3600));
+          document.getElementById(ids.m).textContent = pad(Math.floor(s % 3600 / 60));
+          document.getElementById(ids.s).textContent = pad(s % 60);
+          setTimeout(tick, 1000);
+        }
+        tick();
+      })();
+    </script>
+
+    <p class="coupon-text">Use this coupon code to get an extra 20% OFF: <strong>WEEKEND20OFF</strong></p>
 
     <div class="cta-wrap">
       <a href="https://warriorplus.com/o2/buy/jbr5js/cr661j/mn9f4v"><img src="https://warriorplus.com/o2/btn/fn100011001/jbr5js/cr661j/478647"></a>
@@ -260,6 +305,8 @@
     <p class="final-copy">
       Each product normally sells for $17 - $27 with PLR. Grab them all today for a fraction of the cost, before I officially launch them. This weekend only.
     </p>
+
+    <p class="coupon-text">Use this coupon code to get an extra 20% OFF: <strong>WEEKEND20OFF</strong></p>
 
     <div class="cta-wrap">
       <a href="https://warriorplus.com/o2/buy/jbr5js/cr661j/mn9f4v"><img src="https://warriorplus.com/o2/btn/fn100011001/jbr5js/cr661j/478647"></a>
