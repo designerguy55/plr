@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sticker &amp; Emoji Pack Maker - Turn Your Character Into Full Sticker &amp; Emoji Packs</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!-- WarriorPlus Sales Page Code: paste this offer's script tag here -->
+<style>
+  :root {
+    --bg: #080d18;
+    --surface: #0e1628;
+    --surface2: #111d35;
+    --border: #1e2d4a;
+    --rose: #c97b5a;
+    --rose-light: #e8a07d;
+    --rose-dim: #a85f3f;
+    --text: #e8eef8;
+    --text-muted: #6b85ad;
+    --green: #4caf7d;
+    --amber: #d9a441;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #000000;
+    text-align: center;
+  }
+  h1 span, h2 span { color: #000000; }
+  p { color: #000000; font-weight: 300; font-size: 18px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid var(--rose-dim);
+    background: rgba(201,123,90,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .badge.amber {
+    color: #966100;
+    border-color: #d9a441;
+    background: rgba(217,164,65,0.15);
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-dim);
+    margin: 40px auto;
+  }
+
+  /* TOP ANNOUNCEMENT BANNER */
+  .top-banner {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .top-banner p {
+    color: var(--text);
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+
+  /* LIGHT THEME OVERRIDE */
+  .light {
+    --bg: #ffffff;
+    --surface: #f9f5f0;
+    --surface2: #f3ede3;
+    --border: #e0d5c5;
+    --text: #2d2218;
+    --text-muted: #8a7060;
+    --rose-light: #b95f3a;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ALTERNATING SECTION BACKGROUND */
+  .light.bg-grey { background: #f9f5f0; }
+
+  /* HERO */
+  header.hero {
+    text-align: center;
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero h1 { font-size: clamp(32px, 5.2vw, 54px); margin-bottom: 20px; }
+  header.hero .lede {
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose);
+    color: #fff8f3;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--rose-light); transform: translateY(-1px); }
+  .price-note { font-size: 14px; color: var(--text-muted); }
+
+  /* SECTION HEADERS */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+  }
+  section h2 { font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 16px; }
+  section .section-sub { font-size: 17.5px; margin-bottom: 40px; }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin-top: 8px; }
+  .feature-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 20px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,123,90,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .feature-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .feature-list .sub { display: block; font-size: 18px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+
+  /* WHATS INCLUDED */
+  .include-list { list-style: none; }
+  .include-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .include-list li:last-child { border-bottom: none; }
+  .box-contents-grid { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+  .box-contents-grid img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  @media (max-width: 700px) { .box-contents-grid { grid-template-columns: 1fr; } }
+  .include-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,123,90,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .include-list li .text-content { display: flex; flex-direction: column; }
+  .include-list li .text-content strong { color: var(--text); margin-bottom: 2px; }
+  .include-list li .text-content span.sub { font-size: 16.5px; color: var(--text-muted); font-weight: 300; }
+
+  /* PRICING */
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #e0d5c5;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    color: #2d2218;
+  }
+  .pricing-card h2 { color: #2d2218; }
+  .pricing-card .badge { margin-bottom: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #8a7060; }
+
+  /* NO THANKS LINK STYLING */
+  .no-thanks-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #8a7060;
+    text-decoration: underline;
+  }
+  .no-thanks-link:hover {
+    color: #2d2218;
+  }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  footer a {
+    color: var(--rose-light);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="wrap">
+    <p>Thanks for your purchase. Before you go to your downloads make sure you check out the special upgrade offer on this page...</p>
+  </div>
+</div>
+
+<header class="hero light">
+  <div class="wrap">
+    <div class="badge">AI Prompt Tool with PLR</div>
+    <h1>Turn Your Character Into <span>A Full Sticker &amp; Emoji Pack</span> in Minutes</h1>
+    <div style="max-width: 680px; margin: 28px auto;">
+      <img src="sticker-pack-maker-box.jpg" alt="Sticker &amp; Emoji Pack Maker Preview" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
+</header>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Why Get This Upgrade?</span>
+    <h2>One portrait is nice. <span>A full set of stickers gets used every day.</span></h2>
+    <ul class="feature-list" style="margin-top: 24px;">
+      <li>
+        <div>
+          <strong>Put your new character to work</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">You already have a style you love. This upgrade turns that same character into a pack of stickers and emoji that can be used in chats, on Discord and Twitch, or printed as physical stickers.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>30 ready-made themes, 16 sticker ideas each</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Pick a theme like Everyday Emotions, Pet Parent, Gaming, Streamer Emotes, or Christmas &amp; Winter, and the tool builds the prompts for a complete set of matching stickers. No brainstorming what to include.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Built for consistency across the whole pack</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">A sticker pack only works if every sticker looks like the same character. Each prompt includes character-lock wording, and the tool guides you to generate the whole set in the same chat.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Choose the pack size and the output style</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Make a pack of 6, 9, 12, or 16 stickers, as a full sheet or one sticker per prompt. Pick the platform, sticker finish, and background to match where you'll use them.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Skip the misspelled sticker text</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">AI image tools often mangle words. Captions are off by default, so your stickers come out clean. Turn them on only when you want them.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">What's Inside The Tool</span>
+    <h2>Every sticker rule and format, <span>already built into the prompt.</span></h2>
+    <ul class="feature-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>
+        <div><strong>30 Sticker &amp; Emoji Themes in 6 Groups</strong><span class="sub">Reactions, Social &amp; Messaging, Lifestyle, Hobbies &amp; Communities, Seasonal, and Special packs, each with 16 sticker ideas</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+        <div><strong>Sheet or One-Sticker-Per-Prompt Modes</strong><span class="sub">Generate a full sheet in one go, or one prompt per sticker when you want the best consistency and quality</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span>
+        <div><strong>Platform-Ready Settings</strong><span class="sub">Choose settings for messaging apps, Discord, Twitch, or print, plus sticker finish and background options</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+        <div><strong>Built-In Character Lock</strong><span class="sub">Every prompt tells the AI to keep the same character, style, and look across the whole pack</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></span>
+        <div><strong>Plain English or JSON, Copy With One Click</strong><span class="sub">Copy a single prompt or all of them at once, formatted for whichever AI image tool you use</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">In The Box</span>
+    <h2>What you get.</h2>
+    <div class="box-contents-grid">
+      <img src="sticker-pack-maker-tool.jpg" alt="Sticker &amp; Emoji Pack Maker tool interface">
+      <ul class="include-list">
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Sticker &amp; Emoji Pack Maker, a single self-contained HTML tool that opens in any web browser, with 30 themes and built-in pack size, platform, finish, and background settings</span></div></li>
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
+        <li>
+          <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+          <div class="text-content">
+            <strong>PLR included — another product you can sell</strong>
+            <span class="sub">Just like the main offer, this upgrade comes with a full PLR license. That means you can sell this tool to others, use it as an upsell for your own Photo-to-Art Prompt Generator, bundle it with other AI toolkits, and keep 100% of the profits.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Special Offer</div>
+      <h2>Get Instant Access Today</h2>
+      <p class="sub">One-time payment. Lifetime access. Instant download.</p>
+
+      <!-- WarriorPlus Buy Button Code: paste this offer's buy button here -->
+      <a href="#" class="btn-primary">Get Instant Access →</a>
+
+      <div>
+        <!-- WarriorPlus No Thanks Link: replace # with this offer's no-thanks URL -->
+        <a href="#" class="no-thanks-link">No Thanks, I don't need this upgrade</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WarriorPlus Disclaimer Container -->
+<div class="wrap">
+  <div class="wplus_spdisclaimer"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
+    <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank">Terms and Conditions</a> | 
+    <a href="https://www.maxrylski.com/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
