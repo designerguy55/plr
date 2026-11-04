@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartoon Characters Prompt Generator - Turn Any Photo Into A Character Or Invent One From Scratch</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!-- WarriorPlus Sales Page Code: paste this offer's script tag here -->
+<style>
+  :root {
+    --bg: #080d18;
+    --surface: #0e1628;
+    --surface2: #111d35;
+    --border: #1e2d4a;
+    --rose: #c97b5a;
+    --rose-light: #e8a07d;
+    --rose-dim: #a85f3f;
+    --text: #e8eef8;
+    --text-muted: #6b85ad;
+    --green: #4caf7d;
+    --amber: #d9a441;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #000000;
+    text-align: center;
+  }
+  h1 span, h2 span { color: #000000; }
+  p { color: #000000; font-weight: 300; font-size: 18px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid var(--rose-dim);
+    background: rgba(201,123,90,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .badge.amber {
+    color: #966100;
+    border-color: #d9a441;
+    background: rgba(217,164,65,0.15);
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-dim);
+    margin: 40px auto;
+  }
+
+  /* TOP ANNOUNCEMENT BANNER */
+  .top-banner {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .top-banner p {
+    color: var(--text);
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+
+  /* LIGHT THEME OVERRIDE */
+  .light {
+    --bg: #ffffff;
+    --surface: #f9f5f0;
+    --surface2: #f3ede3;
+    --border: #e0d5c5;
+    --text: #2d2218;
+    --text-muted: #8a7060;
+    --rose-light: #b95f3a;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ALTERNATING SECTION BACKGROUND */
+  .light.bg-grey { background: #f9f5f0; }
+
+  /* HERO */
+  header.hero {
+    text-align: center;
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero h1 { font-size: clamp(32px, 5.2vw, 54px); margin-bottom: 20px; }
+  header.hero .lede {
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose);
+    color: #fff8f3;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--rose-light); transform: translateY(-1px); }
+  .price-note { font-size: 14px; color: var(--text-muted); }
+
+  /* SECTION HEADERS */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+  }
+  section h2 { font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 16px; }
+  section .section-sub { font-size: 17.5px; margin-bottom: 40px; }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin-top: 8px; }
+  .feature-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 20px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,123,90,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .feature-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .feature-list .sub { display: block; font-size: 18px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+
+  /* WHATS INCLUDED */
+  .include-list { list-style: none; }
+  .include-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .include-list li:last-child { border-bottom: none; }
+  .box-contents-grid { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+  .box-contents-grid img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  @media (max-width: 700px) { .box-contents-grid { grid-template-columns: 1fr; } }
+  .include-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(201,123,90,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .include-list li .text-content { display: flex; flex-direction: column; }
+  .include-list li .text-content strong { color: var(--text); margin-bottom: 2px; }
+  .include-list li .text-content span.sub { font-size: 16.5px; color: var(--text-muted); font-weight: 300; }
+
+  /* PRICING */
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #e0d5c5;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    color: #2d2218;
+  }
+  .pricing-card h2 { color: #2d2218; }
+  .pricing-card .badge { margin-bottom: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #8a7060; }
+
+  /* NO THANKS LINK STYLING */
+  .no-thanks-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #8a7060;
+    text-decoration: underline;
+  }
+  .no-thanks-link:hover {
+    color: #2d2218;
+  }
+
+
+  /* STYLE GALLERY */
+  .cat-label { font-family:'DM Sans',sans-serif; font-weight:700; font-size:20px; color:var(--rose-light); margin:40px 0 -8px; text-align:left; }
+  .cat-label:first-of-type { margin-top:24px; }
+  .style-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) { .style-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 480px) { .style-grid { grid-template-columns: repeat(2, 1fr); } }
+  .style-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .style-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: var(--surface2);
+  }
+  .style-info { padding: 10px 12px 12px; }
+  .style-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .style-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  footer a {
+    color: var(--rose-light);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="wrap">
+    <p>Thanks for your purchase. Before you go to your downloads make sure you check out the special upgrade offer on this page...</p>
+  </div>
+</div>
+
+<header class="hero light">
+  <div class="wrap">
+    <div class="badge">AI Prompt Tool with PLR</div>
+    <h1>Turn Any Photo Into <span>A Cartoon, Anime, Or 3D Character,</span> Or Invent One From Scratch</h1>
+    <div style="max-width: 680px; margin: 28px auto;">
+      <img src="cartoon-characters-box.jpg" alt="Cartoon Characters Prompt Generator Preview" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
+</header>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Why Get This Upgrade?</span>
+    <h2>Everyone loves seeing themselves as a character. <span>Even more people want a character of their own.</span></h2>
+    <ul class="feature-list" style="margin-top: 24px;">
+      <li>
+        <div>
+          <strong>Go deeper into characters</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">You already have a tool that turns photos into art styles. This upgrade is built entirely around characters, with 50 presets across 3D, anime, kids cartoons, comics, and modern digital looks.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Create a character from scratch</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Describe a cartoon dog, a friendly robot, or a tiny dragon, or skip the description and just pick a type. The Character Builder covers animals, robots, monsters, fantasy creatures, heroes, kids, or anything you type in yourself.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Direct personality, outfit, and pose</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Click chips for personality and expression, outfit and accessories, and pose, or type your own. The tool builds them into the prompt so you don't have to word anything yourself.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Built for consistent characters</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Every text-mode prompt asks the AI for a clear silhouette, simple memorable features, and a consistent color scheme, so you can reuse the same character across images.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Or restyle a photo</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Choose Person, Pet, or Couple / Group to turn a photo into a character while keeping everyone recognizable. It's great for gifts, avatars, and custom character art.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">50 Built-In Character Styles</span>
+    <h2>See exactly what each style looks like <span>before you generate a single prompt.</span></h2>
+    <p class="section-sub">Every preset comes with its own reference thumbnail, name, and description, so you always know what you're going to get. This is the exact gallery you'll click through inside the tool, organized into 5 groups.</p>
+    <div class="cat-label">3D Characters</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-01.jpg" alt="3D Animated Feature character style preset"><div class="style-info"><div class="style-name">3D Animated Feature</div><div class="style-desc">Polished family-film 3D character</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-02.jpg" alt="Cozy Pastel 3D character style preset"><div class="style-info"><div class="style-name">Cozy Pastel 3D</div><div class="style-desc">Soft, rounded, storybook-toy look</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-03.jpg" alt="Claymation Stop-Motion character style preset"><div class="style-info"><div class="style-name">Claymation Stop-Motion</div><div class="style-desc">Handmade clay with fingerprints</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-04.jpg" alt="Plush Felt Puppet character style preset"><div class="style-info"><div class="style-name">Plush Felt Puppet</div><div class="style-desc">Stitched fabric and button eyes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-05.jpg" alt="Vinyl Toy Figure character style preset"><div class="style-info"><div class="style-name">Vinyl Toy Figure</div><div class="style-desc">Glossy designer collectible</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-06.jpg" alt="Action Figure Collectible character style preset"><div class="style-info"><div class="style-name">Action Figure Collectible</div><div class="style-desc">Poseable figure, studio-lit</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-07.jpg" alt="Cel-Shaded Game Hero character style preset"><div class="style-info"><div class="style-name">Cel-Shaded Game Hero</div><div class="style-desc">Bold-outline 3D game character</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-08.jpg" alt="Low-Poly 3D character style preset"><div class="style-info"><div class="style-name">Low-Poly 3D</div><div class="style-desc">Faceted geometric render</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-09.jpg" alt="Voxel Block Character character style preset"><div class="style-info"><div class="style-name">Voxel Block Character</div><div class="style-desc">Built from tiny cubes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-10.jpg" alt="Papercraft Diorama character style preset"><div class="style-info"><div class="style-name">Papercraft Diorama</div><div class="style-desc">Folded paper in a miniature set</div></div></div>
+    </div>
+    <div class="cat-label">Anime &amp; Manga</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-11.jpg" alt="Modern Anime character style preset"><div class="style-info"><div class="style-name">Modern Anime</div><div class="style-desc">Clean cel shading, glossy eyes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-12.jpg" alt="Classic 90s Anime character style preset"><div class="style-info"><div class="style-name">Classic 90s Anime</div><div class="style-desc">Retro cel look with film grain</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-13.jpg" alt="Shonen Action Hero character style preset"><div class="style-info"><div class="style-name">Shonen Action Hero</div><div class="style-desc">Speed lines and intense energy</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-14.jpg" alt="Shojo Sparkle character style preset"><div class="style-info"><div class="style-name">Shojo Sparkle</div><div class="style-desc">Pastel, flowers, big shiny eyes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-15.jpg" alt="Chibi Kawaii character style preset"><div class="style-info"><div class="style-name">Chibi Kawaii</div><div class="style-desc">Tiny body, giant head, super cute</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-16.jpg" alt="Black &amp; White Manga character style preset"><div class="style-info"><div class="style-name">Black &amp; White Manga</div><div class="style-desc">Screentone and inked panels</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-17.jpg" alt="Hand-Painted Anime Film character style preset"><div class="style-info"><div class="style-name">Hand-Painted Anime Film</div><div class="style-desc">Painterly scenery, soft light</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-18.jpg" alt="Magical Girl character style preset"><div class="style-info"><div class="style-name">Magical Girl</div><div class="style-desc">Sparkles, ribbons, transformation glow</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-19.jpg" alt="Mecha Pilot character style preset"><div class="style-info"><div class="style-name">Mecha Pilot</div><div class="style-desc">Sleek suits and glowing cockpit light</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-20.jpg" alt="Lo-Fi Anime Aesthetic character style preset"><div class="style-info"><div class="style-name">Lo-Fi Anime Aesthetic</div><div class="style-desc">Cozy night, soft grain, muted neon</div></div></div>
+    </div>
+    <div class="cat-label">Kids Cartoon</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-21.jpg" alt="Saturday Morning Cartoon character style preset"><div class="style-info"><div class="style-name">Saturday Morning Cartoon</div><div class="style-desc">Bold outlines, bright flat color</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-22.jpg" alt="Preschool Show character style preset"><div class="style-info"><div class="style-name">Preschool Show</div><div class="style-desc">Round shapes, primary colors, very simple</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-23.jpg" alt="Picture Book Illustration character style preset"><div class="style-info"><div class="style-name">Picture Book Illustration</div><div class="style-desc">Soft gouache and gentle texture</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-24.jpg" alt="Rubber Hose Vintage character style preset"><div class="style-info"><div class="style-name">Rubber Hose Vintage</div><div class="style-desc">1930s bendy-limbed cartoon</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-25.jpg" alt="Mid-Century Cartoon character style preset"><div class="style-info"><div class="style-name">Mid-Century Cartoon</div><div class="style-desc">Angular shapes, retro limited palette</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-26.jpg" alt="Newspaper Comic Strip character style preset"><div class="style-info"><div class="style-name">Newspaper Comic Strip</div><div class="style-desc">Sunday funnies, halftone color</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-27.jpg" alt="Cut-Paper Animation character style preset"><div class="style-info"><div class="style-name">Cut-Paper Animation</div><div class="style-desc">Flat jointed paper puppets</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-28.jpg" alt="Crayon Kid Drawing character style preset"><div class="style-info"><div class="style-name">Crayon Kid Drawing</div><div class="style-desc">Wobbly lines, waxy texture</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-29.jpg" alt="Wacky Squash &amp; Stretch character style preset"><div class="style-info"><div class="style-name">Wacky Squash &amp; Stretch</div><div class="style-desc">Rubbery, zany, exaggerated</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-30.jpg" alt="Fairy-Tale Storybook character style preset"><div class="style-info"><div class="style-name">Fairy-Tale Storybook</div><div class="style-desc">Whimsical, ornate, hand-painted</div></div></div>
+    </div>
+    <div class="cat-label">Comics &amp; Graphic Novels</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-31.jpg" alt="Classic Comic Book character style preset"><div class="style-info"><div class="style-name">Classic Comic Book</div><div class="style-desc">Bold ink, halftone dots</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-32.jpg" alt="Superhero Inking character style preset"><div class="style-info"><div class="style-name">Superhero Inking</div><div class="style-desc">Heavy shadows, dynamic power</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-33.jpg" alt="Pop Art Comic character style preset"><div class="style-info"><div class="style-name">Pop Art Comic</div><div class="style-desc">Loud color, dots, action bursts</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-34.jpg" alt="Noir Graphic Novel character style preset"><div class="style-info"><div class="style-name">Noir Graphic Novel</div><div class="style-desc">Stark ink with one accent color</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-35.jpg" alt="Ligne Claire character style preset"><div class="style-info"><div class="style-name">Ligne Claire</div><div class="style-desc">Clean even outlines, flat color</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-36.jpg" alt="Vertical Webcomic character style preset"><div class="style-info"><div class="style-name">Vertical Webcomic</div><div class="style-desc">Soft digital color, romance-drama look</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-37.jpg" alt="Indie Zine character style preset"><div class="style-info"><div class="style-name">Indie Zine</div><div class="style-desc">Rough ink, photocopy grain</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-38.jpg" alt="Pulp Magazine Cover character style preset"><div class="style-info"><div class="style-name">Pulp Magazine Cover</div><div class="style-desc">Vintage painted adventure</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-39.jpg" alt="Satirical Caricature character style preset"><div class="style-info"><div class="style-name">Satirical Caricature</div><div class="style-desc">Playful, witty exaggeration</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-40.jpg" alt="Editorial Cartoon character style preset"><div class="style-info"><div class="style-name">Editorial Cartoon</div><div class="style-desc">Loose pen and watercolor wash</div></div></div>
+    </div>
+    <div class="cat-label">Modern &amp; Digital Characters</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-41.jpg" alt="Flat Vector Character character style preset"><div class="style-info"><div class="style-name">Flat Vector Character</div><div class="style-desc">Clean shapes, limited palette</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-42.jpg" alt="Mascot Logo character style preset"><div class="style-info"><div class="style-name">Mascot Logo</div><div class="style-desc">Bold, symmetrical, brand-ready</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-43.jpg" alt="Modern Animated Series character style preset"><div class="style-info"><div class="style-name">Modern Animated Series</div><div class="style-desc">Angular, stylized adventure-show look</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-44.jpg" alt="VTuber-Style Avatar character style preset"><div class="style-info"><div class="style-name">VTuber-Style Avatar</div><div class="style-desc">Polished, expressive, stream-ready</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-45.jpg" alt="Pixel Art Sprite character style preset"><div class="style-info"><div class="style-name">Pixel Art Sprite</div><div class="style-desc">Retro game character</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-46.jpg" alt="Isometric Mini Character character style preset"><div class="style-info"><div class="style-name">Isometric Mini Character</div><div class="style-desc">Tiny figure on a floating tile</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-47.jpg" alt="Geometric Minimalist character style preset"><div class="style-info"><div class="style-name">Geometric Minimalist</div><div class="style-desc">Basic shapes, few colors</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-48.jpg" alt="Y2K Streetwear Cartoon character style preset"><div class="style-info"><div class="style-name">Y2K Streetwear Cartoon</div><div class="style-desc">Chrome, stickers, bold graphics</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-49.jpg" alt="Neon Cyber Cartoon character style preset"><div class="style-info"><div class="style-name">Neon Cyber Cartoon</div><div class="style-desc">Glowing lines on a dark city</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/cartoon-50.jpg" alt="Gradient Duotone Pop character style preset"><div class="style-info"><div class="style-name">Gradient Duotone Pop</div><div class="style-desc">Two-color gradient poster look</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">What's Inside The Tool</span>
+    <h2>Every style detail, likeness lock, and character option, <span>already built into the prompt.</span></h2>
+    <ul class="feature-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>
+        <div><strong>50 Character Presets in 5 Groups</strong><span class="sub">3D Characters, Anime &amp; Manga, Kids Cartoon, Comics &amp; Graphic Novels, and Modern &amp; Digital Characters, 10 presets each, each with its own preview thumbnail</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+        <div><strong>Character Builder for Text to Image</strong><span class="sub">Pick a character type, personality, outfit, and pose with a click, or type your own with the Other option, then let the tool write the prompt</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"></circle><path d="M2 21c0-3.5 3-5.5 7-5.5s7 2 7 5.5"></path><path d="M16 4.5a3.5 3.5 0 0 1 0 7"></path><path d="M22 21c0-2.8-2-4.6-4.5-5.2"></path></svg></span>
+        <div><strong>People, Pets, Groups, and Text-Only</strong><span class="sub">Pick your subject type and the prompt wording adjusts to match, including group framing that keeps everyone in the shot</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+        <div><strong>Built-In Likeness Rules</strong><span class="sub">Every photo prompt tells the AI what to preserve, like facial features, hair, and the original pose, to help the result still look like your subject</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 15l5-5 4 4 5-6 4 4"></path></svg></span>
+        <div><strong>Refine Section for Follow-Up Edits</strong><span class="sub">After you generate an image, build follow-up prompts to change the expression, pose, outfit, background, lighting, camera angle, and more, without starting over</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></span>
+        <div><strong>Plain English or JSON, Copy With One Click</strong><span class="sub">Every prompt comes formatted both ways, so it works with whichever AI image tool you use</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">In The Box</span>
+    <h2>What you get.</h2>
+    <div class="box-contents-grid">
+      <img src="cartoon-characters-tool.jpg" alt="Cartoon Characters Prompt Generator tool interface">
+      <ul class="include-list">
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Cartoon Characters Prompt Generator, a single self-contained HTML tool that opens in any web browser, with 50 character presets, person, pet, group, and text-only modes, the Character Builder, and a built-in Refine section</span></div></li>
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
+        <li>
+          <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+          <div class="text-content">
+            <strong>PLR included — another product you can sell</strong>
+            <span class="sub">Just like the main offer, this upgrade comes with a full PLR license. That means you can sell this tool to others, use it as an upsell for your own Photo-to-Art Prompt Generator, bundle it with other AI toolkits, and keep 100% of the profits.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Special Offer</div>
+      <h2>Get Instant Access Today</h2>
+      <p class="sub">One-time payment. Lifetime access. Instant download.</p>
+
+      <!-- WarriorPlus Buy Button Code: paste this offer's buy button here -->
+      <a href="#" class="btn-primary">Get Instant Access →</a>
+
+      <div>
+        <!-- WarriorPlus No Thanks Link: replace # with this offer's no-thanks URL -->
+        <a href="#" class="no-thanks-link">No Thanks, I don't need this upgrade</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WarriorPlus Disclaimer Container -->
+<div class="wrap">
+  <div class="wplus_spdisclaimer"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
+    <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank">Terms and Conditions</a> | 
+    <a href="https://www.maxrylski.com/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
