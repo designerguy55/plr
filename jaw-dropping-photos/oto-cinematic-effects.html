@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cinematic Effects Prompt Generator - Add Selective Color, Bokeh, HDR, and More To Any Photo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!-- WarriorPlus Sales Page Code: paste this offer's script tag here -->
+<style>
+  :root {
+    --bg: #080d18;
+    --surface: #0e1628;
+    --surface2: #111d35;
+    --border: #1e2d4a;
+    --rose: #9060c0;
+    --rose-light: #b48ae0;
+    --rose-dim: #6f4799;
+    --text: #e8eef8;
+    --text-muted: #6b85ad;
+    --green: #4caf7d;
+    --amber: #d9a441;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #000000;
+    text-align: center;
+  }
+  h1 span, h2 span { color: #000000; }
+  p { color: #000000; font-weight: 300; font-size: 18px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid var(--rose-dim);
+    background: rgba(144,96,192,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .badge.amber {
+    color: #966100;
+    border-color: #d9a441;
+    background: rgba(217,164,65,0.15);
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-dim);
+    margin: 40px auto;
+  }
+
+  /* TOP ANNOUNCEMENT BANNER */
+  .top-banner {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .top-banner p {
+    color: var(--text);
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+
+  /* LIGHT THEME OVERRIDE */
+  .light {
+    --bg: #ffffff;
+    --surface: #f7f4fa;
+    --surface2: #efe9f6;
+    --border: #ddd3ea;
+    --text: #2a2233;
+    --text-muted: #75688a;
+    --rose-light: #6f4799;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ALTERNATING SECTION BACKGROUND */
+  .light.bg-grey { background: #f7f4fa; }
+
+  /* HERO */
+  header.hero {
+    text-align: center;
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero h1 { font-size: clamp(32px, 5.2vw, 54px); margin-bottom: 20px; }
+  header.hero .lede {
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose-dim);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--rose); transform: translateY(-1px); }
+  .price-note { font-size: 14px; color: var(--text-muted); }
+
+  /* SECTION HEADERS */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+  }
+  section h2 { font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 16px; }
+  section .section-sub { font-size: 17.5px; margin-bottom: 40px; }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin-top: 8px; }
+  .feature-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 20px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(144,96,192,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .feature-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .feature-list .sub { display: block; font-size: 18px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+
+  /* WHATS INCLUDED */
+  .include-list { list-style: none; }
+  .include-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .include-list li:last-child { border-bottom: none; }
+  .box-contents-grid { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+  .box-contents-grid img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  @media (max-width: 700px) { .box-contents-grid { grid-template-columns: 1fr; } }
+  .include-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(144,96,192,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .include-list li .text-content { display: flex; flex-direction: column; }
+  .include-list li .text-content strong { color: var(--text); margin-bottom: 2px; }
+  .include-list li .text-content span.sub { font-size: 16.5px; color: var(--text-muted); font-weight: 300; }
+
+  /* PRICING */
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #ddd3ea;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    color: #2a2233;
+  }
+  .pricing-card h2 { color: #2a2233; }
+  .pricing-card .badge { margin-bottom: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #75688a; }
+
+  /* NO THANKS LINK STYLING */
+  .no-thanks-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #75688a;
+    text-decoration: underline;
+  }
+  .no-thanks-link:hover {
+    color: #2a2233;
+  }
+
+
+  /* STYLE GALLERY */
+  .cat-label { font-family:'DM Sans',sans-serif; font-weight:700; font-size:20px; color:var(--rose-light); margin:40px 0 -8px; text-align:left; }
+  .cat-label:first-of-type { margin-top:24px; }
+  .style-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) { .style-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 480px) { .style-grid { grid-template-columns: repeat(2, 1fr); } }
+  .style-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .style-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: var(--surface2);
+  }
+  .style-info { padding: 10px 12px 12px; }
+  .style-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .style-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  footer a {
+    color: var(--rose-light);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="wrap">
+    <p>Thanks for your purchase. Before you go to your downloads make sure you check out the special upgrade offer on this page...</p>
+  </div>
+</div>
+
+<header class="hero light">
+  <div class="wrap">
+    <div class="badge">AI Prompt Tool with PLR</div>
+    <h1>Give Any Photo <span>Eye-Catching Cinematic Effects</span> With 51 One-Click Looks</h1>
+    <div style="max-width: 680px; margin: 28px auto;">
+      <img src="images/cinematic-effects-box.jpg" alt="Cinematic Effects Prompt Generator Preview" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
+</header>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Why Get This Upgrade?</span>
+    <h2>A cinematic look is the foundation. <span>Effects are what make the image unforgettable.</span></h2>
+    <ul class="feature-list" style="margin-top: 24px;">
+      <li>
+        <div>
+          <strong>Go beyond the film look</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">With Jaw-Dropping Photo Prompt Generator, you turn your photo into a dramatic, photorealistic scene. This upgrade adds a different kind of look: effects layered onto your photo, like color pop, bokeh isolation, HDR, double exposure, light streaks, and frozen motion, all with the subject kept recognizable.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>51 effects in 7 groups, no editing skills required</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Choose from Blur &amp; Focus, Selective Color, Tone &amp; HDR, Dreamy &amp; Surreal, Light Effects, Motion &amp; Action, and Texture &amp; Digital. Each effect already describes how it applies, the color and tone, and the details that make it work, so you don't have to figure out the wording.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Dial the strength up or down</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Set the effect to Subtle for a restrained touch, Medium for a clearly visible result, or Extreme to push it as far as it can go while the subject stays recognizable.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Built to protect the face</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Every effect comes with its own avoid list, such as no blur over the face or no color leaking into the wrong areas, and every photo prompt tells the AI what to preserve. It works for a person, a pet, or a couple or group.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Fix problems without starting over</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Selective color and motion effects can take a couple of tries. The Refine section builds follow-up prompts like remove color leaks, clean up the edges, or sharpen the face, so you can correct the result instead of regenerating from scratch.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Start from a photo, or from just an idea</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Photo mode applies the effect to your own photo. Text mode builds a brand-new cinematic image from a description alone, with no photo needed.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">51 Built-In Cinematic Effects</span>
+    <h2>See exactly what each effect is like <span>before you generate a single prompt.</span></h2>
+    <p class="section-sub">Every effect comes with its own reference thumbnail, name, and description, so you always know what you're going to get. This is the exact gallery you'll click through inside the tool, organized into 7 groups.</p>
+    <div class="cat-label">Blur &amp; Focus</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/effect-01.jpg" alt="Bokeh Isolation cinematic effect preset"><div class="style-info"><div class="style-name">Bokeh Isolation</div><div class="style-desc">Subject sharp, surroundings melt into blur</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-02.jpg" alt="Panning Blur cinematic effect preset"><div class="style-info"><div class="style-name">Panning Blur</div><div class="style-desc">Subject sharp, world streaked sideways</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-03.jpg" alt="Radial Zoom Burst cinematic effect preset"><div class="style-info"><div class="style-name">Radial Zoom Burst</div><div class="style-desc">Streaks radiate outward from the subject</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-04.jpg" alt="Foreground Blur Frame cinematic effect preset"><div class="style-info"><div class="style-name">Foreground Blur Frame</div><div class="style-desc">Soft foreground frames a sharp subject</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-05.jpg" alt="Soft Glow Diffusion cinematic effect preset"><div class="style-info"><div class="style-name">Soft Glow Diffusion</div><div class="style-desc">Pro-mist glow around highlights</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-06.jpg" alt="Split Focus cinematic effect preset"><div class="style-info"><div class="style-name">Split Focus</div><div class="style-desc">Two planes sharp, blur between</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-07.jpg" alt="Subject Motion Blur cinematic effect preset"><div class="style-info"><div class="style-name">Subject Motion Blur</div><div class="style-desc">Subject streaks through a sharp world</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-08.jpg" alt="Long-Exposure Ghosting cinematic effect preset"><div class="style-info"><div class="style-name">Long-Exposure Ghosting</div><div class="style-desc">Sharp subject with trailing echoes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-09.jpg" alt="Dreamy Edge Blur cinematic effect preset"><div class="style-info"><div class="style-name">Dreamy Edge Blur</div><div class="style-desc">Sharp center, edges melt away</div></div></div>
+    </div>
+    <div class="cat-label">Selective Color</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/effect-10.jpg" alt="Color Pop Subject cinematic effect preset"><div class="style-info"><div class="style-name">Color Pop Subject</div><div class="style-desc">Subject in color, world in B&amp;W</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-11.jpg" alt="Single Accent Color cinematic effect preset"><div class="style-info"><div class="style-name">Single Accent Color</div><div class="style-desc">Only one item in color</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-12.jpg" alt="Eyes in Color cinematic effect preset"><div class="style-info"><div class="style-name">Eyes in Color</div><div class="style-desc">B&amp;W image, only the eyes in color</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-13.jpg" alt="Duotone cinematic effect preset"><div class="style-info"><div class="style-name">Duotone</div><div class="style-desc">Whole image in just two colors</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-14.jpg" alt="Color Splash by Light cinematic effect preset"><div class="style-info"><div class="style-name">Color Splash by Light</div><div class="style-desc">Color appears only where light falls</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-15.jpg" alt="Tinted B&amp;W + Accent cinematic effect preset"><div class="style-info"><div class="style-name">Tinted B&amp;W + Accent</div><div class="style-desc">One-tone image with a single accent</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-16.jpg" alt="Inverse Pop cinematic effect preset"><div class="style-info"><div class="style-name">Inverse Pop</div><div class="style-desc">Subject in B&amp;W, world in color</div></div></div>
+    </div>
+    <div class="cat-label">Tone &amp; HDR</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/effect-17.jpg" alt="Dramatic HDR cinematic effect preset"><div class="style-info"><div class="style-name">Dramatic HDR</div><div class="style-desc">Vivid detail, glowing skies</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-18.jpg" alt="Gritty HDR cinematic effect preset"><div class="style-info"><div class="style-name">Gritty HDR</div><div class="style-desc">Harsh, textured, desaturated</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-19.jpg" alt="High-Key Bright cinematic effect preset"><div class="style-info"><div class="style-name">High-Key Bright</div><div class="style-desc">Airy whites, almost no shadows</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-20.jpg" alt="Low-Key Dark cinematic effect preset"><div class="style-info"><div class="style-name">Low-Key Dark</div><div class="style-desc">Subject emerges from deep shadow</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-21.jpg" alt="Matte Faded cinematic effect preset"><div class="style-info"><div class="style-name">Matte Faded</div><div class="style-desc">Lifted blacks, soft and flat</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-22.jpg" alt="Bloom Highlights cinematic effect preset"><div class="style-info"><div class="style-name">Bloom Highlights</div><div class="style-desc">Bright areas glow and spill</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-23.jpg" alt="Hyper-Contrast Punch cinematic effect preset"><div class="style-info"><div class="style-name">Hyper-Contrast Punch</div><div class="style-desc">Crushed blacks, punchy whites</div></div></div>
+    </div>
+    <div class="cat-label">Dreamy &amp; Surreal</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/effect-24.jpg" alt="Dreamy Pastel Haze cinematic effect preset"><div class="style-info"><div class="style-name">Dreamy Pastel Haze</div><div class="style-desc">Milky haze, candy-soft color</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-25.jpg" alt="Ethereal Glow cinematic effect preset"><div class="style-info"><div class="style-name">Ethereal Glow</div><div class="style-desc">Angelic light from within</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-26.jpg" alt="Levitation cinematic effect preset"><div class="style-info"><div class="style-name">Levitation</div><div class="style-desc">Subject floating in mid-air</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-27.jpg" alt="Double Exposure Blend cinematic effect preset"><div class="style-info"><div class="style-name">Double Exposure Blend</div><div class="style-desc">A landscape inside the silhouette</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-28.jpg" alt="Kaleidoscope Mirror cinematic effect preset"><div class="style-info"><div class="style-name">Kaleidoscope Mirror</div><div class="style-desc">Symmetrical fractal patterns</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-29.jpg" alt="Dream Echo cinematic effect preset"><div class="style-info"><div class="style-name">Dream Echo</div><div class="style-desc">Faint copies drifting behind</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-30.jpg" alt="Floating Objects cinematic effect preset"><div class="style-info"><div class="style-name">Floating Objects</div><div class="style-desc">Petals, bubbles, feathers in the air</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-31.jpg" alt="Impossible Scale cinematic effect preset"><div class="style-info"><div class="style-name">Impossible Scale</div><div class="style-desc">Giant moon, tiny figure, oversized objects</div></div></div>
+    </div>
+    <div class="cat-label">Light Effects</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/effect-32.jpg" alt="Anamorphic Streak Flares cinematic effect preset"><div class="style-info"><div class="style-name">Anamorphic Streak Flares</div><div class="style-desc">Long horizontal blue light streaks</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-33.jpg" alt="Sunburst Starburst cinematic effect preset"><div class="style-info"><div class="style-name">Sunburst Starburst</div><div class="style-desc">Radiating star from a low sun</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-34.jpg" alt="Light Leak Wash cinematic effect preset"><div class="style-info"><div class="style-name">Light Leak Wash</div><div class="style-desc">Warm color streaks from the edges</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-35.jpg" alt="Prism Refraction cinematic effect preset"><div class="style-info"><div class="style-name">Prism Refraction</div><div class="style-desc">Rainbow shards and glassy reflections</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-36.jpg" alt="Light Painting Trails cinematic effect preset"><div class="style-info"><div class="style-name">Light Painting Trails</div><div class="style-desc">Glowing ribbons drawn in the air</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-37.jpg" alt="Neon Edge Glow cinematic effect preset"><div class="style-info"><div class="style-name">Neon Edge Glow</div><div class="style-desc">Bright colored outline on the subject</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-38.jpg" alt="Glitter Bokeh cinematic effect preset"><div class="style-info"><div class="style-name">Glitter Bokeh</div><div class="style-desc">Sparkling points of light</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-39.jpg" alt="Spotlight in Darkness cinematic effect preset"><div class="style-info"><div class="style-name">Spotlight in Darkness</div><div class="style-desc">One beam in a black void</div></div></div>
+    </div>
+    <div class="cat-label">Motion &amp; Action</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/effect-40.jpg" alt="Frozen Moment Debris cinematic effect preset"><div class="style-info"><div class="style-name">Frozen Moment Debris</div><div class="style-desc">Dust and fragments hanging mid-air</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-41.jpg" alt="Bullet-Time Freeze cinematic effect preset"><div class="style-info"><div class="style-name">Bullet-Time Freeze</div><div class="style-desc">Frozen action, sweeping viewpoint</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-42.jpg" alt="Slow-Mo Splash cinematic effect preset"><div class="style-info"><div class="style-name">Slow-Mo Splash</div><div class="style-desc">Water frozen in motion</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-43.jpg" alt="Shockwave Blast cinematic effect preset"><div class="style-info"><div class="style-name">Shockwave Blast</div><div class="style-desc">Ring of force radiating outward</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-44.jpg" alt="Speed Rush Lines cinematic effect preset"><div class="style-info"><div class="style-name">Speed Rush Lines</div><div class="style-desc">Streaking tunnel of motion</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-45.jpg" alt="Particle Disintegration cinematic effect preset"><div class="style-info"><div class="style-name">Particle Disintegration</div><div class="style-desc">Part of the subject drifts away as particles</div></div></div>
+    </div>
+    <div class="cat-label">Texture &amp; Digital</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/effect-46.jpg" alt="Glitch / RGB Split cinematic effect preset"><div class="style-info"><div class="style-name">Glitch / RGB Split</div><div class="style-desc">Channel splits and data corruption</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-47.jpg" alt="Chromatic Aberration Edge cinematic effect preset"><div class="style-info"><div class="style-name">Chromatic Aberration Edge</div><div class="style-desc">Red and blue fringing at the edges</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-48.jpg" alt="Heavy Film Grain Grit cinematic effect preset"><div class="style-info"><div class="style-name">Heavy Film Grain Grit</div><div class="style-desc">Coarse, visible grain throughout</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-49.jpg" alt="Dust &amp; Scratch Overlay cinematic effect preset"><div class="style-info"><div class="style-name">Dust &amp; Scratch Overlay</div><div class="style-desc">Film damage across the image</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-50.jpg" alt="Infrared False Color cinematic effect preset"><div class="style-info"><div class="style-name">Infrared False Color</div><div class="style-desc">Pink foliage, cyan skies</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/effect-51.jpg" alt="Ink Sketch Overlay cinematic effect preset"><div class="style-info"><div class="style-name">Ink Sketch Overlay</div><div class="style-desc">Pen cross-hatching over the photo</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">What's Inside The Tool</span>
+    <h2>Every effect, strength level, and fix, <span>already built into the prompt.</span></h2>
+    <ul class="feature-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>
+        <div><strong>51 Cinematic Effects in 7 Groups</strong><span class="sub">Blur &amp; Focus, Selective Color, Tone &amp; HDR, Dreamy &amp; Surreal, Light Effects, Motion &amp; Action, and Texture &amp; Digital, each with its own preview thumbnail, a clear name, and a short description</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path></svg></span>
+        <div><strong>Effect Intensity Control</strong><span class="sub">Choose Subtle, Medium, or Extreme and the prompt is written to match</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+        <div><strong>Photo Mode and Text Mode</strong><span class="sub">Apply an effect to a photo of a person, a pet, or a couple or group, or describe a scene from scratch and generate it from text alone</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+        <div><strong>Built-In Likeness Rules and Avoid Lists</strong><span class="sub">Every photo prompt tells the AI what to preserve, and each effect lists the things to avoid, so the result is more likely to still look like your subject</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 15l5-5 4 4 5-6 4 4"></path></svg></span>
+        <div><strong>Refine Section for Follow-Up Edits</strong><span class="sub">After you generate an image, build follow-up prompts to adjust the effect strength, sharpen the face, remove color leaks, change the color and tone, and change the expression, pose, background, framing, angle, and composition</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span>
+        <div><strong>Helpful Tips On Tricky Effects</strong><span class="sub">Effects like Single Accent Color and Double Exposure Blend tell you what to type in Extra Notes, such as which item to keep in color, so you get the result you want</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></span>
+        <div><strong>Plain English or JSON, Six Aspect Ratios</strong><span class="sub">Every prompt comes formatted both ways, and you can choose square, 4:5, 3:4, 9:16, 16:9, or 2.39:1 to fit your image tool and where the image will be used</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">In The Box</span>
+    <h2>What you get.</h2>
+    <div class="box-contents-grid">
+      <img src="images/cinematic-effects-tool.jpg" alt="Cinematic Effects Prompt Generator tool interface">
+      <ul class="include-list">
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Cinematic Effects Prompt Generator, a single self-contained HTML tool that opens in any web browser, with 51 cinematic effects, an intensity control, photo and text modes, and a built-in Refine section</span></div></li>
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
+        <li>
+          <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+          <div class="text-content">
+            <strong>PLR included: another product you can sell</strong>
+            <span class="sub">Just like the main offer, this upgrade comes with a full PLR license. That means you can sell this tool to others, use it as an upsell for your own Jaw-Dropping Photo Prompt Generator, bundle it with other AI toolkits, and keep 100% of the profits.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Special Offer</div>
+      <h2>Get Instant Access Today</h2>
+      <p class="sub">One-time payment. Lifetime access. Instant download.</p>
+
+      <!-- WarriorPlus Buy Button Code: paste this offer's buy button here -->
+      <a href="#" class="btn-primary">Get Instant Access →</a>
+
+      <div>
+        <!-- WarriorPlus No Thanks Link: replace # with this offer's no-thanks URL -->
+        <a href="#" class="no-thanks-link">No Thanks, I don't need this upgrade</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WarriorPlus Disclaimer Container -->
+<div class="wrap">
+  <div class="wplus_spdisclaimer"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
+    <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank">Terms and Conditions</a> | 
+    <a href="https://www.maxrylski.com/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>

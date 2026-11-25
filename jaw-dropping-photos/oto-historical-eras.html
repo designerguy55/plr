@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historical Eras Prompt Generator - Put Any Photo Into Ancient Egypt, The Viking Age, Victorian England, And More</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<!-- WarriorPlus Sales Page Code: paste this offer's script tag here -->
+<style>
+  :root {
+    --bg: #080d18;
+    --surface: #0e1628;
+    --surface2: #111d35;
+    --border: #1e2d4a;
+    --rose: #c4693a;
+    --rose-light: #e08a5c;
+    --rose-dim: #9a4f29;
+    --text: #e8eef8;
+    --text-muted: #6b85ad;
+    --green: #4caf7d;
+    --amber: #d9a441;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+  section { padding: 72px 0; }
+  section.tight { padding: 48px 0; }
+  h1, h2, h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 900;
+    line-height: 1.15;
+    color: #000000;
+    text-align: center;
+  }
+  h1 span, h2 span { color: #000000; }
+  p { color: #000000; font-weight: 300; font-size: 18px; }
+  .badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    border: 1px solid var(--rose-dim);
+    background: rgba(196,105,58,0.08);
+    padding: 6px 14px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+  }
+  .badge.amber {
+    color: #966100;
+    border-color: #d9a441;
+    background: rgba(217,164,65,0.15);
+  }
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--rose-dim);
+    margin: 40px auto;
+  }
+
+  /* TOP ANNOUNCEMENT BANNER */
+  .top-banner {
+    background: var(--surface2);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 24px;
+    text-align: center;
+  }
+  .top-banner p {
+    color: var(--text);
+    font-size: 15.5px;
+    font-weight: 500;
+  }
+
+  /* LIGHT THEME OVERRIDE */
+  .light {
+    --bg: #ffffff;
+    --surface: #f9f5f0;
+    --surface2: #f3ede3;
+    --border: #e0d5c5;
+    --text: #2d2218;
+    --text-muted: #8a7060;
+    --rose-light: #9a4f29;
+    background: var(--bg);
+    color: var(--text);
+  }
+
+  /* ALTERNATING SECTION BACKGROUND */
+  .light.bg-grey { background: #f9f5f0; }
+
+  /* HERO */
+  header.hero {
+    text-align: center;
+    padding: 64px 0 48px;
+    border-bottom: 1px solid var(--border);
+  }
+  header.hero h1 { font-size: clamp(32px, 5.2vw, 54px); margin-bottom: 20px; }
+  header.hero .lede {
+    font-size: 19px;
+    color: var(--text);
+    font-weight: 300;
+    max-width: 680px;
+    margin: 0 auto 32px;
+  }
+  .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+  .btn-primary {
+    display: inline-block;
+    background: var(--rose-dim);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 17px;
+    padding: 16px 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s, background 0.2s;
+  }
+  .btn-primary:hover { background: var(--rose); transform: translateY(-1px); }
+  .price-note { font-size: 14px; color: var(--text-muted); }
+
+  /* SECTION HEADERS */
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 12px;
+    display: block;
+    text-align: center;
+  }
+  section h2 { font-size: clamp(26px, 3.6vw, 36px); margin-bottom: 16px; }
+  section .section-sub { font-size: 17.5px; margin-bottom: 40px; }
+
+  /* FEATURE LIST */
+  .feature-list { list-style: none; margin-top: 8px; }
+  .feature-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 20px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .feature-list li:last-child { border-bottom: none; }
+  .feature-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(196,105,58,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2px;
+  }
+  .feature-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .feature-list .sub { display: block; font-size: 18px; color: var(--text-muted); margin-top: 2px; font-weight: 300; }
+
+  /* WHATS INCLUDED */
+  .include-list { list-style: none; }
+  .include-list li {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 17px;
+    color: var(--text);
+    align-items: flex-start;
+  }
+  .include-list li:last-child { border-bottom: none; }
+  .box-contents-grid { display: grid; grid-template-columns: 280px 1fr; gap: 40px; align-items: start; }
+  .box-contents-grid img { width: 100%; height: auto; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+  @media (max-width: 700px) { .box-contents-grid { grid-template-columns: 1fr; } }
+  .include-list .ico-badge {
+    flex-shrink: 0;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: rgba(196,105,58,0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1px;
+  }
+  .include-list .ico-badge svg { width: 19px; height: 19px; stroke: var(--rose); fill: none; }
+  .include-list li .text-content { display: flex; flex-direction: column; }
+  .include-list li .text-content strong { color: var(--text); margin-bottom: 2px; }
+  .include-list li .text-content span.sub { font-size: 16.5px; color: var(--text-muted); font-weight: 300; }
+
+  /* PRICING */
+  .pricing-card {
+    background: #ffffff;
+    border: 1px solid #e0d5c5;
+    border-radius: 16px;
+    padding: 48px;
+    text-align: center;
+    color: #2d2218;
+  }
+  .pricing-card h2 { color: #2d2218; }
+  .pricing-card .badge { margin-bottom: 16px; }
+  .pricing-card .sub { font-size: 15.5px; margin-bottom: 28px; color: #8a7060; }
+
+  /* NO THANKS LINK STYLING */
+  .no-thanks-link {
+    display: inline-block;
+    margin-top: 24px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #8a7060;
+    text-decoration: underline;
+  }
+  .no-thanks-link:hover {
+    color: #2d2218;
+  }
+
+
+  /* STYLE GALLERY */
+  .cat-label { font-family:'DM Sans',sans-serif; font-weight:700; font-size:20px; color:var(--rose-light); margin:40px 0 -8px; text-align:left; }
+  .cat-label:first-of-type { margin-top:24px; }
+  .style-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+    margin-top: 24px;
+  }
+  @media (max-width: 768px) { .style-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 480px) { .style-grid { grid-template-columns: repeat(2, 1fr); } }
+  .style-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .style-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    display: block;
+    background: var(--surface2);
+  }
+  .style-info { padding: 10px 12px 12px; }
+  .style-name {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+  .style-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.4; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 48px 24px 64px;
+    font-size: 14px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+  footer a {
+    color: var(--rose-light);
+    text-decoration: none;
+    margin: 0 12px;
+  }
+  footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+  <div class="wrap">
+    <p>Thanks for your purchase. Before you go to your downloads make sure you check out the special upgrade offer on this page...</p>
+  </div>
+</div>
+
+<header class="hero light">
+  <div class="wrap">
+    <div class="badge">AI Prompt Tool with PLR</div>
+    <h1>Put Any Photo Into <span>Ancient Egypt, The Wild West, The Jazz Age, And 47 More Eras</span> With One Click</h1>
+    <div style="max-width: 680px; margin: 28px auto;">
+      <img src="images/historical-eras-box.jpg" alt="Historical Eras Prompt Generator Preview" style="width: 100%; height: auto; display: block;">
+    </div>
+  </div>
+</header>
+
+<section class="light">
+  <div class="wrap">
+    <span class="eyebrow">Why Get This Upgrade?</span>
+    <h2>A movie still is one kind of transformation. <span>Putting yourself into history is another.</span></h2>
+    <ul class="feature-list" style="margin-top: 24px;">
+      <li>
+        <div>
+          <strong>Step into history</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">With Jaw-Dropping Photo Prompt Generator, you turn your photo into a dramatic, photorealistic scene. This upgrade sends the same photo back in time. Become a member of the court in Ancient Egypt, a Viking, a Renaissance noble, a townsperson in Edo Japan, a Victorian gentleman or lady, a Wild West traveler, or a 1980s kid, with the clothing, hair, and setting to match.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>50 eras in 5 groups</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Choose from Ancient World, Medieval &amp; Early Modern, Asia &amp; the Middle East, 1700s to 1800s, and 1900s to 2000s. Each era already describes the clothing, hair, setting, props, color palette, lighting, and mood, so you don't have to research any of it.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Period clothing that suits each person</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Each era's clothing is written with a men's version and a women's version, so the AI chooses what suits the person in your photo. Hair and grooming are restyled to the era, while the original hair color is kept.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Pets and groups get the full treatment</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">A pet gets a pet-sized costume or accessory in the style of the era, like a ruff, cape, collar, or hat. A couple or group is dressed together, with everyone kept in the frame.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Keep your subject recognizable</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Every photo prompt tells the AI what to preserve, like face shape, skin tone, eye color, and distinctive features. Each prompt also tells the AI to avoid modern items that don't belong to the era and likenesses of real historical figures.</span>
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong>Start from a photo, or from just an idea</strong>
+          <span class="sub" style="display: block; margin-top: 4px;">Photo mode puts your own photo into the era. Text mode builds a brand-new scene from a description alone, such as a market street at dawn, with no photo needed.</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="tight light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">50 Built-In Historical Eras</span>
+    <h2>See exactly what each era is like <span>before you generate a single prompt.</span></h2>
+    <p class="section-sub">Every era comes with its own reference thumbnail, name, and description, so you always know what you're going to get. This is the exact gallery you'll click through inside the tool, organized into 5 groups.</p>
+    <div class="cat-label">Ancient World</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/era-01.jpg" alt="Ancient Egypt historical era preset"><div class="style-info"><div class="style-name">Ancient Egypt</div><div class="style-desc">Linen, gold collars, kohl eyes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-02.jpg" alt="Ancient Greece historical era preset"><div class="style-info"><div class="style-name">Ancient Greece</div><div class="style-desc">Marble, chitons, olive wreaths</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-03.jpg" alt="Roman Empire historical era preset"><div class="style-info"><div class="style-name">Roman Empire</div><div class="style-desc">Togas, laurel wreaths, marble forums</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-04.jpg" alt="Babylon &amp; Mesopotamia historical era preset"><div class="style-info"><div class="style-name">Babylon &amp; Mesopotamia</div><div class="style-desc">Glazed blue gates, fringed robes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-05.jpg" alt="Maya Civilization historical era preset"><div class="style-info"><div class="style-name">Maya Civilization</div><div class="style-desc">Jade, feathers, jungle pyramids</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-06.jpg" alt="Aztec Empire historical era preset"><div class="style-info"><div class="style-name">Aztec Empire</div><div class="style-desc">Quetzal plumes, turquoise, gold</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-07.jpg" alt="Inca Empire historical era preset"><div class="style-info"><div class="style-name">Inca Empire</div><div class="style-desc">Alpaca wool, Andean citadels</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-08.jpg" alt="Persian Empire historical era preset"><div class="style-info"><div class="style-name">Persian Empire</div><div class="style-desc">Pleated robes, royal columns</div></div></div>
+    </div>
+    <div class="cat-label">Medieval &amp; Early Modern</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/era-09.jpg" alt="Viking Age historical era preset"><div class="style-info"><div class="style-name">Viking Age</div><div class="style-desc">Fur cloaks, braids, longships</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-10.jpg" alt="Medieval Knight historical era preset"><div class="style-info"><div class="style-name">Medieval Knight</div><div class="style-desc">Chainmail, surcoats, castle courtyards</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-11.jpg" alt="Medieval Royal Court historical era preset"><div class="style-info"><div class="style-name">Medieval Royal Court</div><div class="style-desc">Velvet gowns, hennins, stained glass</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-12.jpg" alt="Byzantine Empire historical era preset"><div class="style-info"><div class="style-name">Byzantine Empire</div><div class="style-desc">Gold mosaics, jeweled silks</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-13.jpg" alt="Italian Renaissance historical era preset"><div class="style-info"><div class="style-name">Italian Renaissance</div><div class="style-desc">Velvet, brocade, Tuscan landscapes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-14.jpg" alt="Tudor Elizabethan historical era preset"><div class="style-info"><div class="style-name">Tudor Elizabethan</div><div class="style-desc">Ruffs, doublets, timbered halls</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-15.jpg" alt="Dutch Golden Age historical era preset"><div class="style-info"><div class="style-name">Dutch Golden Age</div><div class="style-desc">Lace collars, dark interiors, window light</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-16.jpg" alt="Versailles Rococo Court historical era preset"><div class="style-info"><div class="style-name">Versailles Rococo Court</div><div class="style-desc">Powdered wigs, silk, gilded salons</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-17.jpg" alt="Pirate Golden Age historical era preset"><div class="style-info"><div class="style-name">Pirate Golden Age</div><div class="style-desc">Tricorn hats, ships, stormy seas</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-18.jpg" alt="Mongol Empire historical era preset"><div class="style-info"><div class="style-name">Mongol Empire</div><div class="style-desc">Silk deels, fur hats, open steppe</div></div></div>
+    </div>
+    <div class="cat-label">Asia &amp; the Middle East</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/era-19.jpg" alt="Tang Dynasty China historical era preset"><div class="style-info"><div class="style-name">Tang Dynasty China</div><div class="style-desc">Flowing silk, peach blossoms</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-20.jpg" alt="Ming Dynasty China historical era preset"><div class="style-info"><div class="style-name">Ming Dynasty China</div><div class="style-desc">Layered silk robes, scholar gardens</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-21.jpg" alt="Qing Imperial Court historical era preset"><div class="style-info"><div class="style-name">Qing Imperial Court</div><div class="style-desc">Dragon robes, ornate court headwear</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-22.jpg" alt="Edo Japan historical era preset"><div class="style-info"><div class="style-name">Edo Japan</div><div class="style-desc">Kimono, tatami rooms, raked gardens</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-23.jpg" alt="Heian Court Japan historical era preset"><div class="style-info"><div class="style-name">Heian Court Japan</div><div class="style-desc">Layered silk robes, long black hair</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-24.jpg" alt="Joseon Korea historical era preset"><div class="style-info"><div class="style-name">Joseon Korea</div><div class="style-desc">Hanbok, painted palace eaves</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-25.jpg" alt="Mughal India historical era preset"><div class="style-info"><div class="style-name">Mughal India</div><div class="style-desc">Muslin, pearls, marble pavilions</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-26.jpg" alt="Ottoman Sultanate historical era preset"><div class="style-info"><div class="style-name">Ottoman Sultanate</div><div class="style-desc">Kaftans, turbans, Iznik tiles</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-27.jpg" alt="Silk Road Traveler historical era preset"><div class="style-info"><div class="style-name">Silk Road Traveler</div><div class="style-desc">Wrapped robes, caravans, desert trade</div></div></div>
+    </div>
+    <div class="cat-label">1700s–1800s</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/era-28.jpg" alt="Colonial America historical era preset"><div class="style-info"><div class="style-name">Colonial America</div><div class="style-desc">Tricorn hats, candlelit taverns</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-29.jpg" alt="French Revolution historical era preset"><div class="style-info"><div class="style-name">French Revolution</div><div class="style-desc">Cockades, Phrygian caps, Paris streets</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-30.jpg" alt="Napoleonic Era historical era preset"><div class="style-info"><div class="style-name">Napoleonic Era</div><div class="style-desc">Epaulettes, bicornes, Empire gowns</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-31.jpg" alt="Regency England historical era preset"><div class="style-info"><div class="style-name">Regency England</div><div class="style-desc">Muslin gowns, tailcoats, country houses</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-32.jpg" alt="Victorian England historical era preset"><div class="style-info"><div class="style-name">Victorian England</div><div class="style-desc">Frock coats, bustles, gaslit parlors</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-33.jpg" alt="American Civil War historical era preset"><div class="style-info"><div class="style-name">American Civil War</div><div class="style-desc">Wool coats, hoop skirts, camp scenes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-34.jpg" alt="Wild West historical era preset"><div class="style-info"><div class="style-name">Wild West</div><div class="style-desc">Dusters, saloons, dusty frontier towns</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-35.jpg" alt="Gilded Age historical era preset"><div class="style-info"><div class="style-name">Gilded Age</div><div class="style-desc">Tailcoats, satin gowns, mansion ballrooms</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-36.jpg" alt="Victorian Explorer historical era preset"><div class="style-info"><div class="style-name">Victorian Explorer</div><div class="style-desc">Pith helmets, field journals, jungle camps</div></div></div>
+    </div>
+    <div class="cat-label">1900s–2000s</div>
+    <div class="style-grid">
+      <div class="style-card"><img class="style-thumb" src="images/era-37.jpg" alt="Edwardian historical era preset"><div class="style-info"><div class="style-name">Edwardian</div><div class="style-desc">Lace blouses, boaters, garden parties</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-38.jpg" alt="World War I Era historical era preset"><div class="style-info"><div class="style-name">World War I Era</div><div class="style-desc">Wool uniforms, nurses, station platforms</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-39.jpg" alt="1920s Jazz Age historical era preset"><div class="style-info"><div class="style-name">1920s Jazz Age</div><div class="style-desc">Flapper dresses, Art Deco ballrooms</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-40.jpg" alt="Prohibition Speakeasy historical era preset"><div class="style-info"><div class="style-name">Prohibition Speakeasy</div><div class="style-desc">Pinstripes, cloche hats, hidden bars</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-41.jpg" alt="Golden Age Hollywood historical era preset"><div class="style-info"><div class="style-name">Golden Age Hollywood</div><div class="style-desc">Silver-screen glamour, satin gowns</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-42.jpg" alt="Great Depression historical era preset"><div class="style-info"><div class="style-name">Great Depression</div><div class="style-desc">Patched overalls, dust bowl farms</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-43.jpg" alt="1940s Home Front historical era preset"><div class="style-info"><div class="style-name">1940s Home Front</div><div class="style-desc">Wide lapels, victory rolls, train stations</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-44.jpg" alt="1950s Diner historical era preset"><div class="style-info"><div class="style-name">1950s Diner</div><div class="style-desc">Poodle skirts, chrome, jukeboxes</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-45.jpg" alt="1960s Mod historical era preset"><div class="style-info"><div class="style-name">1960s Mod</div><div class="style-desc">Mini dresses, bold prints, swinging London</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-46.jpg" alt="1969 Hippie Festival historical era preset"><div class="style-info"><div class="style-name">1969 Hippie Festival</div><div class="style-desc">Fringe, flowers, golden-hour fields</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-47.jpg" alt="1970s Disco historical era preset"><div class="style-info"><div class="style-name">1970s Disco</div><div class="style-desc">Platforms, sequins, mirror balls</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-48.jpg" alt="1980s historical era preset"><div class="style-info"><div class="style-name">1980s</div><div class="style-desc">Neon, big hair, arcades</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-49.jpg" alt="1990s historical era preset"><div class="style-info"><div class="style-name">1990s</div><div class="style-desc">Flannel, slip dresses, CRT bedrooms</div></div></div>
+      <div class="style-card"><img class="style-thumb" src="images/era-50.jpg" alt="Y2K historical era preset"><div class="style-info"><div class="style-name">Y2K</div><div class="style-desc">Metallic, translucent plastic, glossy pop</div></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="tight light">
+  <div class="wrap">
+    <span class="eyebrow">What's Inside The Tool</span>
+    <h2>Every costume, setting, and finishing touch, <span>already built into the prompt.</span></h2>
+    <ul class="feature-list">
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></span>
+        <div><strong>50 Historical Eras in 5 Groups</strong><span class="sub">8 ancient world eras, 10 medieval and early modern eras, 9 from Asia and the Middle East, 9 from the 1700s and 1800s, and 14 from the 1900s and 2000s, each with its own preview thumbnail, a clear name, and a short description</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="M4.93 4.93l1.41 1.41"></path><path d="M17.66 17.66l1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="M4.93 19.07l1.41-1.41"></path><path d="M17.66 6.34l1.41-1.41"></path></svg></span>
+        <div><strong>A Full Era Recipe In Every Prompt</strong><span class="sub">Clothing, hair, setting, props, color palette, lighting, and mood are all written for you, so each prompt reads like a complete art direction</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></span>
+        <div><strong>Photo Mode and Text Mode</strong><span class="sub">Put a photo of a person, a pet, or a couple or group into an era, or describe a scene from scratch and generate it from text alone</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+        <div><strong>Built-In Likeness Rules and Avoid Lists</strong><span class="sub">Every photo prompt tells the AI what to preserve, and each era lists the things to avoid, so the result is more likely to still look like your subject</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 15l5-5 4 4 5-6 4 4"></path></svg></span>
+        <div><strong>Refine Section for Follow-Up Edits</strong><span class="sub">After you generate an image, build follow-up prompts to change the expression and pose, the social standing, accessories, background, lighting, framing, camera angle, and composition, without starting over</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span>
+        <div><strong>Change Their Station In Life</strong><span class="sub">Take the same era from royalty or nobility to a commoner, soldier, merchant, scholar, or traveler, and add a period hat, jewelry, a cloak, a fan, a book, or a lantern</span></div>
+      </li>
+      <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"></path><path d="M7 10l5 5 5-5"></path><path d="M12 15V3"></path></svg></span>
+        <div><strong>Plain English or JSON, Five Aspect Ratios</strong><span class="sub">Every prompt comes formatted both ways, and you can choose square, 4:5, 3:4, 9:16, or 16:9 to fit your image tool and where the image will be used</span></div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section class="light bg-grey">
+  <div class="wrap">
+    <span class="eyebrow">In The Box</span>
+    <h2>What you get.</h2>
+    <div class="box-contents-grid">
+      <img src="images/historical-eras-tool.jpg" alt="Historical Eras Prompt Generator tool interface">
+      <ul class="include-list">
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v5a1 1 0 0 0 1 1h5"></path><path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2Z"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">The complete Historical Eras Prompt Generator, a single self-contained HTML tool that opens in any web browser, with 50 historical eras, photo and text modes, and a built-in Refine section</span></div></li>
+        <li><span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M9 12h6"></path><path d="M12 9v6"></path></svg></span><div class="text-content"><span class="sub" style="padding-top: 8px;">Lifetime access with no monthly subscription fees, zero API key requirements, and instant usage</span></div></li>
+        <li>
+          <span class="ico-badge"><svg viewBox="0 0 24 24" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg></span>
+          <div class="text-content">
+            <strong>PLR included: another product you can sell</strong>
+            <span class="sub">Just like the main offer, this upgrade comes with a full PLR license. That means you can sell this tool to others, use it as an upsell for your own Jaw-Dropping Photo Prompt Generator, bundle it with other AI toolkits, and keep 100% of the profits.</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="tight">
+  <div class="wrap">
+    <div class="pricing-card">
+      <div class="badge amber">Limited-Time Special Offer</div>
+      <h2>Get Instant Access Today</h2>
+      <p class="sub">One-time payment. Lifetime access. Instant download.</p>
+
+      <!-- WarriorPlus Buy Button Code: paste this offer's buy button here -->
+      <a href="#" class="btn-primary">Get Instant Access →</a>
+
+      <div>
+        <!-- WarriorPlus No Thanks Link: replace # with this offer's no-thanks URL -->
+        <a href="#" class="no-thanks-link">No Thanks, I don't need this upgrade</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WarriorPlus Disclaimer Container -->
+<div class="wrap">
+  <div class="wplus_spdisclaimer"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
+    <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank">Terms and Conditions</a> | 
+    <a href="https://www.maxrylski.com/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
+</footer>
+
+</body>
+</html>
