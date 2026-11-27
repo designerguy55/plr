@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Friday Deal: 50% Off AI Prompt Generators</title>
+<style>
+  :root{
+    --ink:#FFFFFF;
+    --panel:#F4F6FB;
+    --line:#E1E6F3;
+    --paper:#0B0D17;
+    --signal:#2B5BFF;
+    --signal-dim:#1F45F5;
+    --text-dim:#6B7287;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{background:var(--ink);color:var(--paper);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.5;}
+  .wrap{max-width:1080px;margin:0 auto;padding:48px 24px 100px;}
+
+  .eyebrow{font-family:'Courier New',monospace;font-size:15px;letter-spacing:0.14em;text-transform:uppercase;text-align:center;color:var(--signal);margin-bottom:32px;}
+  .headline{font-size:clamp(32px,5.5vw,58px);font-weight:800;line-height:1.08;letter-spacing:-0.02em;text-align:center;color:var(--paper);margin-bottom:24px;}
+  .headline .accent{color:var(--signal);}
+  .subheadline{font-size:19px;line-height:1.5;text-align:center;color:var(--text-dim);max-width:680px;margin:0 auto 40px;}
+  .subheadline strong{color:var(--paper);}
+
+  .countdown{text-align:center;margin:0 auto 32px;}
+  .countdown-label{font-family:'Courier New',monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-dim);margin-bottom:16px;}
+  .countdown-boxes{display:flex;justify-content:center;gap:12px;}
+  .cd-box{background:var(--paper);color:#FFFFFF;border-radius:10px;min-width:84px;padding:16px 8px;}
+  .cd-box span{display:block;font-size:40px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums;}
+  .cd-box small{display:block;margin-top:8px;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:#AEB6D0;}
+  .cd-ended{font-size:22px;font-weight:800;color:var(--signal);}
+  @media (max-width:600px){.cd-box{min-width:68px;}.cd-box span{font-size:30px;}}
+  .coupon-text{text-align:center;font-size:18px;color:var(--paper);margin:32px auto 0;}
+  .coupon-text strong{display:inline-block;color:var(--signal);font-family:'Courier New',monospace;font-size:22px;border:2px dashed var(--signal);border-radius:8px;padding:6px 14px;margin:8px 4px 0;}
+
+  .list-headline{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;line-height:1.15;letter-spacing:-0.02em;color:var(--paper);max-width:700px;margin:72px auto 8px;}
+
+  .product-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px;margin-top:40px;}
+  .product-grid + .product-grid{margin-top:24px;}
+  .product-box{display:flex;flex-direction:column;width:calc((100% - 48px) / 3);background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:20px;text-align:center;}
+  .product-box h3{font-size:21px;line-height:1.25;margin-bottom:10px;}
+  .product-box p{font-size:16px;color:#3A3D46;margin-bottom:16px;}
+  .product-box img{display:block;width:100%;height:auto;min-height:120px;border-radius:8px;border:1px solid var(--line);background:#FFFFFF;margin:auto 0 16px;}
+  .product-button{display:block;background:var(--signal);color:#FFFFFF;font-size:18px;font-weight:800;text-decoration:none;padding:16px 20px;border-radius:10px;transition:background 0.15s ease, transform 0.15s ease;}
+  .product-button:hover{background:var(--signal-dim);transform:translateY(-1px);}
+
+  .final-copy{text-align:center;font-size:18px;color:#3A3D46;max-width:640px;margin:0 auto 8px;}
+
+  footer{text-align:center;padding:48px 24px 64px;font-size:14px;color:var(--text-dim);border-top:1px solid var(--line);}
+  footer a{color:var(--paper);text-decoration:none;margin:0 12px;}
+  footer a:hover{text-decoration:underline;}
+
+  @media (max-width:900px){.product-box{width:calc((100% - 24px) / 2);}}
+  @media (max-width:600px){.product-box{width:100%;}}
+</style>
+</head>
+<body>
+
+  <div class="wrap">
+
+    <div class="eyebrow">Black Friday Deal</div>
+
+    <h1 class="headline">
+      Get <span class="accent">50% Off</span> My AI Tools<br>This Black Friday
+    </h1>
+
+    <p class="subheadline">
+      For Black Friday, I'm offering <strong>50% off</strong> several of my products. Pick the ones you want and use the same coupon code on each. This offer ends Monday.
+    </p>
+
+    <div class="countdown" id="countdown">
+      <div class="countdown-label">Offer ends Monday, Nov 30 at 11:53pm Central Time (CT)</div>
+      <div class="countdown-boxes" id="countdown-boxes">
+        <div class="cd-box"><span id="cd-d">00</span><small>Days</small></div>
+        <div class="cd-box"><span id="cd-h">00</span><small>Hours</small></div>
+        <div class="cd-box"><span id="cd-m">00</span><small>Minutes</small></div>
+        <div class="cd-box"><span id="cd-s">00</span><small>Seconds</small></div>
+      </div>
+    </div>
+    <script>
+      (function(){
+        // Nov 30, 2026 11:53pm CST (UTC-6) = Dec 1, 2026 05:53 UTC
+        var end = Date.UTC(2026, 11, 1, 5, 53, 0);
+        var ids = {d:'cd-d',h:'cd-h',m:'cd-m',s:'cd-s'};
+        function pad(n){return n < 10 ? '0' + n : '' + n;}
+        function tick(){
+          var diff = end - Date.now();
+          if (diff <= 0){
+            document.getElementById('countdown-boxes').innerHTML = '<div class="cd-ended">This offer has ended</div>';
+            return;
+          }
+          var s = Math.floor(diff / 1000);
+          document.getElementById(ids.d).textContent = pad(Math.floor(s / 86400));
+          document.getElementById(ids.h).textContent = pad(Math.floor(s % 86400 / 3600));
+          document.getElementById(ids.m).textContent = pad(Math.floor(s % 3600 / 60));
+          document.getElementById(ids.s).textContent = pad(s % 60);
+          setTimeout(tick, 1000);
+        }
+        tick();
+      })();
+    </script>
+
+    <p class="coupon-text">Use this coupon code to get 50% OFF: <strong>MAXBLACKFRIDAY2026</strong></p>
+
+    <h2 class="list-headline">Choose Your Deals...</h2>
+
+    <!-- To add a product, copy one "product-box" block and edit it -->
+    <div class="product-grid">
+
+      <div class="product-box">
+        <h3>Ad Creative Prompt Generator</h3>
+        <p>A Done-For-You AI Tool That Turns Any Offer Into A Scroll-Stopping, Ready-To-Run Ad Creative</p>
+        <img src="images/ad-creative-prompt-generator-header.jpg" alt="Ad Creative Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ad-creative-prompt-generator" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Testimonial Card Prompt Generator</h3>
+        <p>Turn Customer Reviews Into Scroll-Stopping Testimonial Card Prompts</p>
+        <img src="images/testimonial-card-box.jpg" alt="Testimonial Card Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ad-creative-prompt-generator/oto-testimonial-cards.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Social Product Photo Prompt Generator</h3>
+        <p>Turn Any Product Into Scroll-Stopping Social Photo Prompts</p>
+        <img src="images/social-product-photo-box.jpg" alt="Social Product Photo Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ad-creative-prompt-generator/oto-social-product-photo.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Comparison Graphic Prompt Generator</h3>
+        <p>Turn Any Comparison Into a Scroll-Stopping Graphic Prompt</p>
+        <img src="images/comparison-graphic-box.jpg" alt="Comparison Graphic Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ad-creative-prompt-generator/oto-comparison-graphic.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Announcement Graphic Prompt Generator</h3>
+        <p>Turn Any News Or Update Into a Scroll-Stopping Announcement Prompt</p>
+        <img src="images/announcement-graphic-box.jpg" alt="Announcement Graphic Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ad-creative-prompt-generator/oto-announcement-graphic.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-box">
+        <h3>Quote Graphic Prompt Generator</h3>
+        <p>A Done-For-You AI Tool That Turns Any Quote Into A Scroll-Stopping, Ready-To-Post Graphic</p>
+        <img src="images/quote-graphic-prompt-generator-header.jpg" alt="Quote Graphic Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/quote-graphics-prompt-generator" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Tip Graphic Prompt Generator</h3>
+        <p>Turn Any Tip Or Fact Into A Scroll-Stopping Graphic Prompt</p>
+        <img src="images/tip_graphic_box.jpg" alt="Tip Graphic Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/quote-graphics-prompt-generator/oto-tip-graphics.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Stat Graphic Prompt Generator</h3>
+        <p>Turn Any Data Point Or Stat Into A Scroll-Stopping Graphic Prompt</p>
+        <img src="images/stat_graphic_box.jpg" alt="Stat Graphic Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/quote-graphics-prompt-generator/oto-stat-graphics.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-box">
+        <h3>Lead Magnet Prompt Generator</h3>
+        <p>A Done-For-You AI Tool That Turns Raw Ideas Into Complete, Publish-Ready Lead Magnets</p>
+        <img src="images/lead-magnet-prompt-generator-header.jpg" alt="Lead Magnet Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/lead-magnet-prompt-generator" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Hand-Raiser Post Prompt Generator</h3>
+        <p>Turn Any Lead Magnet Into A High-Converting "Hand-Raiser" Post</p>
+        <img src="images/hand_raiser_box.jpg" alt="Hand-Raiser Post Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/lead-magnet-prompt-generator/oto-hand-raiser.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Messenger DM Script and Follow-Up Builder</h3>
+        <p>Turn Engagement Into Booked Calls With Permission-Based DM Scripts</p>
+        <img src="images/Messenger_DM_Script_Builder_box.jpg" alt="Messenger DM Script and Follow-Up Builder">
+        <a class="product-button" href="https://plrpack.maxrylski.com/lead-magnet-prompt-generator/oto-messenger-dm.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Facebook Group Lead-Magnet Post Planner</h3>
+        <p>Turn Group Engagement Into Warm Leads With Value-First Group Posts</p>
+        <img src="images/Facebook-Group-Lead-Magnet-Post-Planner-box.jpg" alt="Facebook Group Lead-Magnet Post Planner">
+        <a class="product-button" href="https://plrpack.maxrylski.com/lead-magnet-prompt-generator/oto-facebook-group-lead-magnet.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Facebook Ad Copy and Hook Generator</h3>
+        <p>Generate High-Converting Facebook Ad Copy &amp; Scroll-Stopping Hooks</p>
+        <img src="images/facebook_ad_copy_box.jpg" alt="Facebook Ad Copy and Hook Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/lead-magnet-prompt-generator/oto-facebook-ad-copy.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-box">
+        <h3>AI Image Guides Vault</h3>
+        <p>30 Done-For-You Guides To Create Scroll-Stopping AI Images For Any Niche</p>
+        <img src="images/ai-image-guides-header.jpg" alt="AI Image Guides Vault">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ai-image-guides" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Social Image Prompts Bundle</h3>
+        <p>Huge Library Of 600 DFY Prompts For Every Type Of Social Media Image You Can Think Of</p>
+        <img src="images/social_graphics_prompts_box.jpg" alt="Social Image Prompts Bundle">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ai-image-guides/oto-social-image-prompts.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>9 Advanced AI Image Guides</h3>
+        <p>9 Advanced &amp; In-Depth Guides For Creating Amazing Looking Photo-Realistic Images</p>
+        <img src="images/advanced-guides-box.jpg" alt="9 Advanced AI Image Guides">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ai-image-guides/oto-advanced-guides.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Book Series Cover - Bulk Prompt Generator</h3>
+        <p>Bulk Generate Matching Book Covers For A Series Of Books</p>
+        <img src="images/Book-Series-Cover-Bulk-Prompt-Generator.jpg" alt="Book Series Cover - Bulk Prompt Generator">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ai-image-guides/oto-cover-generator.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>2-for-1 Infographics Prompt Generators</h3>
+        <p>Get BOTH DFY Infographics Prompt Packs For The Price Of Just One</p>
+        <img src="images/2-for-1-infographics.png" alt="2-for-1 Infographics Prompt Generators">
+        <a class="product-button" href="https://plrpack.maxrylski.com/ai-image-guides/oto-infographics-2for1.html" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+    </div>
+
+    <div class="product-grid">
+
+      <div class="product-box">
+        <h3>Low Content Book Cover AI Toolkit</h3>
+        <p>Create Amazing Looking Book Covers For Low-Content Books</p>
+        <img src="images/lowcontentbookcobersheader.jpg" alt="Low Content Book Cover AI Toolkit">
+        <a class="product-button" href="https://kit.maxrylski.com/low-content-book-covers-ai" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Journal and Notebook Book Cover AI Toolkit</h3>
+        <p>Prompt Generator Built Specifically for Journal and Notebook Covers</p>
+        <img src="images/journalandnotebookbookcoveraikitheader.jpg" alt="Journal and Notebook Book Cover AI Toolkit">
+        <a class="product-button" href="https://kit.maxrylski.com/low-content-book-covers-ai-oto-journals" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Coloring Book Cover AI Toolkit</h3>
+        <p>AI Toolkit Dedicated To Coloring Book Covers</p>
+        <img src="images/coloringbookcoversaikitheader.jpg" alt="Coloring Book Cover AI Toolkit">
+        <a class="product-button" href="https://kit.maxrylski.com/low-content-book-covers-ai-oto-coloring" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Activity and Puzzle Book Cover AI Toolkit</h3>
+        <p>Create Activity &amp; Puzzle Book Covers Including: Word Search, Crossword Puzzle, Sudoku, Mazes, Logic Puzzles, and more...</p>
+        <img src="images/activityandpuzzlebookcoversaikitheader.jpg" alt="Activity and Puzzle Book Cover AI Toolkit">
+        <a class="product-button" href="https://kit.maxrylski.com/low-content-book-covers-ai-oto-activity" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+      <div class="product-box">
+        <h3>Planner and Organizer Book Cover AI Toolkit</h3>
+        <p>AI Toolkit To Create: Daily, budget, wedding, habit tracker, business, self-care, meal planning, and more...</p>
+        <img src="images/lowcontentplannerbookcoversheader.jpg" alt="Planner and Organizer Book Cover AI Toolkit">
+        <a class="product-button" href="https://kit.maxrylski.com/low-content-book-covers-ai-oto-planner" target="_blank" rel="noopener">Get Discount</a>
+      </div>
+
+    </div>
+
+    <h2 class="list-headline">Get 50% Off Before Monday Night</h2>
+
+    <p class="final-copy">
+      This Black Friday offer ends Monday, Nov 30 at 11:53pm Central Time (CT).
+    </p>
+
+    <p class="coupon-text">Use this coupon code to get 50% OFF: <strong>MAXBLACKFRIDAY2026</strong></p>
+
+  </div>
+
+<footer>
+  <div class="wrap">
+    <div class="wplus_spdisclaimer"></div>
+    <br>
+    <a href="https://www.maxrylski.com/contact-us" target="_blank">Contact Page</a> | 
+    <a href="https://www.maxrylski.com/terms-and-conditions" target="_blank">Terms and Conditions</a> | 
+    <a href="https://www.maxrylski.com/privacy-policy" target="_blank">Privacy Policy</a>
+  </div>
+</footer>
+
+<script type="text/javascript" src="https://warriorplus.com/o2/js/cr661j" defer></script>
+</body>
+</html>
